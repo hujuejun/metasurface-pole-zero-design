@@ -17,6 +17,8 @@ Only final-result drivers and the transitive helper definitions they call were s
 
 The qBIC binary continuation is retained only because its negative result is explicitly discussed in SI. Unrelated failed campaigns are excluded.
 
-## Manuscript consistency item
+## Resolved manuscript consistency item
 
-The SI PCM table caption currently says 501 states for every mesh through N64. The actual source configurations use 501 states for the coarse N24/32/40/48 sweep, and 301 for the intermediate N40/48/56/64 and fine N72/80 sweeps. This repository preserves the actual protocols; correct the caption before public release.
+The SI PCM table caption was corrected on Overleaf in manuscript commit `087380f`. It now states 501 uniformly spaced states for N24/32/40/48 and 301 for N56/64/72/80, replacing the incorrect claim of 501 states for every mesh through N64. The separate intermediate N40/48/56/64 sweep uses 301 states; the caption identifies the coarse sweep for the N40/48 table entries. Numerical results and simulation protocols are unchanged.
+
+The corrected source was pushed to Overleaf and synchronization was verified. PDF recompilation was not verified because the local LaTeX compiler failed to initialize.
