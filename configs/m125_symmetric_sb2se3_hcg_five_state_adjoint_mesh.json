@@ -1,0 +1,19 @@
+{
+  "purpose": "Independent exact-interface mesh verification of the final M123 five-state pole/zero-adjoint geometry",
+  "m117_config": "configs/m123_symmetric_sb2se3_hcg_scaled_1550_material.json",
+  "m120_stage_summary": "inputs/pcm_geometry.json",
+  "baseline_design_label": "Scaled M58D frozen",
+  "adjoint_design_label": "M123 five-state pole/zero adjoint",
+  "wavelength_um": 1.55,
+  "mesh_cells_per_period": [
+    24,
+    32,
+    40,
+    48
+  ],
+  "crystalline_fraction_points": 501,
+  "candidate_maximum_crystalline_fraction": 1.0,
+  "minimum_transmittance_gate": 0.95,
+  "minimum_phase_span_pi_gate": 1.9,
+  "claim_limit": "Idealized 1550-nm model with reported endpoint indices and Lorentz-Lorenz intermediate state. Real switching, anisotropy, and measured continuous-state dispersion remain unverified."
+}

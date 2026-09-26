@@ -1,0 +1,67 @@
+{
+  "purpose": "Complex roots of the representable M37 smooth Huygens target",
+  "forward_config": "configs/m37a_huygens_smooth_target_coarse.json",
+  "workers": 4,
+  "tolerance": 1e-06,
+  "max_evaluations": 16,
+  "roots": [
+    {
+      "name": "symmetric_mode_pole",
+      "response": "symmetric",
+      "kind": "zero",
+      "report_conjugate_as_pole": true,
+      "first": [
+        4.1685,
+        0.1167
+      ],
+      "second": [
+        4.1785,
+        0.1067
+      ],
+      "search_radius": 0.3
+    },
+    {
+      "name": "antisymmetric_mode_pole",
+      "response": "antisymmetric",
+      "kind": "zero",
+      "report_conjugate_as_pole": true,
+      "first": [
+        4.1424,
+        0.0615
+      ],
+      "second": [
+        4.1524,
+        0.0515
+      ],
+      "search_radius": 0.25
+    },
+    {
+      "name": "reflection_zero",
+      "response": "reflection",
+      "kind": "zero",
+      "first": [
+        4.1421,
+        0.0
+      ],
+      "second": [
+        4.1521,
+        -0.004
+      ],
+      "search_radius": 0.25
+    },
+    {
+      "name": "transmission_zero_upper",
+      "response": "transmission",
+      "kind": "zero",
+      "first": [
+        4.1495,
+        0.0869
+      ],
+      "second": [
+        4.1595,
+        0.0769
+      ],
+      "search_radius": 0.3
+    }
+  ]
+}

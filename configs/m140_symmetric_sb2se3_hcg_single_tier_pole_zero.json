@@ -1,0 +1,44 @@
+{
+  "purpose": "Pole/zero-adjoint recovery after exact equal-width collapse to one rectangular Sb2Se3 bar per mirror-related HCG",
+  "m117_config": "configs/m123_symmetric_sb2se3_hcg_scaled_1550_material.json",
+  "seed_stage_summary": "inputs/pcm_geometry.json",
+  "cells_per_period": 24,
+  "wavelength_um": 1.55,
+  "pole_anchor": {
+    "reference_grating_index": 3.48,
+    "target_pole_index_in_m58d_config": 1,
+    "weight": 0.3
+  },
+  "seed_perturbation_um": [
+    0.001,
+    -0.001,
+    0.001
+  ],
+  "maximum_normalized_coordinate_change_from_seed": 0.12,
+  "stages": [
+    {
+      "name": "single_tier_three_zeros",
+      "zero_state_fractions": [
+        0.3,
+        0.6,
+        0.9
+      ],
+      "maximum_evaluations": 75
+    },
+    {
+      "name": "single_tier_five_zeros",
+      "zero_state_fractions": [
+        0.0,
+        0.3,
+        0.6,
+        0.9,
+        1.0
+      ],
+      "maximum_evaluations": 105
+    }
+  ],
+  "held_out_state_points": 501,
+  "minimum_transmittance_gate": 0.95,
+  "minimum_phase_span_pi_gate": 1.9,
+  "claim_limit": "Idealized lossless 1550-nm Sb2Se3 endpoints and homogeneous intermediate states. Exact equal widths correspond to one rectangular bar per HCG; no 3D support or switching model."
+}

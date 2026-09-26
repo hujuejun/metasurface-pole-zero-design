@@ -1,0 +1,45 @@
+{
+  "purpose": "Publication-gate Tidy3D mesh convergence of the M37 physical Huygens nanodisk",
+  "length_unit": "um",
+  "period": 0.84,
+  "domain_height": 2.6,
+  "disk_radius": 0.27,
+  "disk_height": 0.243,
+  "disk_index": 3.48,
+  "host_index": 1.45,
+  "wavelength_min": 1.3,
+  "wavelength_max": 1.72,
+  "frequency_points": 841,
+  "run_time_seconds": 4e-12,
+  "shutoff": 1e-09,
+  "pml_layers": 12,
+  "record_complex_reflection": true,
+  "task_prefix": "m38-huygens-convergence",
+  "mesh_variants": [
+    {
+      "name": "dl35",
+      "uniform_grid_dl": 0.035
+    },
+    {
+      "name": "dl23p3",
+      "uniform_grid_dl": 0.023333333333333334
+    },
+    {
+      "name": "dl17p5",
+      "uniform_grid_dl": 0.0175
+    }
+  ],
+  "convergence_window_um": [
+    1.45,
+    1.56
+  ],
+  "gate": {
+    "finest_pair": [
+      "dl23p3",
+      "dl17p5"
+    ],
+    "maximum_reflection_zero_shift_um": 0.0005,
+    "maximum_power_difference": 0.002,
+    "maximum_phase_span_difference_pi": 0.005555555555555556
+  }
+}

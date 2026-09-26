@@ -1,0 +1,43 @@
+{
+  "purpose": "Stage-1 coarse physical forward screen of a symmetric embedded Huygens nanodisk",
+  "length_unit": "um",
+  "speed_of_light": 1.0,
+  "mesh": {
+    "nx": 12,
+    "ny": 12,
+    "nz": 52,
+    "dx": 0.07,
+    "dy": 0.07,
+    "dz": 0.05
+  },
+  "pml": {
+    "cells": 8,
+    "target_round_trip_amplitude": 0.0001,
+    "polynomial_order": 3
+  },
+  "ports": {
+    "lower_source_plane": 10,
+    "upper_source_plane": 41,
+    "lower_monitor_planes": [
+      14,
+      18
+    ],
+    "upper_monitor_planes": [
+      33,
+      37
+    ],
+    "refractive_index": 1.45
+  },
+  "nanodisk": {
+    "radius": 0.27,
+    "height": 0.243,
+    "refractive_index": 3.48,
+    "transverse_supersampling": 16
+  },
+  "scan": {
+    "wavelength_min": 1.3,
+    "wavelength_max": 1.72,
+    "points": 43,
+    "workers": 4
+  }
+}

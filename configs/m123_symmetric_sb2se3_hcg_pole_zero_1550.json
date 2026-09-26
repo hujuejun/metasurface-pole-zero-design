@@ -1,0 +1,55 @@
+{
+  "purpose": "Pole/zero adjoint optimization of the wavelength-pivoted symmetric Sb2Se3 HCG at 1550 nm over the full crystalline-fraction range",
+  "m117_config": "configs/m123_symmetric_sb2se3_hcg_scaled_1550_material.json",
+  "cells_per_period": 24,
+  "target_wavelength_um": 1.55,
+  "pole_anchor": {
+    "reference_grating_index": 3.48,
+    "target_pole_index_in_m58d_config": 1,
+    "weight": 0.1,
+    "note": "Fixed Chen time-reversal pole constraint at the shared material state n=3.48; target is geometrically scaled with the baseline."
+  },
+  "geometry_seed_perturbation_um": [
+    0.0011,
+    -0.0013,
+    0.0017,
+    0.0012,
+    -0.0011
+  ],
+  "maximum_normalized_coordinate_change_from_seed": 0.18,
+  "stages": [
+    {
+      "name": "midstate_zero",
+      "zero_state_fractions": [
+        0.6
+      ],
+      "maximum_evaluations": 50
+    },
+    {
+      "name": "three_state_zeros",
+      "zero_state_fractions": [
+        0.3,
+        0.6,
+        0.9
+      ],
+      "maximum_evaluations": 75
+    },
+    {
+      "name": "five_state_zeros",
+      "zero_state_fractions": [
+        0.0,
+        0.3,
+        0.6,
+        0.9,
+        1.0
+      ],
+      "maximum_evaluations": 100
+    }
+  ],
+  "held_out_state_points": 501,
+  "response_gate": {
+    "minimum_transmittance": 0.95,
+    "minimum_phase_span_pi": 1.9
+  },
+  "claim_limit": "Only prescribed complex pole and reflection-channel zero constraints enter the adjoint objective; held-out T and phase are validation. Lossless 1550-nm endpoint effective-medium model, not a measured continuous-state result."
+}

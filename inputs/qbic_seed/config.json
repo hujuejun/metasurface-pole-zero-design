@@ -1,0 +1,94 @@
+{
+  "benchmark": {
+    "name": "M27C coupled folded-qBIC linewidth crossing",
+    "period_um": 0.8,
+    "port_index": 1.0,
+    "slab_index": 3.42,
+    "single_slab_rows": 8,
+    "spacer_rows": [
+      36,
+      38,
+      40,
+      42,
+      44,
+      46,
+      48
+    ],
+    "inner_grating_rib_rows": [
+      1
+    ],
+    "average_site_width_cells": [
+      12
+    ],
+    "site_width_asymmetry_cells": 2
+  },
+  "mesh": {
+    "cells_per_period": 32,
+    "port_margin_rows": 24,
+    "lower_source_row": 3,
+    "lower_monitor_rows": [
+      9,
+      14
+    ]
+  },
+  "discovery": {
+    "frequency_half_window_rad_per_um": 0.25,
+    "frequency_step_rad_per_um": 0.0015,
+    "maximum_candidates_per_parity": 6,
+    "maximum_assignment_offset_rad_per_um": 0.9
+  },
+  "root_refinement": {
+    "tolerance": 1e-10,
+    "maximum_evaluations": 300,
+    "minimum_search_radius_rad_per_um": 0.03,
+    "linewidth_radius_multiplier": 2.0,
+    "maximum_search_radius_rad_per_um": 0.2,
+    "residual_gate": 1e-06,
+    "deduplication_distance_rad_per_um": 0.0003
+  },
+  "assignment": {
+    "maximum_field_parity_error": 1e-06,
+    "minimum_first_harmonic_pair_fraction": 0.3,
+    "minimum_isolated_mode_reference_overlap": 0.2,
+    "minimum_bilayer_structure_energy_fraction": 0.25,
+    "maximum_additional_open_port_orders": 0
+  },
+  "selection": {
+    "maximum_pair_mismatch_over_mean_linewidth": 1.0,
+    "maximum_residue_phase_error_pi": 0.15,
+    "minimum_linewidth_ratio_even_over_odd": 0.5,
+    "maximum_linewidth_ratio_even_over_odd": 2.0,
+    "minimum_residue_magnitude_ratio_even_over_odd": 0.5,
+    "maximum_residue_magnitude_ratio_even_over_odd": 2.0,
+    "maximum_normalized_resonant_reflection_sum": 0.25
+  },
+  "reflection_zero": {
+    "audit_best_pair_count": 7,
+    "root_tolerance": 1e-10,
+    "root_max_evaluations": 300,
+    "root_residual_gate": 1e-06,
+    "maximum_real_offset_over_mean_linewidth": 1.0,
+    "maximum_imaginary_offset_over_mean_linewidth": 0.25,
+    "maximum_real_axis_reflectance": 0.05
+  },
+  "tracking": {
+    "parent_run": "runs/m27b_fan_1d_coupled_folded_qbic_screen_n32",
+    "seed_identifier": "gap36_rib01_avg12_asym02",
+    "spacer_rows": [
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "root_search_radius_rad_per_um": 0.05
+  }
+}

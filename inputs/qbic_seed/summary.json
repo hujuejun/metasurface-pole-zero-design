@@ -1,0 +1,131 @@
+{
+  "records": [
+    {
+      "identifier": "gap40_rib01_avg12_asym02",
+      "spacer_rows": 40,
+      "inner_grating_rib_rows": 1,
+      "average_site_width_cells": 12,
+      "site_width_asymmetry_cells": 2,
+      "even_mode": {
+        "parity": "even",
+        "root": {
+          "frequency": [
+            4.335755444289035,
+            -0.0009571322972213235
+          ],
+          "kind": "pole",
+          "success": true,
+          "message": "`gtol` termination condition is satisfied.",
+          "evaluations": 5,
+          "residual_norm": 1.2089111997823853e-12,
+          "wavelength_um": [
+            1.4491557657532064,
+            0.00031990590911529937
+          ],
+          "quality_factor": 2264.9718627593506
+        },
+        "quality_factor": 2264.9718627593506,
+        "full_linewidth_rad_per_um": 0.001914264594442647,
+        "isolated_slab_frequency_rad_per_um": 4.6571162042203955,
+        "isolated_slab_frequency_offset_rad_per_um": -0.3213607599313608,
+        "isolated_mode_reference_overlap": 0.9886629230206286,
+        "field_parity": {
+          "even_error": 7.525796729044756e-13,
+          "odd_error": 1.999999999999999
+        },
+        "transverse_harmonics": {
+          "zeroth_harmonic_fraction": 0.0033190401684216756,
+          "first_harmonic_pair_fraction": 0.9959773823267124,
+          "higher_harmonic_fraction": 0.0007035775048659376
+        },
+        "bilayer_structure_energy_fraction": 0.9685167899800147,
+        "lower_upper_energy_balance": 0.9999999999985127,
+        "radiation": {
+          "upper_to_lower_coupling_ratio": [
+            -1.000000000000148,
+            -8.184245238142046e-13
+          ],
+          "even_hy_radiation_fraction": 1.0,
+          "odd_hy_radiation_fraction": 1.7294808444954284e-25,
+          "signed_hy_parity_index": 1.0,
+          "second_to_first_singular_value": 0.04310031752266774
+        },
+        "reflection_residue": [
+          -0.0005133146024343322,
+          0.0007676393145391448
+        ],
+        "boundary_reflection_residue": [
+          0.0009184464571855564,
+          9.187992156149504e-05
+        ],
+        "boundary_reflection_residue_magnitude": 0.0009230307766823632,
+        "boundary_reflection_residue_phase_pi": 0.03173762203657983,
+        "reference_offset_um": 0.23750000000000004,
+        "additional_open_port_orders": 0,
+        "assignment_score": 0.7333814064983002,
+        "assignment_rejection_reasons": [],
+        "passes_assignment_gates": true
+      },
+      "odd_mode": {
+        "parity": "odd",
+        "root": {
+          "frequency": [
+            4.334482289852055,
+            -0.0009811911438858214
+          ],
+          "kind": "pole",
+          "success": true,
+          "message": "`gtol` termination condition is satisfied.",
+          "evaluations": 5,
+          "residual_norm": 1.2799881932521446e-12,
+          "wavelength_um": [
+            1.4495814182750097,
+            0.0003281398688103614
+          ],
+          "quality_factor": 2208.7858807439698
+        },
+        "quality_factor": 2208.7858807439698,
+        "full_linewidth_rad_per_um": 0.001962382287771643,
+        "isolated_slab_frequency_rad_per_um": 4.6571162042203955,
+        "isolated_slab_frequency_offset_rad_per_um": -0.32263391436834077,
+        "isolated_mode_reference_overlap": 0.9882228613254195,
+        "field_parity": {
+          "even_error": 2.0,
+          "odd_error": 4.480505759369551e-13
+        },
+        "transverse_harmonics": {
+          "zeroth_harmonic_fraction": 0.004145047875444648,
+          "first_harmonic_pair_fraction": 0.9952903204947382,
+          "higher_harmonic_fraction": 0.000564631629817125
+        },
+        "bilayer_structure_energy_fraction": 0.9682153328350734,
+        "lower_upper_energy_balance": 0.9999999999991065,
+        "radiation": {
+          "upper_to_lower_coupling_ratio": [
+            1.0000000000000264,
+            -4.777918197104e-13
+          ],
+          "even_hy_radiation_fraction": 5.725100306093258e-26,
+          "odd_hy_radiation_fraction": 1.0,
+          "signed_hy_parity_index": -1.0,
+          "second_to_first_singular_value": 0.04401907218330533
+        },
+        "reflection_residue": [
+          0.0004612909761844766,
+          -0.0009102805380326747
+        ],
+        "boundary_reflection_residue": [
+          -0.0010198088090170086,
+          2.0452859821001683e-05
+        ],
+        "boundary_reflection_residue_magnitude": 0.0010200138854072269,
+        "boundary_reflection_residue_phase_pi": 0.9936169654969318,
+        "reference_offset_um": 0.23750000000000004,
+        "additional_open_port_orders": 0,
+        "assignment_score": 0.7317302351001158,
+        "assignment_rejection_reasons": [],
+        "passes_assignment_gates": true
+      }
+    }
+  ]
+}

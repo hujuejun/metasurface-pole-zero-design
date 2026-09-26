@@ -1,0 +1,34 @@
+{
+  "source_run": "runs/m142i_fine_mesh_adjoint",
+  "source_geometry_config": "configs/m142i_patterned_q_fine_mesh_adjoint.json",
+  "source_material_config": "configs/m142_single_transmission_q_screen.json",
+  "target_quality_factors": [
+    50.0,
+    100.0,
+    200.0
+  ],
+  "harmonic_half_widths": [
+    9,
+    13,
+    17
+  ],
+  "spectrum_detunings_in_target_depths": [
+    -3.0,
+    -2.5,
+    -2.0,
+    -1.5,
+    -1.0,
+    -0.5,
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0
+  ],
+  "root_tolerance": 1e-09,
+  "accepted_root_residual": 1e-07,
+  "max_root_evaluations": 35,
+  "harmonic_pole_stability_gate_in_target_depths": 0.001
+}

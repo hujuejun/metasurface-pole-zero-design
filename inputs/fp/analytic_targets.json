@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {
+      "target_quality_factor": 50.0,
+      "mirror_thickness_scale": 0.8036383339393907,
+      "cavity_thickness_scale": 1.6646451768329118
+    },
+    {
+      "target_quality_factor": 100.0,
+      "mirror_thickness_scale": 0.8372535294584297,
+      "cavity_thickness_scale": 1.4792516830476636
+    },
+    {
+      "target_quality_factor": 200.0,
+      "mirror_thickness_scale": 0.880934501420072,
+      "cavity_thickness_scale": 1.320210202922079
+    },
+    {
+      "target_quality_factor": 400.0,
+      "mirror_thickness_scale": 0.9660331533056409,
+      "cavity_thickness_scale": 1.0853739315977327
+    }
+  ]
+}

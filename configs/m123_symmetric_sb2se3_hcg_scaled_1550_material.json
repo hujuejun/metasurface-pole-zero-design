@@ -1,0 +1,39 @@
+{
+  "purpose": "Wavelength-pivoted symmetric PCM pair evaluated at the measured 1550-nm endpoint indices",
+  "baseline_config": "configs/m58d_two_tier_planar_singularity_homotopy_tm.json",
+  "baseline_summary": "inputs/planar_hcg_geometry.json",
+  "source_material": {
+    "paper": "Delaney et al., Advanced Functional Materials 2020, DOI:10.1002/adfm.202002447",
+    "table_wavelength_um": 1.55,
+    "amorphous_index": [
+      3.285,
+      0.0
+    ],
+    "crystalline_index": [
+      4.05,
+      0.0
+    ],
+    "intermediate_model": "complex-permittivity Lorentz-Lorenz",
+    "limitations": "Endpoint k values are reported as zero at 1550 nm; intermediate states and crystalline anisotropy are idealized."
+  },
+  "optical_model": {
+    "target_wavelength_um": 1.55,
+    "baseline_high_transmission_center_omega_rad_per_um": 4.8525,
+    "rescale_all_lengths_to_target_wavelength": true,
+    "crystallization_state_points": 501,
+    "normalized_baseline_omega_min_rad_per_um": 4.3,
+    "normalized_baseline_omega_max_rad_per_um": 5.6,
+    "frequency_points": 81,
+    "minimum_transmittance_gate": 0.95,
+    "minimum_tuning_phase_span_pi_gate": 1.9
+  },
+  "geometry_policy": {
+    "upper_and_lower_hcg_material": "Sb2Se3",
+    "upper_and_lower_hcg_crystallization_fraction": "identical at every state",
+    "upper_and_lower_hcg_geometry": "exact M58D mirror pair, analytically rescaled to 1550 nm",
+    "port_material": "air",
+    "polarization": "TM",
+    "incidence": "normal",
+    "publication_claim": "idealized symmetric PCM pilot, pending independent material and fabrication validation"
+  }
+}

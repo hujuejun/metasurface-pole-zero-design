@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metasurface-pole-zero-design"
+version = "0.1.0"
+description = "Manuscript simulation source with 2D and 3D FDFD engines"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2,<3", "scipy>=1.14,<2", "matplotlib>=3.9,<4"]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3,<10"]
+fdtd = ["tidy3d"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

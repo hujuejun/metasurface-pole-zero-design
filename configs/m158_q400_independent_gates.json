@@ -1,0 +1,21 @@
+{
+  "source_run": "runs/m158_q400_fine_pole_adjoint",
+  "source_config": "configs/m158_q400_fine_pole_adjoint.json",
+  "source_material_config": "configs/m142_single_transmission_q_screen.json",
+  "target_quality_factor": 400.0,
+  "frozen_lateral_cells_at_2p5nm": [
+    24,
+    48
+  ],
+  "fourier_harmonic_half_widths": [
+    13,
+    17
+  ],
+  "root_tolerance": 1e-09,
+  "root_accept_residual": 1e-07,
+  "root_max_evaluations": 35,
+  "fdfd_lateral_pole_motion_gate_in_target_depths": 0.02,
+  "fourier_order_motion_gate_in_target_depths": 0.001,
+  "fdfd_fourier_pole_gate_in_target_depths": 0.02,
+  "same_frequency_max_abs_transmittance_difference_gate": 0.01
+}

@@ -1,0 +1,158 @@
+{
+  "parent_run": "runs/m27d_fan_1d_pole_zero_adjoint_n32",
+  "parent_config": "configs/m27b_fan_1d_coupled_folded_qbic_screen_tm.json",
+  "geometry": {
+    "period_um": 0.8,
+    "total_height_um": 2.65,
+    "lower_port_thickness_um": 0.6,
+    "slab_thickness_um": 0.2,
+    "inner_relief_thickness_um": 0.025,
+    "outer_relief_thickness_um": 0.025,
+    "low_index": 1.0,
+    "high_index": 3.42,
+    "master_cells_per_period": 32
+  },
+  "parameterization": {
+    "filter_radius_um": 0.0,
+    "initial_projection_beta": 2.5,
+    "projection_threshold": 0.5
+  },
+  "optimization": {
+    "optimization_cells_per_period": [
+      32,
+      48
+    ],
+    "pole_constraint_weight": 1.0,
+    "reflection_constraint_weight": 1.0,
+    "initial_damping": 0.1,
+    "step_tolerance": 1e-10,
+    "active_set_bounds": true,
+    "active_set_max_iterations": 24,
+    "stage_acceptance_residual": 0.7,
+    "pole_homotopy": [
+      {
+        "fraction": 0.2,
+        "max_iterations": 24
+      },
+      {
+        "fraction": 0.4,
+        "max_iterations": 24
+      },
+      {
+        "fraction": 0.6,
+        "max_iterations": 28
+      },
+      {
+        "fraction": 0.8,
+        "max_iterations": 28
+      },
+      {
+        "fraction": 1.0,
+        "max_iterations": 36
+      }
+    ],
+    "reflection_homotopy": [
+      {
+        "fraction": 0.25,
+        "max_iterations": 24
+      },
+      {
+        "fraction": 0.5,
+        "max_iterations": 28
+      },
+      {
+        "fraction": 0.75,
+        "max_iterations": 32
+      },
+      {
+        "fraction": 1.0,
+        "max_iterations": 40
+      }
+    ],
+    "projection_continuation": [
+      {
+        "beta": 4.0,
+        "max_iterations": 36
+      },
+      {
+        "beta": 6.0,
+        "max_iterations": 40
+      },
+      {
+        "beta": 8.0,
+        "max_iterations": 44
+      },
+      {
+        "beta": 12.0,
+        "max_iterations": 48
+      },
+      {
+        "beta": 16.0,
+        "max_iterations": 52
+      },
+      {
+        "beta": 24.0,
+        "max_iterations": 60
+      },
+      {
+        "beta": 32.0,
+        "max_iterations": 68
+      },
+      {
+        "beta": 48.0,
+        "max_iterations": 76
+      },
+      {
+        "beta": 64.0,
+        "max_iterations": 84
+      }
+    ],
+    "binarity_continuation": [
+      {
+        "weight": 0.02,
+        "max_iterations": 48
+      },
+      {
+        "weight": 0.05,
+        "max_iterations": 52
+      },
+      {
+        "weight": 0.1,
+        "max_iterations": 56
+      },
+      {
+        "weight": 0.2,
+        "max_iterations": 60
+      },
+      {
+        "weight": 0.5,
+        "max_iterations": 68
+      },
+      {
+        "weight": 1.0,
+        "max_iterations": 76
+      }
+    ]
+  },
+  "verification": {
+    "validation_cells_per_period": [
+      32,
+      48,
+      64
+    ],
+    "held_out_cells_per_period": 64,
+    "binary_rasterization_subpixels": 16,
+    "root_tolerance": 1e-10,
+    "root_max_evaluations": 300,
+    "root_search_radius_rad_per_um": 0.08,
+    "root_residual_gate": 1e-06,
+    "spectrum_half_width_in_gamma": 12.0,
+    "spectrum_points": 401,
+    "performance_half_width_in_gamma": 2.0,
+    "maximum_reflectance": 0.05,
+    "minimum_transmittance": 0.95,
+    "minimum_phase_span_pi": 1.9,
+    "maximum_pole_separation_over_mean_linewidth": 0.2,
+    "maximum_mesh_pole_center_spread_over_mean_linewidth": 0.25
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "source_fine_adjoint_run": "runs/m142i_fine_mesh_adjoint",
+  "source_fine_adjoint_config": "configs/m142i_patterned_q_fine_mesh_adjoint.json",
+  "target_quality_factors": [
+    50.0,
+    100.0,
+    200.0
+  ],
+  "mesh_cases": [
+    {
+      "label": "frozen_joint_nx32_dz2p5nm",
+      "lateral_cells": 32,
+      "axial_cell_size_um": 0.0025
+    }
+  ],
+  "root_tolerance": 1e-08,
+  "root_max_evaluations": 35,
+  "delay_step_in_refined_pole_depth": 0.02,
+  "pole_shift_gate_in_target_depths": 0.02
+}

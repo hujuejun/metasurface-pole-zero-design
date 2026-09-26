@@ -1,0 +1,456 @@
+{
+  "benchmark": {
+    "name": "connected binary low-index 2D freeform Kerker reoptimization",
+    "period_um": 0.36,
+    "refractive_index": 1.5,
+    "background_index": 1.0,
+    "seed_width_um": 0.28,
+    "seed_bar_height_um": 0.16,
+    "seed_central_gap_um": 0.16
+  },
+  "mesh": {
+    "cells_per_period": 32,
+    "axial_cells_per_period": 6,
+    "subpixels": 4,
+    "port_margin_cells": 32,
+    "near_monitor_offset_cells": 4,
+    "far_monitor_offset_cells": 8
+  },
+  "parameterization": {
+    "axial_margin_cells": 24,
+    "filter_radius_um": 0.0,
+    "projection_beta": 2.0,
+    "projection_threshold": 0.5
+  },
+  "target": {
+    "initial_even_pole_real_rad_per_um": 14.407998091353525,
+    "initial_even_pole_imag_rad_per_um": -0.4003763182337214,
+    "initial_odd_pole_real_rad_per_um": 14.407978976610481,
+    "initial_odd_pole_imag_rad_per_um": -0.39945673256463365,
+    "common_pole_real_rad_per_um": 14.407695506824712,
+    "common_pole_imag_rad_per_um": -0.4002137640784642,
+    "reflection_sample_offsets_in_gamma": [
+      -3.0,
+      -2.5,
+      -2.0,
+      -1.5,
+      -1.0,
+      -0.5,
+      0.0,
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ]
+  },
+  "optimization": {
+    "pole_constraint_weight": 1.0,
+    "transmission_zero_constraint_weight": 1.0,
+    "initial_damping": 0.1,
+    "residual_tolerance": 0.004,
+    "stage_acceptance_residual": 0.03,
+    "step_tolerance": 1e-11,
+    "active_set_bounds": true,
+    "active_set_max_iterations": 40
+  },
+  "continuation": {
+    "parent_run": "inputs/low_index_seed",
+    "parent_cells_per_period": 32,
+    "layout_reference_cells_per_period": 32,
+    "master_cells_per_period": 32,
+    "minimum_retained_component_area_um2": 0.004,
+    "minimum_bridge_width_um": 0.045,
+    "bridge_density_lower_bound": 0.55,
+    "bridge_void_cost": 12.0,
+    "maximum_connectivity_repairs_per_stage": 4,
+    "preconditioning": {
+      "projection_beta": 2.0,
+      "filter_radius_um": 0.0,
+      "bridge_density_lower_bound": 0.0,
+      "mesh_cells_per_period": [
+        32
+      ],
+      "pole_homotopy_fractions": [],
+      "transmission_zero_homotopy_fractions": [],
+      "reflection_band_groups_in_gamma": [],
+      "max_iterations": 180,
+      "residual_tolerance": 0.02,
+      "acceptance_residual": 0.02,
+      "pole_waypoint_residual_tolerance": 0.05,
+      "pole_waypoint_acceptance_residual": 0.05
+    },
+    "stages": [
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 2.0,
+        "bridge_density_lower_bound": 0.0,
+        "require_connectivity": false,
+        "mesh_cells_per_period": [
+          32
+        ],
+        "projection_thresholds": [
+          0.5
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0,
+          -0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "max_iterations": 100,
+        "residual_tolerance": 0.005
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 2.0,
+        "bridge_density_lower_bound": 0.1,
+        "require_connectivity": false,
+        "mesh_cells_per_period": [
+          32
+        ],
+        "projection_thresholds": [
+          0.5
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0,
+          -0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "max_iterations": 160,
+        "residual_tolerance": 0.01
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 2.0,
+        "bridge_density_lower_bound": 0.2,
+        "require_connectivity": false,
+        "mesh_cells_per_period": [
+          32
+        ],
+        "projection_thresholds": [
+          0.5
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0,
+          -0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "max_iterations": 180,
+        "residual_tolerance": 0.01
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 2.0,
+        "bridge_density_lower_bound": 0.3,
+        "require_connectivity": false,
+        "mesh_cells_per_period": [
+          32
+        ],
+        "projection_thresholds": [
+          0.5
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0,
+          -0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "max_iterations": 200,
+        "residual_tolerance": 0.011
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 2.0,
+        "bridge_density_lower_bound": 0.4,
+        "require_connectivity": false,
+        "mesh_cells_per_period": [
+          32
+        ],
+        "projection_thresholds": [
+          0.5
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0,
+          -0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "max_iterations": 220,
+        "residual_tolerance": 0.011
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 2.0,
+        "bridge_density_lower_bound": 0.51,
+        "require_connectivity": true,
+        "mesh_cells_per_period": [
+          32
+        ],
+        "projection_thresholds": [
+          0.5
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0,
+          -0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "max_iterations": 260,
+        "residual_tolerance": 0.026
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 4.0,
+        "bridge_density_lower_bound": 0.51,
+        "require_connectivity": true,
+        "mesh_cells_per_period": [
+          32
+        ],
+        "projection_thresholds": [
+          0.5
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0,
+          -0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "max_iterations": 280,
+        "residual_tolerance": 0.026
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 8.0,
+        "bridge_density_lower_bound": 0.55,
+        "require_connectivity": true,
+        "mesh_cells_per_period": [
+          32,
+          40
+        ],
+        "projection_thresholds": [
+          0.5
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.0,
+          -1.0,
+          0.0,
+          1.0,
+          2.0,
+          3.0
+        ],
+        "max_iterations": 300,
+        "residual_tolerance": 0.029
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 16.0,
+        "bridge_density_lower_bound": 0.55,
+        "require_connectivity": true,
+        "mesh_cells_per_period": [
+          32,
+          40
+        ],
+        "projection_thresholds": [
+          0.45,
+          0.5,
+          0.55
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.0,
+          -1.0,
+          0.0,
+          1.0,
+          2.0,
+          3.0
+        ],
+        "max_iterations": 320,
+        "residual_tolerance": 0.029
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 32.0,
+        "bridge_density_lower_bound": 0.55,
+        "require_connectivity": true,
+        "mesh_cells_per_period": [
+          32,
+          40
+        ],
+        "projection_thresholds": [
+          0.45,
+          0.5,
+          0.55
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.0,
+          -1.0,
+          0.0,
+          1.0,
+          2.0,
+          3.0
+        ],
+        "max_iterations": 340,
+        "residual_tolerance": 0.029
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 64.0,
+        "bridge_density_lower_bound": 0.55,
+        "require_connectivity": true,
+        "mesh_cells_per_period": [
+          32,
+          40,
+          48
+        ],
+        "projection_thresholds": [
+          0.45,
+          0.5,
+          0.55
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0,
+          -0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "max_iterations": 380,
+        "residual_tolerance": 0.029
+      },
+      {
+        "filter_radius_um": 0.0,
+        "projection_beta": 128.0,
+        "bridge_density_lower_bound": 0.55,
+        "require_connectivity": true,
+        "mesh_cells_per_period": [
+          32,
+          40,
+          48
+        ],
+        "projection_thresholds": [
+          0.45,
+          0.5,
+          0.55
+        ],
+        "reflection_offsets_in_gamma": [
+          -3.0,
+          -2.5,
+          -2.0,
+          -1.5,
+          -1.0,
+          -0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0
+        ],
+        "max_iterations": 420,
+        "residual_tolerance": 0.029
+      }
+    ],
+    "hard_threshold": 0.5,
+    "binary_rasterization_subpixels": 8,
+    "validation_cells_per_period": [
+      32,
+      40,
+      48,
+      56
+    ],
+    "band_samples": 241
+  },
+  "spectrum": {
+    "samples": 241
+  },
+  "verification": {
+    "root_tolerance": 1e-10,
+    "root_max_evaluations": 280,
+    "maximum_band_reflectance": 0.05,
+    "minimum_band_transmittance": 0.95,
+    "minimum_phase_span_pi": 1.8,
+    "reflection_band_halfwidth_in_gamma": 3.0,
+    "phase_window_halfwidth_in_gamma": 3.0,
+    "maximum_root_error_over_linewidth": 0.03,
+    "maximum_root_residual": 1e-06,
+    "require_single_periodic_material_component": true
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "benchmark": {
+    "name": "adjoint optimization of an axially coupled 2D bar pair",
+    "period_um": 0.36,
+    "refractive_index": 3.7,
+    "background_index": 1.45,
+    "seed_width_um": 0.28,
+    "seed_bar_height_um": 0.16,
+    "seed_central_gap_um": 0.16
+  },
+  "mesh": {
+    "cells_per_period": 32,
+    "axial_cells_per_period": 4,
+    "subpixels": 4,
+    "port_margin_cells": 16,
+    "near_monitor_offset_cells": 4,
+    "far_monitor_offset_cells": 7
+  },
+  "parameterization": {
+    "axial_margin_cells": 8,
+    "filter_radius_um": 0.0,
+    "projection_beta": 2.0,
+    "projection_threshold": 0.5
+  },
+  "target": {
+    "initial_even_pole_real_rad_per_um": 8.078182977128249,
+    "initial_even_pole_imag_rad_per_um": -0.5384876821821842,
+    "initial_odd_pole_real_rad_per_um": 7.737856071061366,
+    "initial_odd_pole_imag_rad_per_um": -0.11147699625404103,
+    "common_pole_real_rad_per_um": 7.908019524094808,
+    "common_pole_imag_rad_per_um": -0.3249823392181126,
+    "pole_continuation_fractions": [
+      0.005,
+      0.01,
+      0.02,
+      0.05,
+      0.1,
+      0.2,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.6,
+      0.7,
+      0.85,
+      1.0
+    ],
+    "reflection_sample_offsets_in_gamma": [
+      -2.0,
+      -1.5,
+      -1.0,
+      -0.5,
+      0.0,
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ]
+  },
+  "optimization": {
+    "continuation_iterations": 120,
+    "band_iterations": 100,
+    "pole_constraint_weight": 1.0,
+    "transmission_zero_constraint_weight": 1.0,
+    "initial_damping": 0.1,
+    "residual_tolerance": 1e-07,
+    "stage_acceptance_residual": 1e-06,
+    "band_stage_acceptance_residual": 0.001,
+    "step_tolerance": 1e-11,
+    "active_set_bounds": true,
+    "active_set_max_iterations": 20
+  },
+  "spectrum": {
+    "start_um": 0.54,
+    "stop_um": 1.1,
+    "verification_step_um": 0.002
+  },
+  "verification": {
+    "root_tolerance": 1e-10,
+    "root_max_evaluations": 180,
+    "maximum_band_reflectance": 0.05,
+    "minimum_band_transmittance": 0.95,
+    "minimum_phase_span_pi": 1.8,
+    "reflection_band_halfwidth_in_gamma": 3.0,
+    "phase_window_halfwidth_in_gamma": 3.0,
+    "maximum_root_error_over_linewidth": 0.02,
+    "complex_map_real_points": 49,
+    "complex_map_imag_points": 35
+  }
+}

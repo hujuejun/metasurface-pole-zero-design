@@ -1,0 +1,24 @@
+{
+  "purpose": "Show index profiles and real-axis R/T/phase spectra for the final five-state symmetric PCM pole/zero-adjoint geometry",
+  "m117_config": "configs/m123_symmetric_sb2se3_hcg_scaled_1550_material.json",
+  "stage_summary": "inputs/pcm_geometry.json",
+  "cells_per_period": 48,
+  "selected_crystalline_fractions": [
+    0.0,
+    0.3,
+    0.6,
+    0.9,
+    1.0
+  ],
+  "index_profile_fractions": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "fixed_wavelength_um": 1.55,
+  "state_points": 501,
+  "spectrum_wavelength_min_um": 1.46,
+  "spectrum_wavelength_max_um": 1.64,
+  "spectrum_points": 121,
+  "claim_limit": "Subcell-average index is a numerical rendering of sharp binary Sb2Se3/air interfaces, not a physically graded material. Material interpolation is idealized."
+}

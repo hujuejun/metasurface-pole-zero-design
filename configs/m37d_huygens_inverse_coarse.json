@@ -1,0 +1,43 @@
+{
+  "purpose": "Stage-3 coarse physical-coordinate pole-zero inverse design from a detuned Huygens disk",
+  "adjoint_config": "configs/m37c_huygens_adjoint_coarse.json",
+  "adjoint_summary": "runs/m37c_huygens_adjoint_smooth_target_coarse/summary.json",
+  "root_summary": "runs/m37b_huygens_smooth_roots_coarse/summary.json",
+  "pole_names": [
+    "symmetric_mode_pole",
+    "antisymmetric_mode_pole"
+  ],
+  "reflection_zero_name": "reflection_zero",
+  "verification_forward_config": "configs/m37a_huygens_smooth_target_coarse.json",
+  "verification_root_config": "configs/m37b_huygens_smooth_roots_coarse.json",
+  "initial_physical_point": {
+    "radius": 0.245,
+    "height": 0.215,
+    "disk_index": 3.35
+  },
+  "weights": {
+    "pole": 1.0,
+    "reflection_zero": 1.0
+  },
+  "optimizer": {
+    "max_iterations": 12,
+    "max_attempts_per_iteration": 6,
+    "initial_damping": 0.1,
+    "damping_increase": 10.0,
+    "damping_decrease": 0.3,
+    "minimum_damping": 1e-10,
+    "residual_tolerance": 1e-05,
+    "step_tolerance": 1e-08
+  },
+  "verification": {
+    "maximum_root_shift_linewidths": 0.005,
+    "maximum_power_error": 0.002,
+    "maximum_minimum_reflectance": 0.02,
+    "residue_omega_interval": [
+      3.85,
+      4.5
+    ],
+    "polynomial_degree": 2,
+    "minimum_scalar_residue_magnitude": 0.001
+  }
+}

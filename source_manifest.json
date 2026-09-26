@@ -1,0 +1,452 @@
+[
+  {
+    "file": "scripts/m157_single_resonance_robustness.py",
+    "source_sha256": "6a1a6aa5a9c5890024128df5ddc11a28297770240bcfb398082f07d41c391893",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m142e_optimize_patterned_q_poles.py",
+    "source_sha256": "9e2dd038b437a85af4101470d539050d643b9ae1e7e1f632312fec1fd8e133f4",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m142b_validate_q_ladder_fdfd.py",
+    "source_sha256": "be76635cc5f74b8893d3563bd1a97156045ec04e11d9a05eff3036f198d32d6d",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m142d_fixed_topology_analytic_targets.py",
+    "source_sha256": "be5e669c680c9785e6b019d4d8d097e27030be0b79cb79a723e9f8c7ccad4eae",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m142_single_transmission_q_screen.py",
+    "source_sha256": "b3091acc743a151163f6aef0c7a8a03690de81b29b2c52128c3389f939803c70",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m144a_systematic_pole_zero_robustness.py",
+    "source_sha256": "83c29a15dd8f3a17c5e9cdb5b431fadf4025877afe572b18df86e23f33237309",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m142c_screen_patterned_cavity.py",
+    "source_sha256": "1178538a6c8c5d4ec0dfa399a91bd3b8f88e7e146d8ad7e3b630ad55aad937df",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m141_verify_symmetric_pcm_single_tier_mesh.py",
+    "source_sha256": "6adcb7cc9cca62e6e6a9aff8bfa18b415b5c4e51d823d4450a700c9e5eba70da",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m117_symmetric_pcm_hcg_feasibility.py",
+    "source_sha256": "544b01db90f20179369a5745bea4242d0f2d5a769f0e93d8a0beaffa015ed80e",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m58d_optimize_two_tier_planar.py",
+    "source_sha256": "a0482f203e92c945a1924ad1873ceeaef9a4aa50529acc6697475916a07401b3",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m50_optimize_paired_hcg_geometry_pole_zero.py",
+    "source_sha256": "9af87a95b5fc949518bdad7392f653b51f5d561d54a706efb92ccf45050ba382",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m4b_optimize_kerker_bar.py",
+    "source_sha256": "e880c01d735cb8047c99011a621b0a3c4944f768683da65ebdeae992475345e7",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m45_screen_paired_hcg.py",
+    "source_sha256": "ae2086bf06037ae3ecc031d316e414a57d7b647767cb9d5a658642d64079e6c1",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m121_verify_symmetric_pcm_adjoint_mesh.py",
+    "source_sha256": "f0c92fe43a7618af471857e5b8c10cb4e2b545fd74ec3197a3e4d24676f42514",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m140_optimize_symmetric_pcm_single_tier.py",
+    "source_sha256": "8cc1e09b9b6771a2ecaa51ded2aa38e1434c468c14c9981ce0870cce42329616",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m10b_connected_binary_reopt.py",
+    "source_sha256": "ac9cfb74e9bb5d14e61c759ebb3565b5f8ce4cfc0c2427ee3bc29e8f0a67fd45",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m3_optimize_pole_zero.py",
+    "source_sha256": "38f4b409f09a7a9e9f3a27c6dee6861bb3615dc2396ab7c9790d4d81a856b1bd",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m3_single_resonance.py",
+    "source_sha256": "477c9254b3c4b98b58b625fdcacc8388cc943a4ba5f80fce9f15fd92bbcbe80d",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m6_fabrication_continue.py",
+    "source_sha256": "11304c21eccc0ab4cbf23c22708e23de6c143af24c5a10cb543a53ce1e8a201c",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m5_optimize_coupled_bars.py",
+    "source_sha256": "d57b9220225400067ffb25db3fdce2c12063292cc3407cfccf3168bacf1ef9a5",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m5_screen_coupled_bars.py",
+    "source_sha256": "36616b0a5cfeea9664822dfd598766d1bc6a42673b15572f1e29207b7642799c",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m7_binary_mesh_reopt.py",
+    "source_sha256": "5839a9478bcb8f248dcdc3e757eeaf3dd58ef3c5b9ecf6beed8a50ca73f66866",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m120_symmetric_pcm_pole_zero_correction.py",
+    "source_sha256": "b43c6537b5456888bbc136691e54607aa389d49fa6cd501ab47ffaaf54930109",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m37_tidy3d_forward.py",
+    "source_sha256": "628e50b8d11494513cc6fd749723da7e861137def76148a428fc60894897fd0e",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m143e_high_q_mesh_census.py",
+    "source_sha256": "3baec2065b6536c0a373b278c292208923e5d5dd395bd728112d6e4e21fd5185",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m160_validated_q_delay_sampling.py",
+    "source_sha256": "d6c4b8ed33a6b3f5c7fbb98fd9751a4a263ddc3a5bccc35d34ed83d40437bce9",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m161_compare_fine_adjoint_costs.py",
+    "source_sha256": "028da21823c1ef82f36afefac09087cc19917ce6dc90ed9550237d43a2c8a38e",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m27d_optimize_fan_1d_pole_zero.py",
+    "source_sha256": "555e979892d8b2feb480f78128f2431df4f2138f40b42bdd952b4d153c20c381",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m11_screen_fp_tm1_hybrid.py",
+    "source_sha256": "057462d259a2b072a05d889ac6e72d80231e6c3528606d83b5a2e453bbef9e8d",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m20_discover_opposite_parity_dual_gmr.py",
+    "source_sha256": "5a29a7ec6e9537051d14792d294de61852805c205945324c24e99a611a512570",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m22_screen_coupled_single_mode_slabs.py",
+    "source_sha256": "c2edbd6a5d5d94261c1c5b3db7ec61d18d2813833af13401d82ceb238d4feed9",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m27b_screen_coupled_folded_qbic.py",
+    "source_sha256": "1c0dc3bd04c27974b235e57486236782fe17de0980cb416adea5a5aff0db3ae2",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m130_audit_symmetric_pcm_material_uncertainty.py",
+    "source_sha256": "6f586262ada477123175c6e8207a9e62088f587e2d7755c8ec766d883cc4990f",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m37_huygens_optimize.py",
+    "source_sha256": "c7e4ac45a919d6091254497f41490bc7c8eebb1b8b4bc5d83e9acc47001b3812",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m37_huygens_adjoint.py",
+    "source_sha256": "1711402823acd6456d6f138e4783ca8fbe217e1b79074d9122d579bfc8a11d17",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m37_huygens_forward.py",
+    "source_sha256": "2454d3e8afe8437590cf9d54399118ed1a488f7582e98e94796ba37089f8ba10",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m27e_multimesh_binary_reopt.py",
+    "source_sha256": "e93319696d00971aa9ed193df3646c37ceab813141de2135da0c57c81d788c97",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m4b_analyze_eigenchannels.py",
+    "source_sha256": "aeb367d418347a7083ddaeb6d89ef8f0d2adf9babb16d4f05b169db3491e7336",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m142h_validate_patterned_q_mesh.py",
+    "source_sha256": "25094041b3753f8c534258974488cf02d71025a849dcd08f4eaf84733bcab5df",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m153_fourier_modal_reference_check.py",
+    "source_sha256": "092ce5290539ef778e62ae2135b77ea8c9c54572c7f1f2fdfb4872a0deeec9ab",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m37_huygens_verify.py",
+    "source_sha256": "e6f44c554a1e73928e5577ae510b2955e018834934707beb186d23fa2c0b2fb4",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m37_huygens_roots.py",
+    "source_sha256": "97eb9584c94108ee8bdd19f53f9729463d54a98841b837b69fafadab87fcabd9",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m158_verify_q400_independent.py",
+    "source_sha256": "aef610f4c5fdf6a4e8d2c06b935c63ec65f6ca4965b949dd3352f57435d879f4",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m155_compare_fine_fdfd_fourier.py",
+    "source_sha256": "2bb6b47fbb7b38cf3033c45df221be49efb98b04cd7c101292177e3f76ea196a",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m27e_audit_hard_binary_pole_census.py",
+    "source_sha256": "876f0b4ea4553d1467d47d6b2ee7ad7fbf12a183680bfb2a62aadc034db7b74f",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m126_audit_symmetric_pcm_channel_roots.py",
+    "source_sha256": "47348dd4c3051f2ee1ebf040ef7d64d669b824d702e76ad7fac90ac669b9dfaf",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m159b_matched_start_direct.py",
+    "source_sha256": "557a960c8500ec88e3963c2735430317cfd2103f78146583bc9e9e1976f21086",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m142f_compare_direct_transmission.py",
+    "source_sha256": "65cb26cb2eeebce75577e26e57f2fab798780f2ad7769875a6a615b5611abe9f",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m133_verify_symmetric_pcm_high_mesh.py",
+    "source_sha256": "9f343506c4c670a4a09fcb8690362cbb6d018943beaf5143f22f576b8fa1e7f0",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m129_plot_symmetric_pcm_structure_spectra.py",
+    "source_sha256": "cba86736c1145358d143fa2c2cee1c453872e397e77420c7247e91d07a1d1618",
+    "role": "driver"
+  },
+  {
+    "file": "scripts/m152_analyze_saved_single_resonance_controls.py",
+    "source_sha256": "bce533a2abae9438fc32dfec0406b1aa9eea94a55600b73d3b3732a6f800aab3",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "src/pzid/__init__.py",
+    "source_sha256": "866926708e7ba1b40c179c655204a98c64344bff307ba742596cffa9b91e3472",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/adjoint.py",
+    "source_sha256": "610fab78e4edf70fbe1c282b2193c64d347ba5523da74f5e3f96706ab4bc122a",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/benchmarks.py",
+    "source_sha256": "53f8a82e29d92104b4a60254e6e77b5c6cf678f3d2c26e7271640c61f6b63972",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/constraints.py",
+    "source_sha256": "767d5f060173b1538c855d9d09c8546b863cbbc766a08b4d6638a366a2502bd1",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/conventions.py",
+    "source_sha256": "e9a5eb860cf6aaff6c23c56698fe26de7aa20c8dac0a706536a0561ea212a1bd",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/density.py",
+    "source_sha256": "96d2b7cba634db20d6763491f9370136888f6de4d307a1e7edae627f6e277f4a",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/fabrication.py",
+    "source_sha256": "4f494ac1c5ef5bc42f6cdd5824b68dbe315165527dad4d003320b22a159ea4c3",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/fdfd.py",
+    "source_sha256": "9a2eabfb904acf6885ada3ec94f25b13bcdc8a031090c84c4ad377fb73043045",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/fdfd3d.py",
+    "source_sha256": "01a7bad2edca454dd8a5f856d9461b8e1de30345056eeaf2e017b11571db8cc7",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/grid.py",
+    "source_sha256": "ce58cd48cad16a275d91f1010ec69256f62d139b286f72ddc5e229847844ea5d",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/grid3d.py",
+    "source_sha256": "f306ac88f02932a08a23023ffdef91934379bce4a739903f520f5e7033f345d9",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/hcg.py",
+    "source_sha256": "e9136909b21866f7e035407385ce02e6531f93fbf5059ee61cbd8cb706425b5f",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/huygens3d.py",
+    "source_sha256": "1ec850487483cc45f348693354aeb381bfe2d2b8543f157f21e60e4f3e53a8bc",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/hybrid.py",
+    "source_sha256": "59ac500303466fe3c52fb44136026c5f4f1d196df7ae2a60384d710e903aaed9",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/modes.py",
+    "source_sha256": "b41bead02f66a65fc15d425e12ac066c532ad12ed569c8a7973df87f119d3e60",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/multilayer.py",
+    "source_sha256": "04996942ad2e835d3e207b8e9b4fc2066af5456d54b158fafc42c2e2bb7093d3",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/optimize.py",
+    "source_sha256": "10a18b873d61e793d9a7b5f77eee0bcf52be720443eb6e812e7a0db687c1f60e",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/pcm.py",
+    "source_sha256": "f180dc89110c702f04024e98a2e213de2a08643bc54752568bb525c03c3e1b5a",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/plotting.py",
+    "source_sha256": "dc7197cdcf94a45ae29730dce05ca3aac735f6a452115c09156477481e1b3d76",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/plotting3d.py",
+    "source_sha256": "bd29cac164874e8cbb6dc195c26e35fc01f2127129b3ab8d235a264ffe41a6ff",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/pml3d.py",
+    "source_sha256": "828369850c9ca91d382edc4777d3aa61f7e58eb1cd8a87333ff06a0470d22cd8",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/poles.py",
+    "source_sha256": "ac7c47fa200eb819fb5633953e86a8055a2a014dd25bc8317810bfa934f8cc13",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/ports.py",
+    "source_sha256": "2003430cadbcf0b9ccb72ab97481656c8a3dee88c6121e4245a7c574c07c3bb7",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/rcwa2d.py",
+    "source_sha256": "a6e1844b18e96f3fe3054b280a1e2a7496c98b3722cca8cff01be85a17a3a230",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/residues.py",
+    "source_sha256": "3d885f2aec94b85b5997d2d0a64aa7bc8ec16fec335989d072c64cf05f96f134",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/roots.py",
+    "source_sha256": "9bba073e9bf8305ad1b99ffe4059393864e394d2db8c52ac333b012d1a327fcb",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/scattering.py",
+    "source_sha256": "1150172be1968451214a5aaac9c412189196b372204176e1dc3cb5e7abf1fed0",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/analytic.py",
+    "source_sha256": "7821f70062035be5f20253ba5fa53d6888174e9d740a4bef31963fd0d4c67126",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/pml.py",
+    "source_sha256": "8e8d0f8b880b1150a60a52e0551119b7b54f9e3be999386bc5214b9323998f2e",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/radiation.py",
+    "source_sha256": "f9aad715bc7af7dcc96d4aef932ee3f23437a100bbc4825eb07d27a79f3c11e0",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/reference.py",
+    "source_sha256": "c4fabab5754965427197a4c3522e4231e4dfa30f796d1f2511e6c78964dab2fc",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/scattering3d.py",
+    "source_sha256": "fab5f84e49b852d97693d773ee795525eb4108ddcfb972c144d4b6015400dcee",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/ports3d.py",
+    "source_sha256": "1ce5dbdf6e96b1c6daa7ee40440899f1f900f934e0ce468ddfd307a3ae54d453",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/twoport.py",
+    "source_sha256": "e16a8011516e86177237d47c90a1be2c54724bae2a3b4cb01ec53cc6efbcc92f",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/workflow3d.py",
+    "source_sha256": "040abc6cf7952078edd9f7284cf8d8ac4d32a205b04efbd3335224c825e953b0",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/adjoint3d.py",
+    "source_sha256": "e96307268f68447c9fe44e1d4ebf5d537629baf36036e4a92e76538fd561f263",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/constraints3d.py",
+    "source_sha256": "5b7129d445cbfe05881bed08a6070f337338e4139fd02e82f3e7bb851477cf3e",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/density3d.py",
+    "source_sha256": "29398cc11f4df7e19908bf102baca7f19689b70355eeb4aa6c779995b98a6f03",
+    "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "src/pzid/poles3d.py",
+    "source_sha256": "2da8c31b988489d01ac95536bd7293f8a5868f4eb14e42808f6629685d12b1fe",
+    "role": "shared electromagnetic engine"
+  }
+]
