@@ -128,7 +128,7 @@ Reproducibility does not upgrade the manuscript's validation status. In particul
 - The qBIC is a continuous-index feasibility example, not a successfully binarized device.
 - The planar HCG remains a feasibility result at its stated mesh.
 - PCM assumes idealized homogeneous, lossless intermediate material states; artificial-loss tests are not measured material data.
-- The 3D disk FDFD/FDTD mesh discrepancy remains unresolved. Smooth-interface inverse-design closure is separate from physical-cylinder convergence.
+- The 3D disk comparison uses FDFD and FDTD at the mesh resolutions reported in the SI. Smooth-interface inverse-design recovery and physical-cylinder replay are distinct calculations.
 - Device-specific FP solve counts do not demonstrate universal algorithmic superiority.
 
 ## Sharing and licensing
