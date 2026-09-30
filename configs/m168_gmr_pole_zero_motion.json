@@ -1,0 +1,18 @@
+{
+  "source_corrected_summary": "runs/gmr_correction/summary.json",
+  "source_q3200_summary": "runs/gmr_q3200/summary.json",
+  "base_adjoint_config": "configs/m164_gmr_pole_adjoint.json",
+  "quality_factors": [
+    50,
+    200,
+    800,
+    1600,
+    3200
+  ],
+  "random_seed": 1682026,
+  "held_out_perturbations_per_design": 12,
+  "slab_sigma_um": 0.00005,
+  "ridge_sigma_um": 0.00005,
+  "complex_frequency_derivative_step_in_pole_depths": 0.001,
+  "maximum_prediction_error_in_pole_depths": 0.02
+}

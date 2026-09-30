@@ -1,0 +1,4 @@
+{
+  "mode": "benchmark",
+  "inputs": "inputs/gmr/benchmark_inputs.json"
+}

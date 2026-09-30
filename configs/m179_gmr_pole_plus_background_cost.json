@@ -1,0 +1,9 @@
+{
+  "background_sample_offset_in_fdfd_reference_pole_depths": -2,
+  "typical_physical_coordinate_perturbation_um": [
+    0.006,
+    0.006
+  ],
+  "minimum_normalization_scale": 0.00001,
+  "maximum_objective_frequency_factorizations": 300
+}

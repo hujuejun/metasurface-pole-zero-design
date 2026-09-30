@@ -143,5 +143,64 @@
     "module": "scripts.m37_tidy3d_forward",
     "config": "configs/m38b_tidy3d_mesh_convergence.json",
     "output": "runs/disk_fdtd"
+  },
+  "gmr-adjoint": {
+    "module": "scripts.m165b_gmr_adjoint_q_ladder",
+    "config": "configs/m165b_gmr_adjoint_q_ladder.json",
+    "output": "runs/gmr_adjoint"
+  },
+  "gmr-correction": {
+    "module": "scripts.m165c_gmr_cross_solver_pole_correction",
+    "config": "configs/m165c_gmr_cross_solver_pole_correction.json",
+    "output": "runs/gmr_correction"
+  },
+  "gmr-q3200": {
+    "module": "scripts.m165c_gmr_cross_solver_pole_correction",
+    "config": "configs/m165d_gmr_q3200_continuation.json",
+    "output": "runs/gmr_q3200",
+    "extra_args": [
+      "--start-from-summary",
+      "runs/gmr_correction/summary.json"
+    ]
+  },
+  "gmr-family": {
+    "module": "scripts.m166_gmr_high_fidelity_analysis",
+    "config": "configs/m166_gmr_high_fidelity_analysis.json",
+    "output": "runs/gmr_family"
+  },
+  "gmr-zero-delay": {
+    "module": "scripts.m167_gmr_geometry_and_zero_aware_delay",
+    "config": "configs/m167_gmr_geometry_and_zero_aware_delay.json",
+    "output": "runs/gmr_zero_delay"
+  },
+  "gmr-sensitivity": {
+    "module": "scripts.m168_gmr_pole_zero_motion",
+    "config": "configs/m168_gmr_pole_zero_motion.json",
+    "output": "runs/gmr_sensitivity"
+  },
+  "gmr-fields": {
+    "module": "scripts.m170_gmr_physical_interpretation",
+    "config": "configs/m170_gmr_physical_interpretation.json",
+    "output": "runs/gmr_fields"
+  },
+  "gmr-mesh": {
+    "module": "scripts.m172_gmr_frozen_fdfd_mesh_lift",
+    "config": "configs/m172_gmr_frozen_fdfd_mesh_lift.json",
+    "output": "runs/gmr_mesh"
+  },
+  "gmr-delay": {
+    "module": "scripts.m175_gmr_moderate_transmission_delay",
+    "config": "configs/m175_gmr_moderate_transmission_delay.json",
+    "output": "runs/gmr_delay"
+  },
+  "gmr-replay": {
+    "module": "scripts.gmr_reproduce",
+    "config": "configs/gmr_replay.json",
+    "output": "runs/gmr_replay"
+  },
+  "gmr-benchmark": {
+    "module": "scripts.gmr_reproduce",
+    "config": "configs/gmr_benchmark.json",
+    "output": "runs/gmr_benchmark"
   }
 }

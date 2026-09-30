@@ -21,6 +21,7 @@ def main():
     if args.case=='disk-fdtd' and args.run:
         parser.error('Cloud execution is not supported by this wrapper. See README for explicit cost-estimation and run commands.')
     command=[sys.executable,'-m',case['module'],'--config',case['config'],'--output',str(args.output or case['output'])]
+    command += case.get('extra_args', [])
     if args.case in ['fp-optimize','fp-q400-optimize']:
         seed='fine_starts' if args.case=='fp-optimize' else 'q400_start'
         command+=['--start-from-summary',f'inputs/fp/{seed}.json']

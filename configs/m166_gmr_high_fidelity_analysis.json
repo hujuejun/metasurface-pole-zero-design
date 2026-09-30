@@ -1,0 +1,28 @@
+{
+  "source_corrected_summary": "runs/gmr_correction/summary.json",
+  "source_q3200_summary": "runs/gmr_q3200/summary.json",
+  "quality_factors": [
+    50,
+    100,
+    200,
+    400,
+    800,
+    1600,
+    3200
+  ],
+  "high_index": 2,
+  "port_index": 1,
+  "ridge_fill_factor": 0.66,
+  "period_polish_harmonics": 81,
+  "held_out_root_harmonics": 101,
+  "spectrum_harmonics": 81,
+  "spectrum_half_widths_in_pole_depths": 8,
+  "spectrum_points": 81,
+  "period_derivative_step_um": 0.0001,
+  "maximum_period_polish_steps": 3,
+  "reference_period_error_limit_in_pole_depths": 0.01,
+  "held_out_harmonic_root_motion_gate_depths": 0.05,
+  "fixed_delay_step_rad_per_um": 0.01,
+  "adaptive_delay_step_in_pole_depths": 0.2,
+  "reference_delay_step_in_pole_depths": 0.005
+}

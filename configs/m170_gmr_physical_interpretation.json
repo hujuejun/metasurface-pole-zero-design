@@ -1,0 +1,6 @@
+{
+  "source_high_fidelity_summary": "runs/gmr_family/summary.json",
+  "source_fdfd_corrected_summary": "runs/gmr_correction/summary.json",
+  "base_adjoint_config": "configs/m164_gmr_pole_adjoint.json",
+  "nearfield_quality_factor": 200
+}

@@ -1,0 +1,23 @@
+{
+  "quality_targets": [
+    200,
+    800
+  ],
+  "physical_delay_bracket_in_h101_pole_depths": 0.1,
+  "methods": {
+    "direct3_physical": {
+      "objective_frequency_factorization_stages": [
+        60,
+        120,
+        120
+      ]
+    },
+    "direct5_physical_delay": {
+      "objective_frequency_factorization_stages": [
+        60,
+        120,
+        120
+      ]
+    }
+  }
+}

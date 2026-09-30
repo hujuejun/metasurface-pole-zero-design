@@ -1,5 +1,15 @@
 # Preparation checks
 
+## GMR update (2026-09-30)
+
+- All 92 tests pass, including the added GMR geometry, adjoint, and operating-point delay tests.
+- Fresh independent Q200 replay gives Q=185.670, transmittance 0.90498, and delay 38.041 fs, consistent with the selected final result.
+- A fresh Q800 matched-start subset (one start; pole and physical-operating-point direct three-sample objectives) reaches qualified designs with both methods. This checks execution, not the full published success/cost statistics.
+- No full seven-design optimization sequence or complete 144-trial benchmark was rerun for this packaging update. The manuscript figures use the selected final research calculations.
+- Added only final-result drivers, required helper definitions, minimal initial/reference coordinates, final geometries, and configurations. Archived outputs and exploratory benchmark batches remain excluded.
+
+The unified GMR replay/benchmark wrapper regenerates electromagnetic targets and validations from minimal physical inputs instead of requiring saved research summaries. The Q800 starts preserve the signed Q200 geometric offsets. Helper-only modules have no exploratory command-line entry point. The full design sequence retains the outer Fourier correction and final period polish; it must not be described as a single uncorrected coarse-grid adjoint run. Fourier truncation values 81 and 101 denote half-widths (163 and 203 orders).
+
 Completed locally before the initial private upload:
 
 - All selected driver/helper modules import using this repository's own source tree; explicit bundled configuration/input paths resolve.

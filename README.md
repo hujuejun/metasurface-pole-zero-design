@@ -27,6 +27,9 @@ The preparation checks cover imports, bundled input paths, 2D/3D engine tests, f
 
 | Manuscript result | Named cases | Inputs and validation |
 | --- | --- | --- |
+| Main-text binary GMR family and delay | `gmr-replay`, or the GMR design sequence below | Seven frozen geometries; fresh independent Fourier roots and responses |
+| Main-text matched-start GMR comparison | `gmr-benchmark` | Two reference designs, paired geometric offsets, six objectives; includes failed-start costs |
+| SI GMR numerical and sensitivity checks | `gmr-zero-delay`, `gmr-sensitivity`, `gmr-fields`, `gmr-mesh` | Fresh outputs from the GMR design sequence |
 | Single FP resonance, Q=50/100/200 | `fp-optimize` | Exact fine-grid optimization starts, fixed five-pair topology |
 | Single FP resonance, Q=400 | `fp-q400-optimize`, `fp-q400-verify` | The independently checked fine-grid Q400 design, not the superseded endpoint |
 | FP independent numerical checks | `fp-axial-mesh`, `fp-joint-mesh`, `fp-fourier`, `fp-solver-comparison` | Frozen physical geometries; joint FDFD and 27/35-harmonic comparisons |
@@ -44,7 +47,31 @@ The preparation checks cover imports, bundled input paths, 2D/3D engine tests, f
 
 Source module names retain their original identifiers to avoid breaking imports and make scientific provenance auditable. Earlier modules under `scripts/` contain **only the helper definitions needed by these final drivers**, not executable exploratory studies. `source_manifest.json` records source hashes and roles. Configurations have been flattened so no inherited campaign configuration is required. Necessary starting densities are numerical initial conditions, not an archive of intermediate runs.
 
-### Single-resonance reproduction order
+### Main-text GMR reproduction
+
+For independent verification of the final seven geometries, run `python reproduce.py gmr-replay --run`. This performs fresh Fourier-modal solves; supplied root coordinates are root-finder seeds, not saved spectra. For the complete matched-start comparison, run `python reproduce.py gmr-benchmark --run`. It regenerates reference responses and runs all six objectives at target Q200 and Q800 from the same twelve paired physical offsets. Shared reference characterization is reported separately from method-specific FDFD work; all failed attempts are included in the latter. Fourier work is counted separately.
+
+To recreate the design and validation sequence:
+
+```bash
+python reproduce.py gmr-adjoint --run
+python reproduce.py gmr-correction --run
+python reproduce.py gmr-q3200 --run
+python reproduce.py gmr-family --run
+python reproduce.py gmr-zero-delay --run
+python reproduce.py gmr-sensitivity --run
+python reproduce.py gmr-fields --run
+python reproduce.py gmr-mesh --run
+python reproduce.py gmr-delay --run
+python reproduce.py gmr-benchmark --run
+python -m scripts.plot_gmr_publication --family runs/gmr_family/summary.json --delay runs/gmr_delay/summary.json --cost runs/gmr_benchmark/cost_table.csv --output runs/gmr_figures
+```
+
+The design sequence includes outer Fourier-based pole correction and final period polishing in addition to FDFD adjoint optimization. The sensitivity test uses the corrected geometries before period polishing, as described in SI. The independent replay is sufficient for frozen-device checks and does not establish optimization costs. A short execution check can use `python -m scripts.gmr_reproduce --config configs/gmr_benchmark.json --quality 800 --starts-limit 1 --methods pole direct3_physical --output runs/gmr_smoke`; this subset is not the publication benchmark.
+
+Only the selected initial coordinates, final device definitions, reference/root seeds, and paired starting offsets are bundled. No screening sweep or archived optimization outputs are included. The benchmark wrapper replaces dependencies on intermediate research summaries with these minimal inputs and retained numerical helper functions. Numerical-library differences can alter optimization trajectories. The Q800 advantage is case-specific: the Q200 direct three-point control recovers more qualified designs than pole-only targeting. Synthetic subnanometer perturbations are sensitivity diagnostics, not fabrication-yield predictions. Coarse-FDFD versus Fourier pole differences are disclosed in SI; final-family validation uses Fourier refinement.
+
+### SI Fabry--Perot reproduction order
 
 ```bash
 python reproduce.py fp-optimize --run
@@ -97,7 +124,7 @@ The qBIC full replay window is 4.323489–4.346749 rad/µm (1201 points). The lo
 
 PCM verification uses the bundled final physical coordinates, so it does not require first repeating optimization. To verify a newly optimized geometry instead, change the relevant config's `stage_summary` (or `m140_stage_summary`) to that run's newly generated final-stage JSON. The same distinction applies to the bundled planar-HCG geometry used to initialize the PCM design.
 
-The original coarse PCM sweep uses 501 states at N24/32/40/48; the intermediate N40/48/56/64 sweep and fine N72/80 sweep use 301 states. This preserves the actual simulation configurations. The current SI caption saying 501 states for all N≤64 needs correction before publication.
+The original coarse PCM sweep uses 501 states at N24/32/40/48; the intermediate N40/48/56/64 sweep and fine N72/80 sweep use 301 states. The SI caption distinguishes these sampling conventions.
 
 ### Three-dimensional reproduction
 

@@ -1,0 +1,21 @@
+{
+  "source_high_fidelity_summary": "runs/gmr_family/summary.json",
+  "source_adjoint_summary": "runs/gmr_correction/summary.json",
+  "base_adjoint_config": "configs/m164_gmr_pole_adjoint.json",
+  "quality_factors": [
+    50,
+    200,
+    800
+  ],
+  "lateral_cells": [
+    48,
+    64,
+    96,
+    128
+  ],
+  "reference_lateral_cells": 48,
+  "reference_axial_cell_size_um": 0.0067,
+  "reference_total_domain_um": 1.072,
+  "fourier_reference_harmonics": 101,
+  "maximum_root_evaluations": 100
+}

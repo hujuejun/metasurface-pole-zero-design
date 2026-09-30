@@ -1,0 +1,12 @@
+{
+  "source_high_fidelity_summary": "runs/gmr_family/summary.json",
+  "source_high_fidelity_config": "configs/m166_gmr_high_fidelity_analysis.json",
+  "structure_quality_factors": [
+    50,
+    200,
+    800,
+    3200
+  ],
+  "zero_aware_fraction_of_pole_zero_separation": 0.1,
+  "maximum_fraction_of_pole_depth": 0.2
+}

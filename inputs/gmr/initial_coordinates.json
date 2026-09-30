@@ -1,0 +1,67 @@
+{
+  "cases": [
+    {
+      "target_quality_factor": 50,
+      "screened_period_um": 0.7179622958356392,
+      "screened_ridge_height_um": 0.15400050136926766,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.0677
+      }
+    },
+    {
+      "target_quality_factor": 100,
+      "screened_period_um": 0.7660940683105603,
+      "screened_ridge_height_um": 0.11857670346860619,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.03385
+      }
+    },
+    {
+      "target_quality_factor": 200,
+      "screened_period_um": 0.8012420274935098,
+      "screened_ridge_height_um": 0.09390004541012127,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.016925
+      }
+    },
+    {
+      "target_quality_factor": 400,
+      "screened_period_um": 0.8278609396725807,
+      "screened_ridge_height_um": 0.07385272024134051,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.0084625
+      }
+    },
+    {
+      "target_quality_factor": 800,
+      "screened_period_um": 0.8476454483463778,
+      "screened_ridge_height_um": 0.05710367994977486,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.00423125
+      }
+    },
+    {
+      "target_quality_factor": 1600,
+      "screened_period_um": 0.8619297758011669,
+      "screened_ridge_height_um": 0.04332414694630071,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.002115625
+      }
+    },
+    {
+      "target_quality_factor": 3200,
+      "screened_period_um": 0.8719947318682123,
+      "screened_ridge_height_um": 0.032318386788373316,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.0010578125
+      }
+    }
+  ]
+}

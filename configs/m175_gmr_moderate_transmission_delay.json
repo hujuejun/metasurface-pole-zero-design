@@ -1,0 +1,12 @@
+{
+  "source_summary": "runs/gmr_family/summary.json",
+  "source_config": "configs/m166_gmr_high_fidelity_analysis.json",
+  "operating_detuning_in_h81_pole_depths": -2,
+  "moderate_transmission_threshold": 0.5,
+  "primary_harmonics": 81,
+  "held_out_harmonics": 101,
+  "primary_delay_step_in_h81_pole_depths": 0.01,
+  "step_convergence_delay_step_in_h81_pole_depths": 0.005,
+  "delay_step_relative_tolerance": 0.01,
+  "held_out_delay_relative_tolerance": 0.05
+}

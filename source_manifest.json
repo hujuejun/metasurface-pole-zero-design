@@ -448,5 +448,233 @@
     "file": "src/pzid/poles3d.py",
     "source_sha256": "2da8c31b988489d01ac95536bd7293f8a5868f4eb14e42808f6629685d12b1fe",
     "role": "shared electromagnetic engine"
+  },
+  {
+    "file": "configs/gmr_benchmark.json",
+    "bundled_sha256": "093b62881083fe143ff62e87dd661dfa414baed9f908d7c67d0770794d3a66c9",
+    "source_sha256": null,
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/gmr_replay.json",
+    "bundled_sha256": "271d737dc0b20b5f9db3ac64a98f805ab155a5431b41c344ab29c4dfcc68f5e4",
+    "source_sha256": null,
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m164_gmr_pole_adjoint.json",
+    "bundled_sha256": "a5cd28a5481fa2d371fc82f5318ee903e813547e16f272109c2a1922b1ee9652",
+    "source_sha256": "9fe5c421b6d8f2d909c1c12d6d9f7791bbcbf0d17755c0fc7c44f7c8101550d5",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m165b_gmr_adjoint_q_ladder.json",
+    "bundled_sha256": "713a2c7ff7a495edb3eb3dd57c95c65848dd5ab01de1aa1c03efd2b59093d62e",
+    "source_sha256": "a7e7c4966191d337ca77f35fd51a2bc06fa6bd5a5bef0d1b44e68bf36bfdbf62",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m165c_gmr_cross_solver_pole_correction.json",
+    "bundled_sha256": "4cfe8e3c53a8826658ab91124a384203502d737922b8a3314478c5abc9c04208",
+    "source_sha256": "36516274dc11db02da4a8ed38670dc6ac255fd6f93b3a4348e46e46254879580",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m165d_gmr_q3200_continuation.json",
+    "bundled_sha256": "deaa06cdc79f0d1fd199bc54c83a75096fc62f4b5f8aac6881323bae9d4d54e8",
+    "source_sha256": "c60ef3b87a0b0d53046fc0c671d46fc38d548bed44f16d8db29570a195de181f",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m166_gmr_high_fidelity_analysis.json",
+    "bundled_sha256": "07b807ce7510eb24fb2b57f1bafa5dcba6a90d4fcbbef88ce54da5faadf034ee",
+    "source_sha256": "b438d1ebd98e251e466eb068fc95d9c50c1c0256b61c0342ded8434cd7c2772e",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m167_gmr_geometry_and_zero_aware_delay.json",
+    "bundled_sha256": "546ab595be21561ba25aaac740586f15c4b5686683a6d00d5c5313475e949f7b",
+    "source_sha256": "4713f53ee0bcb7dca4c57fbd30cb48b8e6ac6ae06cc1d9bda1e6646e83f9d419",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m168_gmr_pole_zero_motion.json",
+    "bundled_sha256": "6ca9e01b602f0991f3a8ee24816e91a71b58755d73842e09abb2574ad44beeaa",
+    "source_sha256": "99575c52a7bfda1988dcf0deef3449d2ccdaed323143e3fd67662f57cf9845e8",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m170_gmr_physical_interpretation.json",
+    "bundled_sha256": "5ad228bdc7eb30665cc14aaf3b7d4bc83cb986922e840e66471733ddde28603d",
+    "source_sha256": "099de29552297001d0164928da0705697d5aa9e275c34b5a797af55fdc2d5429",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m172_gmr_frozen_fdfd_mesh_lift.json",
+    "bundled_sha256": "f78c80445c568248da4d5cd0859244990c11ad48b32fb1dcfc9a9f9b889e00d2",
+    "source_sha256": "20927cd9f9667d39e6504e2d2fdbd518741802fda78a7efcaee8d3871960ed59",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m175_gmr_moderate_transmission_delay.json",
+    "bundled_sha256": "7851cc93fd46e2abba7e1131f1ebaa8781f34001fb78ad5f57cdf4b7afb54c55",
+    "source_sha256": "86039349c0b168147be64077d9f2a3be8826d228402433479915ed5a7f21363f",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m177_gmr_preregistered_cost_benchmark.json",
+    "bundled_sha256": "c43fe8753c1258fbf4c329c04109518715724cede89e5cc0d9156cbbe03aea1e",
+    "source_sha256": "5ee19f7d1cf642bd509ece27416a244f1ccad2d5b98885f161f20045bc0479e0",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m179_gmr_pole_plus_background_cost.json",
+    "bundled_sha256": "25098abcafcac068df5525ca6b9ac7502dfb7c356bf691433519872235919c92",
+    "source_sha256": "ff97c370cfd4772dd397addb8dec582d74b639c21d89ca5b6d80faca8ab50269",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "configs/m183_gmr_physical_operating_direct_controls.json",
+    "bundled_sha256": "4f26972a9f2f73c570f39a19d067cd666373fc5baa353ac517114a75debf8bc2",
+    "source_sha256": "89aa0cffa0c7bf99ff4897dca0d839c89f5d7f6e7644e3f321e8f8e52358e686",
+    "role": "standalone reproduction configuration"
+  },
+  {
+    "file": "inputs/gmr/benchmark_inputs.json",
+    "bundled_sha256": "ff801852bd7f8f764036ccb3f50fb5fb88a6b1cd26118773c3c455ee999d4914",
+    "source_sha256": null,
+    "role": "essential physical inputs only"
+  },
+  {
+    "file": "inputs/gmr/final_geometries.json",
+    "bundled_sha256": "3da85a6cd4352b7a29203683add8fcdd2601cb8b1fc5ac58999b3be9f0cb117d",
+    "source_sha256": null,
+    "role": "essential physical inputs only"
+  },
+  {
+    "file": "inputs/gmr/initial_coordinates.json",
+    "bundled_sha256": "dfe19f2052c327b479ea0629799a55cf66c5f3570fd62cbe33a69d6022efc0dd",
+    "source_sha256": null,
+    "role": "essential physical inputs only"
+  },
+  {
+    "file": "scripts/gmr_reproduce.py",
+    "bundled_sha256": "951e57f1b603905983807d0b247c1c87b43da756ab4ea3cd38d1a1d5c2eaa3fa",
+    "source_sha256": null,
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "scripts/m164_gmr_pole_adjoint.py",
+    "bundled_sha256": "e4324a6a46de637a9f0fb38157ed118cf092e1d1628e44929d0e7c23570fb202",
+    "source_sha256": "de8446e22f7fc2ac7d514fba9f4fb5a168164bc00ed69cf09825098e6701c5a5",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m165a_gmr_phase_matching_prescreen.py",
+    "bundled_sha256": "b90678bdcae0f953f1c57e311d35863310cd36d5fb8c32fb3cef18ec370b30e9",
+    "source_sha256": "bdfa9bcf81f44d3b8c17da23bd0da63a90719ae63fe22dafbb4ccabccf6c289f",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m165b_gmr_adjoint_q_ladder.py",
+    "bundled_sha256": "1c926b84a02d75cf74a365620a0711508f7f1d1f1a6d1ad9488e2f338ec96985",
+    "source_sha256": "1c926b84a02d75cf74a365620a0711508f7f1d1f1a6d1ad9488e2f338ec96985",
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "scripts/m165c_gmr_cross_solver_pole_correction.py",
+    "bundled_sha256": "83ce31a446787700c486a52cb5c692f8868028c45e2c984f129bceebe0485b92",
+    "source_sha256": "83ce31a446787700c486a52cb5c692f8868028c45e2c984f129bceebe0485b92",
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "scripts/m166_gmr_high_fidelity_analysis.py",
+    "bundled_sha256": "a92c6051c50a6bb48de5c72eb76266bf4a3b7ad40fdf801a5fa33933baec936e",
+    "source_sha256": "a92c6051c50a6bb48de5c72eb76266bf4a3b7ad40fdf801a5fa33933baec936e",
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "scripts/m167_gmr_geometry_and_zero_aware_delay.py",
+    "bundled_sha256": "63087e735755d174a3bcd9b4b0d9bc7e0da38f0da6c31bca6de78f223909c748",
+    "source_sha256": "63087e735755d174a3bcd9b4b0d9bc7e0da38f0da6c31bca6de78f223909c748",
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "scripts/m168_gmr_pole_zero_motion.py",
+    "bundled_sha256": "ee496eb1e138b82829e10a4f32feeccacd98d6a8885147340ad0bb59ab1f9287",
+    "source_sha256": "ee496eb1e138b82829e10a4f32feeccacd98d6a8885147340ad0bb59ab1f9287",
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "scripts/m169_gmr_matched_direct_control.py",
+    "bundled_sha256": "950a9e8f439839693e3ae9d671a79cdc12357b6fbb28e6b0c291ea35fb1b4219",
+    "source_sha256": "8305f261d3a920bb79c0d7902d858ffdcd76d8168e3aef0887ef6ca3488b145a",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m170_gmr_physical_interpretation.py",
+    "bundled_sha256": "0717a3ae5eb5cae5a068094873cdb0adcd834d0d073519293f3f2321531ed64e",
+    "source_sha256": "0717a3ae5eb5cae5a068094873cdb0adcd834d0d073519293f3f2321531ed64e",
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "scripts/m172_gmr_frozen_fdfd_mesh_lift.py",
+    "bundled_sha256": "846efbbfd14794de43b5360c28f8e0c43effbf3cc7d7905dba918d6d6a58d696",
+    "source_sha256": "846efbbfd14794de43b5360c28f8e0c43effbf3cc7d7905dba918d6d6a58d696",
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "scripts/m175_gmr_moderate_transmission_delay.py",
+    "bundled_sha256": "0015b01cbcd4aa560d6a65a1c429b8df9664fd1504f615e69c8f911d70b5e9eb",
+    "source_sha256": "0015b01cbcd4aa560d6a65a1c429b8df9664fd1504f615e69c8f911d70b5e9eb",
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "scripts/m177_gmr_preregistered_cost_benchmark.py",
+    "bundled_sha256": "c30f8ccc59db06da2c35ec942af7b68ad6eead2775e242db5bb9f98dff9d3975",
+    "source_sha256": "6f7191101a02d61151d51a51626765afab26afb0616f494b2c2b337a14e39a59",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m179_gmr_pole_plus_background_cost.py",
+    "bundled_sha256": "6365fe6f667939fb6ef568f4a46028fdbcefe03907d9b21de6da98e2c96292d4",
+    "source_sha256": "a8d1d2b5a123afdbd9b1ee052755297531d0297cdcd337fe973f0040160462e1",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/m183_gmr_physical_operating_direct_controls.py",
+    "bundled_sha256": "1b31061ca3d628bb75e987d59a866b0fd25f053f912d023074267b90afc19997",
+    "source_sha256": "82c0673bd3e3fdc9d02d57299982f2220e73916bee23731e4fa4ea52105fdff5",
+    "role": "required helper definitions only"
+  },
+  {
+    "file": "scripts/plot_gmr_publication.py",
+    "bundled_sha256": "f512fb4fb6f392e90f2566c94464ff16694d4da285ef7e2746ed0722fd0e7310",
+    "source_sha256": null,
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "src/pzid/gmr2d.py",
+    "bundled_sha256": "51bc44be567d60cf566edc1f6837dff80009cffec4882b2cdd1a3cb0d56367e7",
+    "source_sha256": "51bc44be567d60cf566edc1f6837dff80009cffec4882b2cdd1a3cb0d56367e7",
+    "role": "final-result driver or engine"
+  },
+  {
+    "file": "tests/test_gmr2d.py",
+    "bundled_sha256": "4eff7340b365187cccd9656c265a25867ddb501bc62ddeedf4810147c20c7ad3",
+    "source_sha256": "4eff7340b365187cccd9656c265a25867ddb501bc62ddeedf4810147c20c7ad3",
+    "role": "verification test"
+  },
+  {
+    "file": "tests/test_m164_gmr_pole_adjoint.py",
+    "bundled_sha256": "8429c503e45671670265237feb828e8c3c6369530f94152a702baba48025cf8f",
+    "source_sha256": "8429c503e45671670265237feb828e8c3c6369530f94152a702baba48025cf8f",
+    "role": "verification test"
+  },
+  {
+    "file": "tests/test_m175_gmr_moderate_transmission_delay.py",
+    "bundled_sha256": "fe81123cf6341515058450e28bd62d93cbcf264cdaa0ac23bb7de09103e3dfd2",
+    "source_sha256": "fe81123cf6341515058450e28bd62d93cbcf264cdaa0ac23bb7de09103e3dfd2",
+    "role": "verification test"
   }
 ]

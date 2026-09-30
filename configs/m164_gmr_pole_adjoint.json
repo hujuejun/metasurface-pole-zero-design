@@ -1,0 +1,46 @@
+{
+  "period_um": 0.8023,
+  "ridge_fill_factor": 0.66,
+  "high_index": 2,
+  "port_index": 1,
+  "base_z_um": 0.41,
+  "lateral_cells": 48,
+  "axial_cells": 160,
+  "axial_cell_size_um": 0.0067,
+  "lower_source_plane": 8,
+  "lower_monitor_planes": [
+    20,
+    28
+  ],
+  "upper_monitor_planes": [
+    131,
+    139
+  ],
+  "upper_source_plane": 151,
+  "common_target_real_rad_per_um": 6.77,
+  "quality_factors_in_optimization_order": [
+    200,
+    100,
+    50,
+    400,
+    800,
+    1600,
+    3200
+  ],
+  "start_slab_thickness_um": 0.0988,
+  "start_ridge_height_um": 0.0937,
+  "slab_thickness_bounds_um": [
+    0.05,
+    0.18
+  ],
+  "ridge_height_bounds_um": [
+    0.012,
+    0.23
+  ],
+  "gradient_test_step_um": 0.00001,
+  "gradient_relative_tolerance": 0.003,
+  "maximum_function_evaluations": 35,
+  "maximum_pole_error_in_target_depths": 0.05,
+  "spectrum_half_widths_in_pole_depths": 8,
+  "spectrum_points": 81
+}

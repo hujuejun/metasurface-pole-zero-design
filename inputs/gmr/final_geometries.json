@@ -1,0 +1,158 @@
+{
+  "cases": [
+    {
+      "quality_target": 50,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.0677
+      },
+      "slab_thickness_um": 0.07240048068958176,
+      "ridge_height_um": 0.18258409519583801,
+      "final_period_um": 0.7171149032127424,
+      "channel_pole": {
+        "real": 6.770005666070178,
+        "imag": -0.07005318614464605
+      },
+      "channel_zero": {
+        "real": 6.779689115796175,
+        "imag": -1.6144260810015317e-15
+      },
+      "held_out_pole": {
+        "real": 6.769720926133088,
+        "imag": -0.0701886824504921
+      }
+    },
+    {
+      "quality_target": 100,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.03385
+      },
+      "slab_thickness_um": 0.09995791194726208,
+      "ridge_height_um": 0.11705514869529576,
+      "final_period_um": 0.765833706127181,
+      "channel_pole": {
+        "real": 6.770000394247557,
+        "imag": -0.03488915344739381
+      },
+      "channel_zero": {
+        "real": 6.782916677983678,
+        "imag": -3.29893757979462e-16
+      },
+      "held_out_pole": {
+        "real": 6.769845130762521,
+        "imag": -0.034946470915946395
+      }
+    },
+    {
+      "quality_target": 200,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.016925
+      },
+      "slab_thickness_um": 0.08579999984758992,
+      "ridge_height_um": 0.1078365613590723,
+      "final_period_um": 0.8009271951844705,
+      "channel_pole": {
+        "real": 6.770000525394409,
+        "imag": -0.01823128344639511
+      },
+      "channel_zero": {
+        "real": 6.776687839928222,
+        "imag": 4.578050380907466e-16
+      },
+      "held_out_pole": {
+        "real": 6.769872372389872,
+        "imag": -0.018263822708249482
+      }
+    },
+    {
+      "quality_target": 400,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.0084625
+      },
+      "slab_thickness_um": 0.09921102448063586,
+      "ridge_height_um": 0.073257239865208,
+      "final_period_um": 0.8277203053692103,
+      "channel_pole": {
+        "real": 6.770000104767246,
+        "imag": -0.00869453024898642
+      },
+      "channel_zero": {
+        "real": 6.772744545205087,
+        "imag": 5.894586062239576e-17
+      },
+      "held_out_pole": {
+        "real": 6.76992299501149,
+        "imag": -0.008709058499996725
+      }
+    },
+    {
+      "quality_target": 800,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.00423125
+      },
+      "slab_thickness_um": 0.09923160488010614,
+      "ridge_height_um": 0.056562848641024906,
+      "final_period_um": 0.8474774666282803,
+      "channel_pole": {
+        "real": 6.770000156947598,
+        "imag": -0.0043391246104931246
+      },
+      "channel_zero": {
+        "real": 6.770883765988092,
+        "imag": -1.0965065262341688e-16
+      },
+      "held_out_pole": {
+        "real": 6.769943800785218,
+        "imag": -0.004346488686791738
+      }
+    },
+    {
+      "quality_target": 1600,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.002115625
+      },
+      "slab_thickness_um": 0.09901369878151325,
+      "ridge_height_um": 0.04300209525309542,
+      "final_period_um": 0.8618404378619694,
+      "channel_pole": {
+        "real": 6.770000046814657,
+        "imag": -0.002168814726696736
+      },
+      "channel_zero": {
+        "real": 6.770186456426267,
+        "imag": -1.4184086288675035e-16
+      },
+      "held_out_pole": {
+        "real": 6.769958289768744,
+        "imag": -0.002172572594062831
+      }
+    },
+    {
+      "quality_target": 3200,
+      "target_pole": {
+        "real": 6.77,
+        "imag": -0.0010578125
+      },
+      "slab_thickness_um": 0.09902085932563424,
+      "ridge_height_um": 0.032060998801053515,
+      "final_period_um": 0.8718756660490363,
+      "channel_pole": {
+        "real": 6.770000086792703,
+        "imag": -0.0010835762559755877
+      },
+      "channel_zero": {
+        "real": 6.7699873548165925,
+        "imag": -3.2618172915524182e-15
+      },
+      "held_out_pole": {
+        "real": 6.769969191929479,
+        "imag": -0.0010854938635277763
+      }
+    }
+  ]
+}
