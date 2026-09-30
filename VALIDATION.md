@@ -3,6 +3,8 @@
 ## GMR update (2026-09-30)
 
 - All 92 tests pass, including the added GMR geometry, adjoint, and operating-point delay tests.
+- All 72 selected modules import from the bundled tree; explicit input paths resolve. The new source/configuration scan found no credential patterns or absolute user-workspace paths.
+- Both revised main text and SI compile on Overleaf with zero LaTeX errors or warnings. The project default is restored to `main.tex`.
 - Fresh independent Q200 replay gives Q=185.670, transmittance 0.90498, and delay 38.041 fs, consistent with the selected final result.
 - A fresh Q800 matched-start subset (one start; pole and physical-operating-point direct three-sample objectives) reaches qualified designs with both methods. This checks execution, not the full published success/cost statistics.
 - No full seven-design optimization sequence or complete 144-trial benchmark was rerun for this packaging update. The manuscript figures use the selected final research calculations.
