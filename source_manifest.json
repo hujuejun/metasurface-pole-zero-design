@@ -649,7 +649,7 @@
   },
   {
     "file": "scripts/plot_gmr_publication.py",
-    "bundled_sha256": "f512fb4fb6f392e90f2566c94464ff16694d4da285ef7e2746ed0722fd0e7310",
+    "bundled_sha256": "017df77d66f016e2a4c906111a9d33ed92424602fd7f7ff3b1358bfea1fe8945",
     "source_sha256": null,
     "role": "final-result driver or engine"
   },

@@ -1,5 +1,13 @@
 # Preparation checks
 
+## Figure 1 revision (2026-10-02)
+
+- Figure 1 now presents exemplar transmission spectra with a topology inset, verified versus target pole linewidths, and verified versus pole-implied target group delays.
+- Targets are calculated from the prescribed poles. Verification uses the independent RCWA half-width-101 poles and delay calculations. The minus-two-pole-depth operating detuning remains a post-design diagnostic, not an independent delay objective.
+- Exemplar spectra for target Q50, Q200, and Q800 are regenerated locally with the retained RCWA implementation at half-width 81 on a common wavelength window; no structures are reoptimized.
+- All 93 tests pass, including a new test that distinguishes prescribed target poles from verified poles in the plotting calculation.
+- Generated spectra and diagnostic comparison tables remain outside the source collection.
+
 ## GMR update (2026-09-30)
 
 - All 92 tests pass, including the added GMR geometry, adjoint, and operating-point delay tests.
