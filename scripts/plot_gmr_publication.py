@@ -7,7 +7,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
+from matplotlib.patches import Polygon
 import numpy as np
 
 
@@ -47,29 +47,38 @@ def plot_family(family, delays, spectra_dir, output, recompute_spectra=False):
         ax[0].plot(wavelength[order], spectrum['T'][order], lw=1.8,
                    color=color, label=rf'$Q_{{\rm target}}={quality}$')
     ax[0].set(xlim=(905, 955), ylim=(-.03, 1.48), yticks=np.linspace(0,1,6), xlabel='Wavelength (nm)',
-              ylabel='Transmittance', title='(a) Transmission spectra')
-    ax[0].legend(frameon=False, fontsize=8, loc='upper right')
+              ylabel='Transmittance')
+    ax[0].legend(frameon=False, fontsize=11, loc='upper right')
     inset = ax[0].inset_axes([.03, .74, .43, .25])
-    inset.set(xlim=(-.65, .65), ylim=(-.18, .73))
-    inset.add_patch(Rectangle((-.65, 0), 1.3, .17, facecolor='#8bb4c5', edgecolor='#285b70'))
-    for x in (-1, 0, 1):
-        inset.add_patch(Rectangle((x-.33, .17), .66, .20, facecolor='#8bb4c5', edgecolor='#285b70'))
-    inset.text(0, .06, '$n=2$', ha='center', va='center', fontsize=8)
-    inset.text(-.58, .51, 'air', fontsize=8)
+    inset.set(xlim=(-.56, .56), ylim=(-.22, .73))
+    # One period, with a single material outline and no ridge/slab interface.
+    inset.add_patch(Polygon([(-.5,0),(.5,0),(.5,.17),(.33,.17),
+                             (.33,.37),(-.33,.37),(-.33,.17),(-.5,.17)],
+                            closed=True, facecolor='#8bb4c5', edgecolor='#285b70'))
+    inset.text(0, .08, '$n=2$', ha='center', va='center', fontsize=10)
+    inset.text(-.48, .51, 'air', fontsize=10)
     inset.annotate('', xy=(.10,.40), xytext=(.10,.72), arrowprops={'arrowstyle':'->','lw':1})
     inset.annotate('', xy=(.50,-.08), xytext=(-.50,-.08), arrowprops={'arrowstyle':'<->','lw':.8})
-    inset.text(0, -.11, '$a$', va='top', ha='center', fontsize=8)
+    inset.text(0, -.11, '$a$', va='top', ha='center', fontsize=10)
     inset.axis('off')
-    for axis, target, verified, title, xlabel, ylabel in (
-        (ax[1], target_width, verified_width, '(b) Linewidth specification', 'Target linewidth (THz)', 'Verified linewidth (THz)'),
-        (ax[2], target_delay, verified_delay, '(c) Group-delay specification', 'Pole-implied target delay (fs)', 'Verified group delay (fs)'),
+    for axis, target, verified, xlabel, ylabel in (
+        (ax[1], target_width, verified_width, 'Target linewidth (THz)', 'Verified linewidth (THz)'),
+        (ax[2], target_delay, verified_delay, 'Pole-implied target delay (fs)', 'Verified group delay (fs)'),
     ):
         bounds = (min(target.min(), verified.min())*.78, max(target.max(), verified.max())*1.25)
-        axis.loglog(bounds, bounds, '--', color='.5', lw=1.2, label='Target = verified')
+        axis.loglog(bounds, bounds, '--', color='.5', lw=1.2, label='Target')
         axis.loglog(target, verified, 'o', color='#246c94', ms=6, label='RCWA verification')
-        axis.set(xlim=bounds, ylim=bounds, title=title, xlabel=xlabel, ylabel=ylabel)
-        axis.legend(frameon=False, fontsize=8, loc='upper left')
+        axis.set(xlim=bounds, ylim=bounds, xlabel=xlabel, ylabel=ylabel)
+        axis.legend(frameon=False, fontsize=11, loc='upper left')
         axis.grid(which='major', alpha=.16)
+    for axis, letter in zip(ax, ('a', 'b', 'c')):
+        axis.set_title(f'({letter})', loc='left', fontsize=14)
+        axis.xaxis.label.set_size(12)
+        axis.yaxis.label.set_size(12)
+        axis.tick_params(axis='both', which='both', labelsize=11,
+                         top=False, right=False, labeltop=False, labelright=False)
+        for spine in axis.spines.values():
+            spine.set_visible(True)
     fig.savefig(output/'gmr_family.pdf')
     fig.savefig(output/'gmr_family.png', dpi=220)
     plt.close(fig)
