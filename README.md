@@ -1,165 +1,89 @@
 # Metasurface pole-zero design
 
-Simulation source accompanying **Inverse design of poles and zeros: tailoring phase control in metasurfaces**, including the main text and Supplementary Information (SI).
+Simulation source for *Inverse design of poles and zeros: tailoring phase control in metasurfaces*, including the main text and SI.
 
-This is a private collaboration repository, separate from the research workspace. It contains the selected simulation drivers, their required helper functions, the local 2D/3D FDFD engines, an independent 2D Fourier-modal solver, configurations, and essential design/initialization inputs. It does **not** contain research-history archives, intermediate run outputs, saved spectra, manuscript PDFs, cloud credentials, or unrelated device studies.
+The collection includes final-study drivers, required numerical helpers, home-built 2D/3D FDFD engines, corrected RCWA verification, and portable FDTD setups. Frozen geometries, starting coordinates, and material tables are necessary inputs. Trial outputs, superseded studies, credentials, and cloud-result archives are excluded from the current tree. The repository remains private until the authors authorize publication.
 
-## Installation and checks
+## Installation
 
-Use Python 3.12 or newer, from the repository root:
+Use Python 3.12 from the repository root:
 
 ```bash
 python -m venv .venv
-# Linux/macOS: source .venv/bin/activate
-# Windows PowerShell: .venv\Scripts\Activate.ps1
+# Activate .venv using the command appropriate to your shell.
 python -m pip install -e ".[test]"
 python check_installation.py
 python -m pytest -q
+python check_release.py
 ```
 
-The local preparation was checked with Python 3.12, NumPy 2.4.6, SciPy 1.18.1, and Matplotlib 3.11.1. `requirements-tested.txt` records the tested numerical stack. A compatible installation does not require reproducing the original Windows environment. Floating-point solver/BLAS differences can change an optimization trajectory; independently replay the frozen final geometry to distinguish this from electromagnetic differences.
+For FDTD only, install `python -m pip install -e ".[fdtd]"`. Tidy3D is an optional external solver. No AWS account is required for FDFD: AWS was an execution environment, not an algorithm dependency. The fine-grid benchmark and 3D calculations require substantially more memory than the tests. Set `OPENBLAS_NUM_THREADS=1` and `OMP_NUM_THREADS=1` when scheduling jobs to avoid oversubscription.
 
-The preparation checks cover imports, bundled input paths, 2D/3D engine tests, final-grid compatibility, parametric geometry decoding, and an FP adjoint finite-difference audit. They are **not** a fresh rerun of every production optimization, mesh sweep, or cloud calculation.
+`requirements-tested.txt` records the numerical environment. Sparse-solver and floating-point differences can change optimization trajectories; replay the frozen geometry to distinguish optimizer variation from electromagnetic differences. See [VALIDATION.md](VALIDATION.md) for actual release checks.
 
-## What to run
+## Manuscript-to-code map
 
-`python reproduce.py CASE` prints the exact command without launching a solve. Add `--run` to execute. Always run commands from this repository's root. Most drivers require a new output directory; do not overwrite another run. `--output` changes only that case's destination, not the paths used by downstream cases.
+`python reproduce.py CASE` prints a command; append `--run` to execute. Run from this repository root. Outputs belong in ignored `runs/` directories. An output override does not update downstream input paths.
 
-| Manuscript result | Named cases | Inputs and validation |
-| --- | --- | --- |
-| Main-text binary GMR family and delay | `gmr-replay`, or the GMR design sequence below | Seven frozen geometries; fresh independent Fourier roots and responses |
-| Main-text matched-start GMR comparison | `gmr-benchmark` | Two reference designs, paired geometric offsets, six objectives; includes failed-start costs |
-| SI GMR numerical and sensitivity checks | `gmr-zero-delay`, `gmr-sensitivity`, `gmr-fields`, `gmr-mesh` | Fresh outputs from the GMR design sequence |
-| Single FP resonance, Q=50/100/200 | `fp-optimize` | Exact fine-grid optimization starts, fixed five-pair topology |
-| Single FP resonance, Q=400 | `fp-q400-optimize`, `fp-q400-verify` | The independently checked fine-grid Q400 design, not the superseded endpoint |
-| FP independent numerical checks | `fp-axial-mesh`, `fp-joint-mesh`, `fp-fourier`, `fp-solver-comparison` | Frozen physical geometries; joint FDFD and 27/35-harmonic comparisons |
-| Matched-start direct-transmission comparison | `fp-direct-control` | Requires newly generated `fp-optimize` outputs; no common-start pilot |
-| SI synthetic perturbations | `fp-robustness` | Corrected fixed-thickness index perturbation, 48 draws per Q |
-| High-index continuous surface | `high-index-continuous` | Continuous density optimization and final-grid replay |
-| High-index binary surface | `high-index-binary` | Necessary continuation seed only; final N64/72/80/88 grids |
-| Low-index connected binary surface | `low-index-binary` | Necessary density seed only; final N32/40/48/56 grids |
-| SI continuous qBIC and failed binarization | `qbic`, `qbic-binary-negative-control` | Run the continuous case first; the binary result is a reported negative control, not a validated binary design |
-| Planar HCG | `planar-hcg` | Five physical interface coordinates, prescribed singularities |
-| PCM HCG | `pcm-optimize`, `pcm-mesh`, `pcm-roots` | Final geometry and lossless effective-medium material model |
-| SI PCM sensitivity and rectangular alternative | `pcm-material-sensitivity`, `pcm-rectangular-optimize`, `pcm-rectangular-mesh` | Alternative mixing/loss assumptions and equal-width geometry |
-| SI 3D nanodisk | `disk-smooth-roots`, `disk-adjoint`, `disk-optimize`, `disk-forward` | Smooth-interface inverse design and distinct physical-cylinder replay |
-| SI independent nanodisk FDTD | `disk-fdtd` (instructions below) | Optional Tidy3D source; requires a separate account and paid compute |
+| Paper result | Entry points | Scope |
+|---|---|---|
+| Sec. 3 / Fig. 1: seven GMRs | `gmr-replay` | Corrected Li-factorized RCWA poles, spectra, Q, and delay from frozen geometries |
+| Sec. 3 / Fig. 1 and SI benchmark | `gmr-benchmark` | 384 × 1280 grid; Q targets 200/800; 12 paired starts; pole, 3-transmission-sample, and 5-transmission-sample objectives |
+| Sec. 4.2–4.3 / Fig. 2 | `high-index-continuous`, `high-index-binary`, `low-index-binary` | Optimization and final grids, including SI convergence meshes |
+| Fig. 2 Hy maps | `scripts.freeform_modes` | Fresh parity-pole refinement and mode extraction |
+| Sec. 4.4 / Fig. 3 | `planar-hcg`; `scripts.replay_planar_hcg` | Passive HCG optimization and frozen-interface replay |
+| Sec. 4.5 / Fig. 4 and SI | `pcm-rectangular-optimize`, `pcm-rectangular-mesh`; `scripts.pcm_spectra` | Rectangular PCM pair only; 501 states; selected-state spectra; meshes 24/32/40/48 |
+| Sec. 5 / Fig. 5 and SI | `ipdip-optimize`, `ipdip-replay` | Connected 200-nm-feature IP-Dip TM design; measured material loss |
+| SI qBIC and binarization limitation | `qbic`, then `qbic-binary-negative-control` | Negative control retained because it is a reported SI result |
+| SI 3D disk | `disk-smooth-roots`, `disk-adjoint`, `disk-optimize`, `disk-forward` | Smooth-interface inverse design and physical-cylinder replay |
+| SI GMR checks | `gmr-sensitivity`, `gmr-fields`, `gmr-mesh`, `gmr-delay` | Dependencies specified in each configuration |
+| Independent FDTD | `scripts.fdtd_validation`; `disk-fdtd` | Final 2D setups and separate 3D disk driver |
 
-Source module names retain their original identifiers to avoid breaking imports and make scientific provenance auditable. Earlier modules under `scripts/` contain **only the helper definitions needed by these final drivers**, not executable exploratory studies. `source_manifest.json` records source hashes and roles. Configurations have been flattened so no inherited campaign configuration is required. Necessary starting densities are numerical initial conditions, not an archive of intermediate runs.
-
-### Main-text GMR reproduction
-
-For independent verification of the final seven geometries, run `python reproduce.py gmr-replay --run`. This performs fresh Fourier-modal solves; supplied root coordinates are root-finder seeds, not saved spectra. For the complete matched-start comparison, run `python reproduce.py gmr-benchmark --run`. It regenerates reference responses and runs all six objectives at target Q200 and Q800 from the same twelve paired physical offsets. Shared reference characterization is reported separately from method-specific FDFD work; all failed attempts are included in the latter. Fourier work is counted separately.
-
-To recreate the design and validation sequence:
+Direct module examples:
 
 ```bash
-python reproduce.py gmr-adjoint --run
-python reproduce.py gmr-correction --run
-python reproduce.py gmr-q3200 --run
-python reproduce.py gmr-family --run
-python reproduce.py gmr-zero-delay --run
-python reproduce.py gmr-sensitivity --run
-python reproduce.py gmr-fields --run
-python reproduce.py gmr-mesh --run
-python reproduce.py gmr-delay --run
-python reproduce.py gmr-benchmark --run
-python -m scripts.plot_gmr_publication --family runs/gmr_family/summary.json --delay runs/gmr_delay/summary.json --cost runs/gmr_benchmark/cost_table.csv --output runs/gmr_figures
+python -m scripts.ipdip_replay --mesh 96 --wavelengths 5 --output runs/ipdip-spot
+python -m scripts.ipdip_material_fit --output runs/ipdip-fit
+python -m scripts.freeform_modes high_index_continuous --output runs/modes
+python -m scripts.replay_planar_hcg --output runs/hcg-replay
+python -m scripts.pcm_spectra --output runs/pcm-spectra
+python -m scripts.replay_final_2d high_index_binary --mesh 88 --k-min 7 --k-max 9 --points 241 --output runs/high-binary-replay
 ```
 
-Figure 1 compares RCWA linewidths and transmission group delays with targets derived from the prescribed poles, not the fitted final poles. Linewidth is the full pole linewidth in ordinary frequency, `c*abs(Im(p))/pi`, not an asymmetric-notch FWHM. The delay target is the isolated-pole scale `1/(5*c*gamma_target)` for the common normalized operating detuning of minus two pole depths; this detuning was chosen after the design calculations. Add `--recompute-spectra` to the plotting command to regenerate the three exemplar spectra over a common wavelength window at harmonic half-width 81. The comparison panels use the half-width-101 verification. Omitting `--cost` regenerates only Figure 1. Dense linear-algebra threading can dominate these small RCWA systems; setting `OPENBLAS_NUM_THREADS=1` before launching Python can reduce overhead.
+Freeform cases are `high_index_continuous`, `high_index_binary`, `low_index_binary`, and `qbic`. The binary finest meshes are 88 and 56, respectively. Choose the paper's frequency interval when computing band metrics. Frequencies in rad/µm denote k = ω/c, not angular frequency in s⁻¹.
 
-The design sequence includes outer Fourier-based pole correction and final period polishing in addition to FDFD adjoint optimization. The sensitivity test uses the corrected geometries before period polishing, as described in SI. The independent replay is sufficient for frozen-device checks and does not establish optimization costs. A short execution check can use `python -m scripts.gmr_reproduce --config configs/gmr_benchmark.json --quality 800 --starts-limit 1 --methods pole direct3_physical --output runs/gmr_smoke`; this subset is not the publication benchmark.
+For IP-Dip, omit `--wavelengths` for the full spectrum. Meshes 32/48/64/96 reproduce the SI comparison; 128 uses nine sentinel wavelengths. Real-frequency spectra interpolate measured n,k directly; the Lorentz fit is for complex-frequency optimization. The optimizer preserves the original contour projection, connectivity checks, protected regions, and acceptance guards. These are geometric checks, not a mechanical buckling simulation. Nominal target poles are not independently extracted poles of the final lossy structure.
 
-Only the selected initial coordinates, final device definitions, reference/root seeds, and paired starting offsets are bundled. No screening sweep or archived optimization outputs are included. The benchmark wrapper replaces dependencies on intermediate research summaries with these minimal inputs and retained numerical helper functions. Numerical-library differences can alter optimization trajectories. The Q800 advantage is case-specific: the Q200 direct three-point control recovers more qualified designs than pole-only targeting. Synthetic subnanometer perturbations are sensitivity diagnostics, not fabrication-yield predictions. Coarse-FDFD versus Fourier pole differences are disclosed in SI; final-family validation uses Fourier refinement.
+## GMR design versus verification
 
-### SI Fabry--Perot reproduction order
+The shortest verification path is `gmr-replay`. Bundled root values are search seeds; Maxwell responses are recomputed.
+
+To reproduce geometry design, run `gmr-adjoint`, `gmr-correction`, `gmr-q3200`, and `gmr-family`, in that order. The historical outer correction and period alignment used an earlier TM modal operator. It is retained as `src/pzid/rcwa2d_design_legacy.py` only because it generated the physical geometries. Published verification uses the corrected `src/pzid/rcwa2d.py`. The `gmr-family` output is historical design output, not corrected verification. Afterwards run `gmr-replay`; this does not silently reoptimize the geometries.
+
+`gmr-benchmark` regenerates common fine-grid reference targets and runs all 72 optimizations. For a subset, invoke `scripts.gmr_reproduce` with `--config configs/gmr_benchmark.json --quality 200 --starts-limit 1 --methods pole --output runs/benchmark-check`. Even one attempt is costly. A subset is not the full comparison.
+
+Costs include unsuccessful attempts, objectives, direct-target generation/updates, real-frequency recentering, final FDFD root extraction, and shared reference characterization once per method. RCWA evaluations are separate. Fresh reference refinement may take a different number of preparation evaluations than the original pilot; trajectories and wall times may also vary. Budgets, paired starts, and qualification criteria are preserved, not bitwise-identical iteration histories.
+
+## Independent FDTD
+
+`inputs/fdtd/*.hdf5` are Simulation definitions only: geometry/material arrays, grid, sources, boundaries, monitors, and runtime. They are not fields, results, cloud jobs, or credentials. `configs/fdtd_validation.json` pairs each device with its empty reference.
 
 ```bash
-python reproduce.py fp-optimize --run
-python reproduce.py fp-q400-optimize --run
-python reproduce.py fp-axial-mesh --run
-python reproduce.py fp-joint-mesh --run
-python reproduce.py fp-fourier --run
-python reproduce.py fp-solver-comparison --run
-python reproduce.py fp-q400-verify --run
-python reproduce.py fp-direct-control --run
-python reproduce.py fp-robustness --run
-python -m scripts.equal_information_control
-python -m scripts.m160_validated_q_delay_sampling
-python -m scripts.m161_compare_fine_adjoint_costs
+python -m scripts.fdtd_validation ipdip --action inspect --output runs/fdtd-ipdip
+python -m scripts.fdtd_validation ipdip --action estimate --output runs/fdtd-ipdip
+# Review the quote, then substitute an explicitly approved total:
+python -m scripts.fdtd_validation ipdip --action run --max-cost APPROVED_TOTAL --output runs/fdtd-ipdip
+python -m scripts.fdtd_validation ipdip --action analyze --output runs/fdtd-ipdip
 ```
 
-For a much shorter derivative check:
+`inspect` is local. `estimate` uploads non-running drafts using the reader's account. `run` requires the saved quote, unchanged setup hashes, and an explicit total FlexCredit ceiling. Never commit quotes or results. Cases: `high-continuous`, `high-binary`, `low-binary`, `planar-hcg`, `ipdip`, `pcm-alpha0/03/06/09/1`.
 
-```bash
-python reproduce.py fp-optimize --preflight-only --run --output runs/fp_gradient_check
-```
+The continuous-high-index validation uses the SI validation geometry, not the main-text optimization endpoint. The low-index setup includes periodic contour continuation and the final long ringdown. IP-Dip uses the final stable absorber boundaries, not earlier unstable PML controls.
 
-For fresh electromagnetic verification of a final FP geometry without optimization:
+For the 3D disk, inspect `python -m scripts.m37_tidy3d_forward --help` and its configuration. Estimate/run switches are explicit; `reproduce.py` refuses cloud execution. The paper uses the 17.5-nm uniform-grid result.
 
-```bash
-python -m scripts.replay_fp --quality 100 --output runs/fp_q100_replay
-```
+## License and provenance
 
-Replay outputs are intentionally separate from optimization outputs: a replay cannot establish optimization cost. The SI equal-information model comparison uses only Q100 and Q200; it does not reproduce discarded cross-geometry pilot studies.
+Original code uses the [MIT license](LICENSE). Material data and dependencies have separate attribution in [THIRD_PARTY.md](THIRD_PARTY.md). Cite the accompanying manuscript and repository; [CITATION.cff](CITATION.cff) provides software metadata.
 
-### Final freeform and HCG geometry replay
-
-The numerical permittivity arrays in `inputs/final_permittivity/` are final device definitions, not saved electromagnetic solutions. Every replay performs new Maxwell solves. For example:
-
-```bash
-python -m scripts.replay_final_2d high_index_continuous --k-min 6.9330725 --k-max 8.8829665 --points 241 --output runs/high_index_replay
-python -m scripts.replay_final_2d high_index_binary --mesh 80 --k-min 6.9330725 --k-max 8.8829665 --points 241 --output runs/high_binary_replay
-python -m scripts.replay_planar_hcg --output runs/planar_hcg_replay
-python reproduce.py pcm-mesh --run
-python reproduce.py pcm-mesh-coarse --run
-python reproduce.py pcm-mesh-intermediate --run
-python reproduce.py pcm-spectra --run
-python reproduce.py pcm-material-sensitivity --run
-python reproduce.py pcm-rectangular-mesh --run
-```
-
-For low-index/qBIC replay, choose the frequency window specified in the manuscript and corresponding configuration. `k` is angular frequency divided by vacuum light speed, in rad/µm; lengths are µm. Replay exports both raw and empty-cell-de-embedded phase. Use **raw S21 phase for qBIC**, and the manuscript's de-embedding convention for the high-/low-index surfaces. Do not compare full-window and restricted-window phase spans interchangeably.
-
-The qBIC full replay window is 4.323489–4.346749 rad/µm (1201 points). The low-index ±3 target-depth window is approximately 13.207054–15.608987 rad/µm (241 points). After rerunning the qBIC binary negative control, its independent pole census is available through `python -m scripts.m27e_audit_hard_binary_pole_census --help`.
-
-PCM verification uses the bundled final physical coordinates, so it does not require first repeating optimization. To verify a newly optimized geometry instead, change the relevant config's `stage_summary` (or `m140_stage_summary`) to that run's newly generated final-stage JSON. The same distinction applies to the bundled planar-HCG geometry used to initialize the PCM design.
-
-The original coarse PCM sweep uses 501 states at N24/32/40/48; the intermediate N40/48/56/64 sweep and fine N72/80 sweep use 301 states. The SI caption distinguishes these sampling conventions.
-
-### Three-dimensional reproduction
-
-Run `disk-smooth-roots`, then `disk-adjoint`, then `disk-optimize`. To independently verify that newly optimized smooth design:
-
-```bash
-python -m scripts.m37_huygens_verify --config configs/m37d_huygens_inverse_coarse.json --design runs/disk_optimize/design.npz --output runs/disk_inverse_verification
-```
-
-`disk-forward` is the physical cylinder on the N30 FDFD grid, not the smooth-interface inverse-design surrogate. These vector sparse solves can require substantial RAM and runtime. Small-grid engine tests are not substitutes for the production mesh checks.
-
-Optional independent FDTD requires `python -m pip install -e ".[fdtd]"` and the reader's own Tidy3D authentication. No account, key, task download, or precomputed field file is included. The wrapper refuses cloud execution. Explicitly inspect the source and obtain a cost estimate before opting into a run:
-
-```bash
-python -m scripts.m37_tidy3d_forward --config configs/m38b_tidy3d_mesh_convergence.json --output runs/disk_fdtd --batch-estimate
-# The following launches paid cloud simulations; run only after reviewing cost:
-python -m scripts.m37_tidy3d_forward --config configs/m38b_tidy3d_mesh_convergence.json --output runs/disk_fdtd --batch-run
-python -m scripts.m37_tidy3d_forward --config configs/m38b_tidy3d_mesh_convergence.json --output runs/disk_fdtd --batch-analyze
-```
-
-The estimate step uploads simulation definitions to the provider. No cloud calculation was launched while preparing this repository.
-
-## Scientific scope
-
-Reproducibility does not upgrade the manuscript's validation status. In particular:
-
-- High-index binary optical stability is not exact recovery of all prescribed singularities.
-- The qBIC is a continuous-index feasibility example, not a successfully binarized device.
-- The planar HCG remains a feasibility result at its stated mesh.
-- PCM assumes idealized homogeneous, lossless intermediate material states; artificial-loss tests are not measured material data.
-- The 3D disk comparison uses FDFD and FDTD at the mesh resolutions reported in the SI. Smooth-interface inverse-design recovery and physical-cylinder replay are distinct calculations.
-- Device-specific FP solve counts do not demonstrate universal algorithmic superiority.
-
-## Sharing and licensing
-
-Keep this repository private until the authors approve release. No collaborators are invited automatically. A public-release license has not yet been selected; no open-source license grant is implied by this preparation. NumPy, SciPy, Matplotlib, pytest, and optional Tidy3D are installed dependencies, not vendored third-party source.
+Stable numerical helper filenames retain research identifiers for traceability; they do not signify additional studies. The FP/grating study, stepped-PCM results, and superseded benchmark objectives are removed from the current tree. Git history is retained for recovery, not rewritten.

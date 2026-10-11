@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript and this simulation repository."
+title: "Inverse design of poles and zeros: tailoring phase control in metasurfaces — simulation code"
+type: software
+authors:
+  - family-names: Hu
+    given-names: Juejun
+    affiliation: Massachusetts Institute of Technology
+repository-code: "https://github.com/hujuejun/metasurface-pole-zero-design"
+license: MIT
+version: 0.2.0

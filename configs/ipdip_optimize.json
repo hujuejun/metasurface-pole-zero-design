@@ -1,0 +1,44 @@
+{
+  "source_config": "configs/ipdip_geometry.json",
+  "parent_geometry": "inputs/ipdip/seed_geometry.npz",
+  "parent_summary": "inputs/ipdip/dimensions.json",
+  "material_model": "inputs/ipdip/material_model.json",
+  "minimum_solid_and_air_feature_um": 0.2,
+  "minimum_load_bearing_neck_um": 0.3,
+  "contour_refinement": 16,
+  "opposite_gap_rows": [
+    99,
+    111
+  ],
+  "protected_neck_rows": [
+    82,
+    89
+  ],
+  "target_pole_imag_native": -1.2,
+  "reflection_offsets_in_huygens_depths": [
+    -0.5,
+    -0.25,
+    0.25,
+    0.5
+  ],
+  "reflection_weight": 0.25,
+  "absorptance_weight": 0.35,
+  "pole_residual_guard": 0.25,
+  "maximum_background_reflectance": 0.05,
+  "maximum_center_absorptance": 0.3167,
+  "minimum_center_T_gain_per_step": 0.001,
+  "maximum_accepted_steps": 8,
+  "group_sizes": [
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "group_density_steps": [
+    0.16,
+    0.32,
+    0.5
+  ],
+  "nonmaximum_site_distance_cells": 3
+}

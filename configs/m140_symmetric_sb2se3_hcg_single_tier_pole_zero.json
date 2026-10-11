@@ -1,7 +1,7 @@
 {
   "purpose": "Pole/zero-adjoint recovery after exact equal-width collapse to one rectangular Sb2Se3 bar per mirror-related HCG",
   "m117_config": "configs/m123_symmetric_sb2se3_hcg_scaled_1550_material.json",
-  "seed_stage_summary": "inputs/pcm_geometry.json",
+  "seed_stage_summary": "inputs/pcm_rectangular_seed.json",
   "cells_per_period": 24,
   "wavelength_um": 1.55,
   "pole_anchor": {

@@ -103,6 +103,10 @@ def _compact_fit(omega: np.ndarray, t: np.ndarray, pole: complex,
 
 
 def main() -> None:
+    # Reproduce the historical design loop, not the corrected verification.
+    # Imported _solver/_pole helpers otherwise use the corrected RCWA operator.
+    global solve_tm_stack
+    from pzid.rcwa2d_design_legacy import solve_tm_stack
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, default=Path("configs/m166_gmr_high_fidelity_analysis.json"))
     parser.add_argument("--output", type=Path, default=Path("runs/m166_gmr_high_fidelity_analysis"))

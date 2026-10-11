@@ -5,19 +5,19 @@ import argparse
 import csv
 import hashlib
 import json
+import time
 from pathlib import Path
 
 import numpy as np
 
 from pzid.roots import refine_scalar_root
-from scripts.m164_gmr_pole_adjoint import build_setup, physical_epsilon_and_derivatives
+from scripts.m164_gmr_pole_adjoint import channel_transmission, physical_epsilon_and_derivatives
 from scripts.m166_gmr_high_fidelity_analysis import _solver
 from scripts.m175_gmr_moderate_transmission_delay import phase_delay
 from scripts.m177_gmr_preregistered_cost_benchmark import (
-    as_complex, reference_preparation, run_method,
+    as_complex, run_method,
 )
-from scripts.m179_gmr_pole_plus_background_cost import prepare as prepare_background, run_trial as run_background
-from scripts.m183_gmr_physical_operating_direct_controls import prepare_method, run_trial as run_physical
+from scripts.m189_gmr_single_fine_grid_cost_rerun import setup_for_quality
 
 
 def read(path):
@@ -52,7 +52,15 @@ def physical_reference(row, physics, operating=None):
     moderate = {"operating_frequency_rad_per_um": frequency,
                 "held_out": {"T": float(abs(center.transmission)**2),
                              "delay_fs": phase_delay(response, frequency, 0.01 * gamma)}}
-    result["achieved_quality_factor"] = float(pole.real / (2 * gamma))
+    held_out = as_complex(result["held_out_pole"])
+    result["achieved_quality_factor"] = float(held_out.real / (-2 * held_out.imag))
+    zero_response = _solver(physics, row["slab_thickness_um"], row["ridge_height_um"], row["final_period_um"], 81)
+    zero = refine_scalar_root(lambda k: zero_response(k).transmission, complex(pole.real),
+                              kind="zero", tolerance=1e-10, max_evaluations=100,
+                              search_radius=max(0.08,10*gamma))
+    if zero.residual_norm > 1e-6:
+        raise RuntimeError("Reference transmission zero refinement failed")
+    result["channel_zero"] = complex_record(zero.frequency)
     result["moderate_transmission"] = moderate
     return result, moderate
 
@@ -71,13 +79,52 @@ def summarize(case):
     return rows
 
 
+def reference_preparation(item, mesh_plan, reference, protocol, base):
+    """Characterize the fixed reference on the published 384 x 1280 grid."""
+    config, setup = setup_for_quality(reference["quality_target"], mesh_plan, base, reference)
+    coordinates = np.array([reference["slab_thickness_um"], reference["ridge_height_um"]])
+    epsilon, _ = physical_epsilon_and_derivatives(coordinates, config, setup)
+    count = 0
+    def transmission(k):
+        nonlocal count
+        count += 1
+        return channel_transmission(k, epsilon, setup)
+    began = time.perf_counter()
+    seed = as_complex(item["fdfd_pole_seed"])
+    root = refine_scalar_root(transmission, seed, kind="pole", tolerance=1e-10,
+                              max_evaluations=80, search_radius=max(0.1, 15*abs(seed.imag)))
+    if root.residual_norm > 1e-6 or root.frequency.imag >= 0:
+        raise RuntimeError("Fine-grid reference pole refinement failed")
+    prep = {"reference_fdfd_pole": complex_record(root.frequency),
+            "reference_pole_root_evaluations": count,
+            "reference_pole_preparation_wall_seconds": time.perf_counter()-began,
+            "reference_geometry_slab_ridge_um": coordinates.tolist(),
+            "reference_geometry_period_um": float(config["period_um"]),
+            "reference_h81_pole": reference["channel_pole"],
+            "reference_h101_pole": reference["held_out_pole"],
+            "mesh": {"nx": setup.grid.nx, "nz": setup.grid.nz},
+            "direct_target_preparation": {}}
+    for method in ("direct3", "direct5"):
+        offsets = np.array(protocol["methods"][method]["sample_offsets_in_reference_pole_depths"])
+        frequencies = root.frequency.real + offsets*abs(root.frequency.imag)
+        began = time.perf_counter()
+        values = [channel_transmission(float(k), epsilon, setup) for k in frequencies]
+        prep["direct_target_preparation"][method] = {
+            "sample_frequencies": frequencies.tolist(),
+            "sample_targets": [complex_record(v) for v in values],
+            "offsets_in_reference_pole_depths": offsets.tolist(),
+            "preparation_fdfd_frequency_factorizations": len(values),
+            "preparation_wall_seconds": time.perf_counter()-began}
+    return prep, config, setup, coordinates
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=Path("configs/gmr_replay.json"))
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--quality", type=int)
     parser.add_argument("--starts-limit", type=int, help="Short implementation check only; omit for final comparison")
-    parser.add_argument("--methods", nargs="+", help="Subset for checks only; omit for the six-method comparison")
+    parser.add_argument("--methods", nargs="+", choices=["pole", "direct3", "direct5"], help="Subset for checks only")
     args = parser.parse_args()
     plan = read(args.config)
     physics = read("configs/m166_gmr_high_fidelity_analysis.json")
@@ -88,8 +135,9 @@ def main():
          "script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
          "subset_check": args.starts_limit is not None or args.methods is not None})
     result = {"cases": []}
-    for item in read(inputs_path)["cases"]:
-        quality = item["quality_target"]
+    mesh_plan = read(inputs_path)
+    for item in mesh_plan["cases"]:
+        quality = item.get("quality_target", item.get("reference", {}).get("quality_target"))
         if args.quality is not None and quality != args.quality:
             continue
         if plan["mode"] == "replay":
@@ -106,27 +154,16 @@ def main():
             continue
 
         base = read("configs/m164_gmr_pole_adjoint.json")
-        protocol = read("configs/m177_gmr_preregistered_cost_benchmark.json")
-        supplement = read("configs/m179_gmr_pole_plus_background_cost.json")
-        physical_protocol = dict(protocol)
-        physical_protocol.update({k: v for k, v in read("configs/m183_gmr_physical_operating_direct_controls.json").items()
-                                  if k in ("methods", "physical_delay_bracket_in_h101_pole_depths")})
+        protocol = read("configs/gmr_benchmark_protocol.json")
         reference, moderate = physical_reference(item["reference"], physics, item["operating_frequency_rad_per_um"])
-        seed = {"meshes": [{"transmission_channel_pole": item["fdfd_pole_seed"]}]}
-        prep, config, setup, coordinates = reference_preparation(quality, reference, seed, protocol, base, physics)
+        prep, config, setup, coordinates = reference_preparation(item, mesh_plan, reference, protocol, base)
         target = as_complex(prep["reference_fdfd_pole"])
-        epsilon, _ = physical_epsilon_and_derivatives(coordinates, config, setup)
-        background, _, _ = prepare_background({"reference_preparation": prep,
-            "shared_screen_start_coordinates_um": item["normalization_start"]}, reference, base, supplement)
-        pinned = {m: prepare_method(m, epsilon, setup, target, reference, moderate, physical_protocol)
-                  for m in ("direct3_physical", "direct5_physical_delay")}
-        methods = args.methods or ["pole", "direct3", "direct5", "pole+background", "direct3_physical", "direct5_physical_delay"]
-        preparation_counts = {"pole": 0, "pole+background": 3, "direct3": 3, "direct5": 5,
-                              "direct3_physical": 3, "direct5_physical_delay": 5}
+        methods = args.methods or mesh_plan["methods"]
+        shared = prep["reference_pole_root_evaluations"]
+        preparation_counts = {"pole": shared, "direct3": shared+3, "direct5": shared+5}
         bounds = (np.asarray((config["slab_thickness_bounds_um"][0], config["ridge_height_bounds_um"][0])),
                   np.asarray((config["slab_thickness_bounds_um"][1], config["ridge_height_bounds_um"][1])))
         case = {"quality_target": quality, "reference_preparation": prep,
-                "background_preparation": background, "pinned_preparation": pinned,
                 "shared_reference_pole_preparation_factorizations": prep["reference_pole_root_evaluations"],
                 "preparation_factorizations": {m: preparation_counts[m] for m in methods}, "trials": []}
         result["cases"].append(case)
@@ -138,16 +175,8 @@ def main():
             trial = {"start_index": index, "start_coordinates_um": start.tolist(), "methods": {}}
             case["trials"].append(trial)
             for method in order:
-                if method in ("pole", "direct3", "direct5"):
-                    record = run_method(method, start, target, reference, moderate, coordinates, prep,
-                                        config, setup, physics, bounds, protocol)
-                elif method == "pole+background":
-                    record = run_background(start, background, config, setup, reference, moderate, physics, protocol, supplement)
-                elif method in pinned:
-                    record = run_physical(method, start, pinned[method], target, reference, moderate,
-                                          epsilon, config, setup, physics, bounds, physical_protocol)
-                else:
-                    raise ValueError(f"Unknown method {method}")
+                record = run_method(method, start, target, reference, moderate, coordinates, prep,
+                                    config, setup, physics, bounds, protocol)
                 trial["methods"][method] = record
                 save(args.output / "summary.json", result)
                 rows = [row for c in result["cases"] for row in summarize(c)]

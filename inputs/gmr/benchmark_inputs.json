@@ -1,7 +1,20 @@
 {
+  "lateral_cells": 384,
+  "reference_lateral_cells": 48,
+  "reference_axial_cell_size_um": 0.0067,
+  "reference_total_domain_um": 1.072,
+  "expected_axial_cells": 1280,
+  "quality_targets": [
+    200,
+    800
+  ],
+  "methods": [
+    "pole",
+    "direct3",
+    "direct5"
+  ],
   "cases": [
     {
-      "quality_target": 200,
       "reference": {
         "quality_target": 200,
         "target_pole": {
@@ -15,15 +28,16 @@
           "real": 6.770000525394409,
           "imag": -0.01823128344639511
         },
-        "channel_zero": {
-          "real": 6.776687839928222,
-          "imag": 4.578050380907466e-16
-        },
         "held_out_pole": {
           "real": 6.769872372389872,
           "imag": -0.018263822708249482
         }
       },
+      "fdfd_pole_seed": {
+        "real": 6.761479697475618,
+        "imag": -0.017904688990414613
+      },
+      "operating_frequency_rad_per_um": 6.732524650807853,
       "starts": [
         [
           0.0988,
@@ -73,19 +87,9 @@
           0.09475559423715615,
           0.09866167787767392
         ]
-      ],
-      "normalization_start": [
-        0.0988,
-        0.09390004541012127
-      ],
-      "fdfd_pole_seed": {
-        "real": 6.752225045104345,
-        "imag": -0.01770738804779129
-      },
-      "operating_frequency_rad_per_um": 6.7335379585016195
+      ]
     },
     {
-      "quality_target": 800,
       "reference": {
         "quality_target": 800,
         "target_pole": {
@@ -99,15 +103,16 @@
           "real": 6.770000156947598,
           "imag": -0.0043391246104931246
         },
-        "channel_zero": {
-          "real": 6.770883765988092,
-          "imag": -1.0965065262341688e-16
-        },
         "held_out_pole": {
           "real": 6.769943800785218,
           "imag": -0.004346488686791738
         }
       },
+      "fdfd_pole_seed": {
+        "real": 6.762713304141463,
+        "imag": -0.00427566273390786
+      },
+      "operating_frequency_rad_per_um": 6.760943432649059,
       "starts": [
         [
           0.11223160503251622,
@@ -157,16 +162,7 @@
           0.10818719926967238,
           0.04738796515962653
         ]
-      ],
-      "normalization_start": [
-        0.0988,
-        0.05710367994977486
-      ],
-      "fdfd_pole_seed": {
-        "real": 6.748295930422431,
-        "imag": -0.004197855340871284
-      },
-      "operating_frequency_rad_per_um": 6.761321907726612
+      ]
     }
   ]
 }

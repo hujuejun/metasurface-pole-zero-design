@@ -1,14 +1,8 @@
+"""Shared numerical definitions required by the published studies."""
 from __future__ import annotations
-
 import numpy as np
 
-def _best_high_transmission_segment(
-    omega: np.ndarray,
-    transmission: np.ndarray,
-    transmittance: np.ndarray,
-    threshold: float,
-    minimum_points: int,
-) -> dict[str, float]:
+def _best_high_transmission_segment(omega: np.ndarray, transmission: np.ndarray, transmittance: np.ndarray, threshold: float, minimum_points: int) -> dict[str, float]:
     order = np.argsort(omega)
     ordered_omega = omega[order]
     ordered_t = transmission[order]
@@ -22,23 +16,7 @@ def _best_high_transmission_segment(
             continue
         local_phase = phase[start:stop]
         local_power = ordered_power[start:stop]
-        records.append(
-            {
-                "phase_span_pi": float(np.ptp(local_phase) / np.pi),
-                "minimum_transmittance": float(np.min(local_power)),
-                "maximum_reflectance": float(1.0 - np.min(local_power)),
-                "omega_min_rad_per_um": float(ordered_omega[start]),
-                "omega_max_rad_per_um": float(ordered_omega[stop - 1]),
-                "point_count": int(stop - start),
-            }
-        )
+        records.append({'phase_span_pi': float(np.ptp(local_phase) / np.pi), 'minimum_transmittance': float(np.min(local_power)), 'maximum_reflectance': float(1.0 - np.min(local_power)), 'omega_min_rad_per_um': float(ordered_omega[start]), 'omega_max_rad_per_um': float(ordered_omega[stop - 1]), 'point_count': int(stop - start)})
     if not records:
-        return {
-            "phase_span_pi": 0.0,
-            "minimum_transmittance": 0.0,
-            "maximum_reflectance": 1.0,
-            "omega_min_rad_per_um": float("nan"),
-            "omega_max_rad_per_um": float("nan"),
-            "point_count": 0,
-        }
-    return max(records, key=lambda item: item["phase_span_pi"])
+        return {'phase_span_pi': 0.0, 'minimum_transmittance': 0.0, 'maximum_reflectance': 1.0, 'omega_min_rad_per_um': float('nan'), 'omega_max_rad_per_um': float('nan'), 'point_count': 0}
+    return max(records, key=lambda item: item['phase_span_pi'])

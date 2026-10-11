@@ -9,6 +9,7 @@ Only nondispersive isotropic dielectric media are supported.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import Literal
 
 import numpy as np
 from scipy.linalg import eig, solve
@@ -84,16 +85,44 @@ def _outgoing_beta(beta_squared: np.ndarray) -> np.ndarray:
     return beta
 
 
-def _modes(omega: complex, layer: FourierLayer, transverse_k: np.ndarray) -> _Modes:
+def _modes(
+    omega: complex,
+    layer: FourierLayer,
+    transverse_k: np.ndarray,
+    *,
+    factorization: Literal["li", "legacy"] = "li",
+) -> _Modes:
     epsilon = np.asarray(layer.epsilon, dtype=complex)
     inverse_epsilon = np.asarray(layer.inverse_epsilon, dtype=complex)
     n = len(transverse_k)
     if epsilon.shape != (n, n) or inverse_epsilon.shape != (n, n):
         raise ValueError("Fourier layer matrix size does not match harmonic basis")
     k_matrix = np.diag(transverse_k)
-    beta_squared, w = eig(epsilon @ (omega**2 * np.eye(n) - k_matrix @ inverse_epsilon @ k_matrix))
+    if factorization == "li":
+        # In the lamellar TM problem, H_y and (1/epsilon) dH_y/dx are
+        # continuous at vertical material walls. Li's inverse rule therefore
+        # uses inv([[epsilon]]) for the normal-x flux. The tangential E_x
+        # coupling instead uses [[1/epsilon]] and its matrix inverse.
+        normal_flux = solve(epsilon, k_matrix, assume_a="gen")
+        beta_operator = solve(
+            inverse_epsilon,
+            omega**2 * np.eye(n) - k_matrix @ normal_flux,
+            assume_a="gen",
+        )
+    elif factorization == "legacy":
+        # Preserved solely for exact reproduction of pre-audit M153-M187 runs.
+        # It applies direct products at both TM discontinuities and converges
+        # slowly; do not use it as a high-accuracy reference.
+        beta_operator = epsilon @ (omega**2 * np.eye(n) - k_matrix @ inverse_epsilon @ k_matrix)
+    else:
+        raise ValueError("factorization must be 'li' or 'legacy'")
+    beta_squared, w = eig(beta_operator)
     beta = _outgoing_beta(beta_squared)
-    v = solve(epsilon, w * beta[None, :], assume_a="gen")
+    v = (
+        inverse_epsilon @ (w * beta[None, :])
+        if factorization == "li"
+        else solve(epsilon, w * beta[None, :], assume_a="gen")
+    )
     return _Modes(w, v, beta)
 
 
@@ -133,19 +162,25 @@ def solve_tm_stack(
     period_um: float,
     port_index: float,
     harmonic_half_width: int,
+    factorization: Literal["li", "legacy"] = "li",
 ) -> FourierResponse:
-    """Return specular Hy amplitudes for one incident zeroth-order plane wave."""
+    """Return specular Hy amplitudes for one incident zeroth-order plane wave.
+
+    ``li`` applies the inverse Fourier factorization required for patterned
+    TM layers. ``legacy`` reproduces the pre-audit direct-product solver and
+    is retained only to make historical simulation results reproducible.
+    """
 
     if period_um <= 0 or port_index <= 0 or harmonic_half_width < 0:
         raise ValueError("invalid period, port index, or harmonic count")
     n = 2 * harmonic_half_width + 1
     kx = 2 * np.pi * np.arange(-harmonic_half_width, harmonic_half_width + 1) / period_um
     port = homogeneous_layer(port_index, 0.0, harmonic_half_width)
-    port_modes = _modes(omega, port, kx)
+    port_modes = _modes(omega, port, kx, factorization=factorization)
     previous = port_modes
     total: _Scattering | None = None
     for layer in layers:
-        modes = _modes(omega, layer, kx)
+        modes = _modes(omega, layer, kx, factorization=factorization)
         pieces = (_interface(previous, modes), _propagation(modes, layer.thickness_um))
         for piece in pieces:
             total = piece if total is None else _cascade(total, piece)

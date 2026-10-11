@@ -1,5 +1,5 @@
 {
-  "source_summary": "runs/gmr_family/summary.json",
+  "source_summary": "runs/gmr_replay/summary.json",
   "source_config": "configs/m166_gmr_high_fidelity_analysis.json",
   "operating_detuning_in_h81_pole_depths": -2,
   "moderate_transmission_threshold": 0.5,

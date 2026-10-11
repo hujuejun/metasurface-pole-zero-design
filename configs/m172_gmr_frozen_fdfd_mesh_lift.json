@@ -1,5 +1,5 @@
 {
-  "source_high_fidelity_summary": "runs/gmr_family/summary.json",
+  "source_high_fidelity_summary": "runs/gmr_replay/summary.json",
   "source_adjoint_summary": "runs/gmr_correction/summary.json",
   "base_adjoint_config": "configs/m164_gmr_pole_adjoint.json",
   "quality_factors": [

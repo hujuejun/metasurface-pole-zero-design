@@ -29,41 +29,6 @@
     "config": "configs/m58d_two_tier_planar_singularity_homotopy_tm.json",
     "output": "data/m58d/two_tier_planar_n24"
   },
-  "pcm-optimize": {
-    "module": "scripts.m120_symmetric_pcm_pole_zero_correction",
-    "config": "configs/m123_symmetric_sb2se3_hcg_pole_zero_1550.json",
-    "output": "runs/m123_symmetric_sb2se3_hcg_pole_zero_1550"
-  },
-  "pcm-mesh": {
-    "module": "scripts.m133_verify_symmetric_pcm_high_mesh",
-    "config": "configs/m138_symmetric_sb2se3_hcg_very_fine_mesh.json",
-    "output": "runs/pcm_fine_mesh"
-  },
-  "pcm-mesh-coarse": {
-    "module": "scripts.m121_verify_symmetric_pcm_adjoint_mesh",
-    "config": "configs/m125_symmetric_sb2se3_hcg_five_state_adjoint_mesh.json",
-    "output": "runs/pcm_coarse_mesh"
-  },
-  "pcm-mesh-intermediate": {
-    "module": "scripts.m133_verify_symmetric_pcm_high_mesh",
-    "config": "configs/m133_symmetric_sb2se3_hcg_high_mesh.json",
-    "output": "runs/pcm_intermediate_mesh"
-  },
-  "pcm-spectra": {
-    "module": "scripts.m129_plot_symmetric_pcm_structure_spectra",
-    "config": "configs/m129_symmetric_sb2se3_hcg_structure_spectra.json",
-    "output": "runs/pcm_spectra"
-  },
-  "pcm-roots": {
-    "module": "scripts.m126_audit_symmetric_pcm_channel_roots",
-    "config": "configs/m136_symmetric_sb2se3_hcg_high_mesh_channel_roots.json",
-    "output": "runs/pcm_roots"
-  },
-  "pcm-material-sensitivity": {
-    "module": "scripts.m130_audit_symmetric_pcm_material_uncertainty",
-    "config": "configs/m130_symmetric_sb2se3_hcg_material_uncertainty.json",
-    "output": "runs/pcm_material_sensitivity"
-  },
   "pcm-rectangular-optimize": {
     "module": "scripts.m140_optimize_symmetric_pcm_single_tier",
     "config": "configs/m140_symmetric_sb2se3_hcg_single_tier_pole_zero.json",
@@ -73,51 +38,6 @@
     "module": "scripts.m141_verify_symmetric_pcm_single_tier_mesh",
     "config": "configs/m141_symmetric_sb2se3_hcg_single_tier_mesh.json",
     "output": "runs/pcm_rectangular_mesh"
-  },
-  "fp-optimize": {
-    "module": "scripts.m142e_optimize_patterned_q_poles",
-    "config": "configs/m142i_patterned_q_fine_mesh_adjoint.json",
-    "output": "runs/m142i_fine_mesh_adjoint"
-  },
-  "fp-q400-optimize": {
-    "module": "scripts.m142e_optimize_patterned_q_poles",
-    "config": "configs/m158_q400_fine_pole_adjoint.json",
-    "output": "runs/m158_q400_fine_pole_adjoint"
-  },
-  "fp-fourier": {
-    "module": "scripts.m153_fourier_modal_reference_check",
-    "config": "configs/m153b_fourier_modal_high_order_check.json",
-    "output": "runs/m153b_fourier_modal_high_order_check"
-  },
-  "fp-q400-verify": {
-    "module": "scripts.m158_verify_q400_independent",
-    "config": "configs/m158_q400_independent_gates.json",
-    "output": "runs/m158_q400_independent_gates"
-  },
-  "fp-robustness": {
-    "module": "scripts.m157_single_resonance_robustness",
-    "config": "configs/m157_single_resonance_robustness.json",
-    "output": "runs/m157_single_resonance_robustness_v3"
-  },
-  "fp-direct-control": {
-    "module": "scripts.m159b_matched_start_direct",
-    "config": "configs/m159b_fine_mesh_matched_start_direct.json",
-    "output": "runs/m159b_fine_mesh_matched_start_direct"
-  },
-  "fp-axial-mesh": {
-    "module": "scripts.m142h_validate_patterned_q_mesh",
-    "config": "configs/m142j_fine_design_frozen_2p5nm_check.json",
-    "output": "runs/m142j_fine_design_frozen_2p5nm_check"
-  },
-  "fp-joint-mesh": {
-    "module": "scripts.m143e_high_q_mesh_census",
-    "config": "configs/m154b_frozen_five_pair_joint_32_2p5nm.json",
-    "output": "runs/m154b_frozen_five_pair_joint_32_2p5nm"
-  },
-  "fp-solver-comparison": {
-    "module": "scripts.m155_compare_fine_fdfd_fourier",
-    "config": "configs/m155_fine_fdfd_fourier_modal_comparison.json",
-    "output": "runs/fp_solver_comparison"
   },
   "disk-forward": {
     "module": "scripts.m37_huygens_forward",
@@ -168,11 +88,6 @@
     "config": "configs/m166_gmr_high_fidelity_analysis.json",
     "output": "runs/gmr_family"
   },
-  "gmr-zero-delay": {
-    "module": "scripts.m167_gmr_geometry_and_zero_aware_delay",
-    "config": "configs/m167_gmr_geometry_and_zero_aware_delay.json",
-    "output": "runs/gmr_zero_delay"
-  },
   "gmr-sensitivity": {
     "module": "scripts.m168_gmr_pole_zero_motion",
     "config": "configs/m168_gmr_pole_zero_motion.json",
@@ -202,5 +117,15 @@
     "module": "scripts.gmr_reproduce",
     "config": "configs/gmr_benchmark.json",
     "output": "runs/gmr_benchmark"
+  },
+  "ipdip-optimize": {
+    "module": "scripts.ipdip_optimize",
+    "config": "configs/ipdip_optimize.json",
+    "output": "runs/ipdip-optimize"
+  },
+  "ipdip-replay": {
+    "module": "scripts.ipdip_replay",
+    "config": "configs/ipdip_geometry.json",
+    "output": "runs/ipdip-replay"
   }
 }

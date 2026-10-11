@@ -56,10 +56,7 @@ def main() -> None:
         material_config, baseline, cells_per_period=int(config["cells_per_period"])
     )
     reference = _one_tier_reference(material_config, grid, scale)
-    two_tier = [float(v) for v in seed["geometry_um"]]
-    physical_seed = np.asarray([
-        two_tier[0] + two_tier[1], two_tier[2], (two_tier[3] + two_tier[4]) / 2.0,
-    ]) + np.asarray(config["seed_perturbation_um"], dtype=float) * scale
+    physical_seed = np.asarray(seed["geometry_um"], dtype=float) + np.asarray(config["seed_perturbation_um"], dtype=float) * scale
     raw = reference.encode(*physical_seed)
     m58d, _ = _load_config(ROOT / material_config["baseline_config"])
     pole_spec = m58d["target_root_guesses"]["poles"][

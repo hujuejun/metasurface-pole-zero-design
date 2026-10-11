@@ -1,0 +1,62 @@
+{
+  "quality_targets": [
+    200,
+    800
+  ],
+  "starts_per_quality": 12,
+  "start_random_seed": 1772026,
+  "start_slab_ridge_normal_sigma_um": [
+    0.006,
+    0.006
+  ],
+  "minimum_bound_margin_um": 1e-06,
+  "methods": {
+    "pole": {
+      "maximum_objective_frequency_factorizations": 300
+    },
+    "direct3": {
+      "sample_offsets_in_reference_pole_depths": [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      "objective_frequency_factorization_stages": [
+        60,
+        120,
+        120
+      ]
+    },
+    "direct5": {
+      "sample_offsets_in_reference_pole_depths": [
+        -1.0,
+        -0.25,
+        0.0,
+        0.25,
+        1.0
+      ],
+      "objective_frequency_factorization_stages": [
+        60,
+        120,
+        120
+      ]
+    }
+  },
+  "direct_real_frequency_recentering_half_widths_in_reference_pole_depths": 10.0,
+  "direct_real_frequency_recentering_max_evaluations": 20,
+  "direct_real_frequency_recentering_tolerance_in_reference_pole_depths": 0.1,
+  "fdfd_channel_pole_gate_in_reference_pole_depths": 0.1,
+  "held_out_h101_pole_gate_in_reference_pole_depths": 0.1,
+  "h81_to_h101_candidate_pole_gate_in_reference_pole_depths": 0.05,
+  "moderate_transmission_gate": 0.5,
+  "held_out_delay_minimum_fraction_of_reference": 0.85,
+  "held_out_delay_maximum_fraction_of_reference": 1.15,
+  "held_out_delay_step_in_reference_pole_depths": 0.01,
+  "root_residual_tolerance": 1e-06,
+  "comments": [
+    "The reference physical geometry is the frozen M166 binary design. Both methods get targets measured from that same geometry in the common FDFD discretization; the geometry coordinates are hidden from optimizer initialization.",
+    "This is a method-cost recovery benchmark, not a blind prescribed-pole discovery study. The pre-existing phase-matching period and seed screen are shared preparation and are reported separately from method-specific cost.",
+    "Direct controls match complex transmission, not wrapped phase, and may recenter samples using only a counted real-frequency transmittance minimization; they never use a complex-pole location for recentering.",
+    "All method-specific objective factorizations, target generation, real-frequency recentering solves, FDFD pole verification, and Fourier H81/H101 validation solves and elapsed time are recorded. The same final physical gates decide success.",
+    "No protocol settings may change after scientific run results are seen; an implementation bug fix requires a new run name and a recorded source hash."
+  ]
+}

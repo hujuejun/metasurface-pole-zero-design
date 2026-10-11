@@ -1,44 +1,26 @@
-# Preparation checks
+# Release validation
 
-## Figure 1 revision (2026-10-02)
+The source collection was audited against the current main text and Supplementary Information on 2026-10-10. This is a source/reproducibility audit, not a complete rerun of all production calculations.
 
-- Figure 1 now presents exemplar transmission spectra with a topology inset, verified versus target pole linewidths, and verified versus pole-implied target group delays.
-- Targets are calculated from the prescribed poles. Verification uses the independent RCWA half-width-101 poles and delay calculations. The minus-two-pole-depth operating detuning remains a post-design diagnostic, not an independent delay objective.
-- Exemplar spectra for target Q50, Q200, and Q800 are regenerated locally with the retained RCWA implementation at half-width 81 on a common wavelength window; no structures are reoptimized.
-- All 93 tests pass, including a new test that distinguishes prescribed target poles from verified poles in the plotting calculation.
-- Generated spectra and diagnostic comparison tables remain outside the source collection.
+## Checks performed
 
-## GMR update (2026-09-30)
+- 115 local tests pass, including 2D and 3D FDFD, adjoint derivatives, radiation/port handling, corrected RCWA and its historical-operator regression, final geometry compatibility, material fitting, feature projection, connectivity, and the final benchmark protocol.
+- Both IP-Dip starting and final fine contours reconstruct exactly from the bundled density inputs under the retained projection and geometric gates.
+- Fresh IP-Dip TM FDFD at the final N96 grid and 5 µm gives T = 0.72194763 and R = 0.00485774, reproducing the manuscript values.
+- Fresh corrected-RCWA replay of the target-Q200 frozen GMR gives Q approximately 183.97, T = 0.90584, and delay = 37.459 fs at the specified physical operating point. Verification uses the corrected Li-factorized operator, not historical design-stage values.
+- Fresh high-index continuous Hy mode extraction refines both parity poles. Halving the complex-frequency field-extraction offset changes the residues by approximately 0.000128 and 0.000125; longitudinal parity errors are below 7e-11.
+- Every portable 2D FDTD device/reference definition loads as a Simulation and passes local pre-upload validation. Definitions contain no result data or account attributes. The IP-Dip and rectangular-PCM geometry renders were visually inspected. Long-runtime warnings are expected for the selected resonance ringdown setups.
+- Module/import and explicit bundled-input checks use this repository's own engines, not the parent research workspace.
+- Source/input checksums use LF-normalized text and exact binary bytes. The release checker scans the curated text for common credential, cloud-resource, and absolute user-path patterns. This is a targeted hygiene check, not a guarantee against every possible secret format.
 
-- All 92 tests pass, including the added GMR geometry, adjoint, and operating-point delay tests.
-- All 72 selected modules import from the bundled tree; explicit input paths resolve. The new source/configuration scan found no credential patterns or absolute user-workspace paths.
-- Both revised main text and SI compile on Overleaf with zero LaTeX errors or warnings. The project default is restored to `main.tex`.
-- Fresh independent Q200 replay gives Q=185.670, transmittance 0.90498, and delay 38.041 fs, consistent with the selected final result.
-- A fresh Q800 matched-start subset (one start; pole and physical-operating-point direct three-sample objectives) reaches qualified designs with both methods. This checks execution, not the full published success/cost statistics.
-- No full seven-design optimization sequence or complete 144-trial benchmark was rerun for this packaging update. The manuscript figures use the selected final research calculations.
-- Added only final-result drivers, required helper definitions, minimal initial/reference coordinates, final geometries, and configurations. Archived outputs and exploratory benchmark batches remain excluded.
+## Scope and provenance
 
-The unified GMR replay/benchmark wrapper regenerates electromagnetic targets and validations from minimal physical inputs instead of requiring saved research summaries. The Q800 starts preserve the signed Q200 geometric offsets. Helper-only modules have no exploratory command-line entry point. The full design sequence retains the outer Fourier correction and final period polish; it must not be described as a single uncorrected coarse-grid adjoint run. Fourier truncation values 81 and 101 denote half-widths (163 and 203 orders).
+The current tree removes the FP/grating study, superseded stepped-PCM result drivers, old direct-control variants, and unused exploratory entry points. Shared numerical helpers remain only where required by a retained study. Earlier versions remain recoverable in Git history.
 
-Completed locally before the initial private upload:
+The final GMR benchmark uses three methods, twelve paired starts per reference, and the fine 384 × 1280 grid. The wrapper regenerates reference targets and includes shared reference characterization once per method in aggregate costs. It does not load archived trial results. Fresh root-refinement evaluation counts and optimization trajectories may differ with starting root estimates and the numerical platform.
 
-- All selected driver/helper modules import using this repository's own source tree; explicit bundled configuration/input paths resolve.
-- 87 tests pass, including 2D and 3D FDFD, ports, grids, PML, adjoint, roots, Fourier-modal, PCM, final freeform grid shapes, and parametric geometry decoding.
-- FP Q50 fine-grid derivative preflight: maximum relative error 1.99e-9.
-- Fresh FP Q100 final-geometry replay: refined pole 4.053667940115864 - 0.02026833970057883 i rad/µm; Q = 100.00000000000242; maximum sampled energy-balance error approximately 4.04e-13.
-- Fresh high-index continuous final-geometry smoke replay: finite, energy-conserving responses at k=7.90 and 7.91 rad/µm.
-- Basic credential-pattern scan: no embedded GitHub/API/AWS credential patterns, account resource identifiers, or absolute research-workspace paths found in included source/configuration text.
+The historical RCWA design operator remains isolated solely to reproduce the original geometry-design sequence. Corrected RCWA is used for the reported frozen-geometry verification and benchmark qualification. The qBIC binarization negative control remains because it is discussed in SI.
 
-Smoke-run outputs and caches are ignored, not committed. Full production optimizations, long mesh sweeps, and the optional paid FDTD simulations have not been rerun as part of this preparation. These checks establish packaging and representative execution, not complete independent confirmation of every scientific result.
+The full seven-design optimization sequence, 72-attempt fine-grid benchmark, full-band convergence sweeps, and paid FDTD simulations were not rerun for this release preparation. Local setup validation does not replace an FDTD solve. No new cloud costs were incurred.
 
-## Adaptations from research source
-
-Only final-result drivers and the transitive helper definitions they call were selected. Bare imports were made package-qualified. Configuration inheritance was flattened; unused campaign notes/provenance were removed. Required seeds and final geometry were extracted without run histories. Obsolete literature/parent-summary hashes are optional metadata, not simulation prerequisites. The FP Q400 configuration selects the independently checked endpoint, and Q400 is excluded from the earlier three-design fine-mesh family. Reader-facing replay/control wrappers call the retained numerical implementations.
-
-The qBIC binary continuation is retained only because its negative result is explicitly discussed in SI. Unrelated failed campaigns are excluded.
-
-## Resolved manuscript consistency item
-
-The SI PCM table caption was corrected on Overleaf in manuscript commit `087380f`. It now states 501 uniformly spaced states for N24/32/40/48 and 301 for N56/64/72/80, replacing the incorrect claim of 501 states for every mesh through N64. The separate intermediate N40/48/56/64 sweep uses 301 states; the caption identifies the coarse sweep for the N40/48 table entries. Numerical results and simulation protocols are unchanged.
-
-The corrected source was pushed to Overleaf and synchronization was verified. PDF recompilation was not verified because the local LaTeX compiler failed to initialize.
+No manuscript source was changed during this repository audit. The MIT license applies to original code; third-party attribution is separate.

@@ -1,0 +1,42 @@
+{
+  "high-continuous": {
+    "device": "inputs/fdtd/high-continuous-device.hdf5",
+    "reference": "inputs/fdtd/high-continuous-reference.hdf5"
+  },
+  "high-binary": {
+    "device": "inputs/fdtd/high-binary-device.hdf5",
+    "reference": "inputs/fdtd/high-binary-reference.hdf5"
+  },
+  "planar-hcg": {
+    "device": "inputs/fdtd/planar-hcg-device.hdf5",
+    "reference": "inputs/fdtd/planar-hcg-reference.hdf5"
+  },
+  "low-binary": {
+    "device": "inputs/fdtd/low-binary-device.hdf5",
+    "reference": "inputs/fdtd/low-binary-reference.hdf5"
+  },
+  "ipdip": {
+    "device": "inputs/fdtd/ipdip-device.hdf5",
+    "reference": "inputs/fdtd/ipdip-reference.hdf5"
+  },
+  "pcm-alpha0": {
+    "device": "inputs/fdtd/pcm-alpha0-device.hdf5",
+    "reference": "inputs/fdtd/pcm-alpha0-reference.hdf5"
+  },
+  "pcm-alpha03": {
+    "device": "inputs/fdtd/pcm-alpha03-device.hdf5",
+    "reference": "inputs/fdtd/pcm-alpha03-reference.hdf5"
+  },
+  "pcm-alpha06": {
+    "device": "inputs/fdtd/pcm-alpha06-device.hdf5",
+    "reference": "inputs/fdtd/pcm-alpha06-reference.hdf5"
+  },
+  "pcm-alpha09": {
+    "device": "inputs/fdtd/pcm-alpha09-device.hdf5",
+    "reference": "inputs/fdtd/pcm-alpha09-reference.hdf5"
+  },
+  "pcm-alpha1": {
+    "device": "inputs/fdtd/pcm-alpha1-device.hdf5",
+    "reference": "inputs/fdtd/pcm-alpha1-reference.hdf5"
+  }
+}
