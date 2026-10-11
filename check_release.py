@@ -13,12 +13,25 @@ def inventory():
     files=[p for folder in FOLDERS for p in (ROOT/folder).rglob('*')
            if p.is_file() and p.suffix in EXTENSIONS and '__pycache__' not in p.parts]
     files.extend(p for p in ROOT.iterdir() if p.is_file() and (p.suffix in {'.py','.md','.toml','.txt','.cff'} or p.name in {'LICENSE','cases.json'}))
-    return sorted(files)
+    return sorted(files, key=lambda p: p.relative_to(ROOT).as_posix())
 
 def digest(path):
     data=path.read_bytes()
     if path.suffix not in {'.npz','.hdf5'}:data=data.replace(b'\r\n',b'\n')
     return hashlib.sha256(data).hexdigest()
+
+def check_manifest(records, expected):
+    """Compare exact filename/hash mappings, independent of platform ordering."""
+    actual={row['file']:row['sha256'] for row in records}
+    saved={row['file']:row['sha256'] for row in expected}
+    if len(actual)!=len(records) or len(saved)!=len(expected):
+        raise ValueError('Duplicate filename in source manifest')
+    missing=sorted(saved.keys()-actual.keys())
+    added=sorted(actual.keys()-saved.keys())
+    changed=sorted(name for name in actual.keys() & saved.keys() if actual[name]!=saved[name])
+    if missing or added or changed:
+        raise ValueError('Source manifest mismatch; review then refresh it. '
+                         f'Missing: {missing}; added: {added}; changed: {changed}')
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
@@ -30,7 +43,7 @@ def main():
     if args.write_manifest:
         manifest.write_text(json.dumps(records,indent=2)+'\n',encoding='utf-8')
     else:
-        assert records==json.loads(manifest.read_text()),'Source manifest changed; review then refresh it'
+        check_manifest(records, json.loads(manifest.read_text(encoding='utf-8')))
     patterns=[r'gh[pousr]_[A-Za-z0-9]{30,}',r'AKIA[0-9A-Z]{16}',
               r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',r'[A-Z]:[\\/]Users[\\/]',
               r'arn:aws:',r'fdve-[0-9a-f-]{20,}']

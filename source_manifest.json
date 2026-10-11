@@ -4,6 +4,26 @@
     "sha256": "e38768fc985c5bb7505ac1a996eef2d35ab708cf8bae3415705b919154e97f9e"
   },
   {
+    "file": "CITATION.cff",
+    "sha256": "e050e6f9035544f09ea6b880f5faadf8bd8f5b9513639be3d31f4c16c07e4227"
+  },
+  {
+    "file": "LICENSE",
+    "sha256": "b31656cf7ddfca4f6856fafefe789e463f6406841af95cb8fae5d1185d34d013"
+  },
+  {
+    "file": "README.md",
+    "sha256": "58dfcf4883b66441ea307d13fae41cca8d950520f0d9d04593974775dcd0a99f"
+  },
+  {
+    "file": "THIRD_PARTY.md",
+    "sha256": "a1f6f724db87d863bd896bb94093bccb6d27fe2e243bf99fe8e80271548787af"
+  },
+  {
+    "file": "VALIDATION.md",
+    "sha256": "c5168aa793ef66b0ce996b0708164b851801b6843e454303a01921f16c2c48ae"
+  },
+  {
     "file": "cases.json",
     "sha256": "40cb9ad96cabea54cfa0d6dc3331d8975869479d640a1555a0c9aca3407f3cd7"
   },
@@ -13,11 +33,7 @@
   },
   {
     "file": "check_release.py",
-    "sha256": "9b502e9a81d770c2083385169893fe4ae6f184963b81648360e78edff35d3d5f"
-  },
-  {
-    "file": "CITATION.cff",
-    "sha256": "e050e6f9035544f09ea6b880f5faadf8bd8f5b9513639be3d31f4c16c07e4227"
+    "sha256": "220e3d4b8642c91599e782aa239185a54b3c2c2d04f39da660cebd4fb34f7d67"
   },
   {
     "file": "configs/fdtd_validation.json",
@@ -336,16 +352,8 @@
     "sha256": "f91352eed1c14f7ffd991edbf3726d9ff1be731f09cfc7aeb80d0a57063521ea"
   },
   {
-    "file": "LICENSE",
-    "sha256": "b31656cf7ddfca4f6856fafefe789e463f6406841af95cb8fae5d1185d34d013"
-  },
-  {
     "file": "pyproject.toml",
     "sha256": "3da93b53455690dcb610237dc33148b48d618051aaf3052f6a42ce2b55de01ad"
-  },
-  {
-    "file": "README.md",
-    "sha256": "58dfcf4883b66441ea307d13fae41cca8d950520f0d9d04593974775dcd0a99f"
   },
   {
     "file": "reproduce.py",
@@ -824,6 +832,10 @@
     "sha256": "aecadbbe8d355f0d9673db3240b96c4a3994f0eb58d472dcfbc00303d7846481"
   },
   {
+    "file": "tests/test_release_manifest.py",
+    "sha256": "9f2b54453ec1bab85c7d4fd287db3a83ee820f2a78e17f8fe0acd21083fab794"
+  },
+  {
     "file": "tests/test_release_protocols.py",
     "sha256": "ae0f067c10a356c39c57e75d798f47deed9744505603e3c5e71b85232ae1a745"
   },
@@ -834,13 +846,5 @@
   {
     "file": "tests/test_twoport.py",
     "sha256": "6d66bf74b23a9a5d43503ff20e9a66c6c412736d101dda95863609ee588cd920"
-  },
-  {
-    "file": "THIRD_PARTY.md",
-    "sha256": "a1f6f724db87d863bd896bb94093bccb6d27fe2e243bf99fe8e80271548787af"
-  },
-  {
-    "file": "VALIDATION.md",
-    "sha256": "c5168aa793ef66b0ce996b0708164b851801b6843e454303a01921f16c2c48ae"
   }
 ]
