@@ -60,7 +60,6 @@ def main() -> None:
         ROOT / config["source_config"],
         ROOT / config["parent_geometry"],
         ROOT / config["material_model"],
-        ROOT / config["optical_constants"],
         Path(__file__).resolve(),
     )
     if not config.get("note"):

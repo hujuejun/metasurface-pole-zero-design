@@ -6,9 +6,11 @@ from pzid.measured_dispersion import fit_ipdip_lorentz, load_nk_csv
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--nk-csv',type=Path,required=True,
+                   help='User-supplied IP-Dip CSV with lambda_um,n,k columns; not bundled')
     p.add_argument('--output',type=Path,required=True)
     args=p.parse_args()
-    model,diagnostics=fit_ipdip_lorentz(load_nk_csv(Path('inputs/ipdip/optical_constants.csv')))
+    model,diagnostics=fit_ipdip_lorentz(load_nk_csv(args.nk_csv))
     if not diagnostics['fit_success']:raise RuntimeError('Material fit did not converge')
     args.output.mkdir(parents=True,exist_ok=False)
     (args.output/'model.json').write_text(json.dumps({'model':model.as_dict(),

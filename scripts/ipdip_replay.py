@@ -1,6 +1,7 @@
 """TM scattering of the final connected IP-Dip contour using measured n,k."""
 from __future__ import annotations
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import numpy as np
@@ -18,13 +19,15 @@ def main():
     parser.add_argument('--config', type=Path, default=Path('configs/ipdip_geometry.json'))
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--mesh', type=int, default=96, choices=[32,48,64,96,128])
+    parser.add_argument('--nk-csv', type=Path, required=True,
+                        help='User-supplied IP-Dip CSV with lambda_um,n,k columns; not bundled')
     parser.add_argument('--wavelengths', type=float, nargs='+', help='Optional spot checks, in micrometers')
     args = parser.parse_args()
     source = json.loads(args.config.read_text())
     dimensions = json.loads(Path('inputs/ipdip/dimensions.json').read_text())
     with np.load('inputs/ipdip/final_geometry.npz') as saved:
         contour = saved['mask_fine'].astype(bool)
-    material = load_nk_csv(Path('inputs/ipdip/optical_constants.csv'))
+    material = load_nk_csv(args.nk_csv)
     reference, _ = _master_parameterization(source)
     _, _, candidate, _, _ = build_optimization_problem(source, cells_per_period=args.mesh)
     setup = _scaled_port_setup(reference, candidate.grid)
@@ -54,7 +57,8 @@ def main():
         header='wavelength_um,T,R,A,phase_rad', comments='')
     (args.output/'metadata.json').write_text(json.dumps({'mesh':args.mesh,
         'period_um':dimensions['physical_period_um'], 'monitor_shifts':shifts,
-        'polarization':'TM (Hy)', 'material':'measured n,k; direct interpolation'}, indent=2)+'\n')
+        'polarization':'TM (Hy)', 'material':'measured n,k; direct interpolation',
+        'nk_csv_sha256': hashlib.sha256(args.nk_csv.read_bytes()).hexdigest()}, indent=2)+'\n')
 
 
 if __name__ == '__main__':

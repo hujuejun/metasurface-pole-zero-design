@@ -2,7 +2,7 @@
 
 Simulation source for *Inverse design of poles and zeros: tailoring phase control in metasurfaces*, including the main text and SI.
 
-The collection includes final-study drivers, required numerical helpers, home-built 2D/3D FDFD engines, corrected RCWA verification, and portable FDTD setups. Frozen geometries, starting coordinates, and material tables are necessary inputs. The audited fine-grid benchmark trial records and low-index narrow-resonance diagnostic are included because they support specific manuscript claims; other large trial outputs, superseded studies, credentials, and cloud-result archives are excluded. The repository is public, but a software release does not by itself establish publication-grade convergence for every example.
+The collection includes final-study drivers, required numerical helpers, home-built 2D/3D FDFD engines, corrected RCWA verification, and portable FDTD setups. Frozen geometries and starting coordinates are supplied. The measured IP-Dip n,k table is not redistributed; exact real-frequency replay and material refitting require a user-supplied copy. The fitted analytic model used for complex-frequency optimization remains bundled. The audited fine-grid benchmark trial records and low-index narrow-resonance diagnostic are included because they support specific manuscript claims; other large trial outputs, superseded studies, credentials, and cloud-result archives are excluded. The repository is public, but a software release does not by itself establish publication-grade convergence for every example.
 
 ## Installation
 
@@ -42,8 +42,8 @@ For FDTD only, install `python -m pip install -e ".[fdtd]"`. Tidy3D is an option
 Direct module examples:
 
 ```bash
-python -m scripts.ipdip_replay --mesh 96 --wavelengths 5 --output runs/ipdip-spot
-python -m scripts.ipdip_material_fit --output runs/ipdip-fit
+python -m scripts.ipdip_replay --nk-csv PATH_TO_IPDIP_NK.csv --mesh 96 --wavelengths 5 --output runs/ipdip-spot
+python -m scripts.ipdip_material_fit --nk-csv PATH_TO_IPDIP_NK.csv --output runs/ipdip-fit
 python -m scripts.freeform_modes high_index_continuous --output runs/modes
 python -m scripts.replay_planar_hcg --output runs/hcg-replay
 python -m scripts.pcm_spectra --output runs/pcm-spectra
@@ -52,7 +52,7 @@ python -m scripts.replay_final_2d high_index_binary --mesh 88 --k-min 7 --k-max 
 
 Freeform cases are `high_index_continuous`, `high_index_binary`, `low_index_binary`, and `qbic`. The binary finest meshes are 88 and 56, respectively. Choose the paper's frequency interval when computing band metrics. Frequencies in rad/µm denote k = ω/c, not angular frequency in s⁻¹.
 
-For IP-Dip, omit `--wavelengths` for the full spectrum. Meshes 32/48/64/96 reproduce the SI comparison; 128 uses nine sentinel wavelengths. Real-frequency spectra interpolate measured n,k directly; the Lorentz fit is for complex-frequency optimization. The optimizer preserves the original contour projection, connectivity checks, protected regions, and acceptance guards. These are geometric checks, not a mechanical buckling simulation. Nominal target poles are not independently extracted poles of the final lossy structure.
+For IP-Dip, provide a legally obtained CSV with `lambda_um,n,k` columns, ordered by increasing wavelength, through `--nk-csv`. The original numerical table is not included, so the published real-frequency spectra cannot be independently regenerated from this checkout alone; the frozen numerical comparison snapshots remain available. `python reproduce.py ipdip-replay --nk-csv PATH_TO_IPDIP_NK.csv --run` passes the supplied file to the replay. Omit `--wavelengths` for the full spectrum. Meshes 32/48/64/96 reproduce the SI comparison; 128 uses nine sentinel wavelengths. Real-frequency spectra interpolate measured n,k directly; the bundled Lorentz fit is for complex-frequency optimization and allows `ipdip-optimize` to run without the CSV. The optimizer preserves the original contour projection, connectivity checks, protected regions, and acceptance guards. These are geometric checks, not a mechanical buckling simulation. Nominal target poles are not independently extracted poles of the final lossy structure.
 
 ## GMR design versus verification
 

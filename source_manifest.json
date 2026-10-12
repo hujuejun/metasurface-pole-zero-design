@@ -13,15 +13,15 @@
   },
   {
     "file": "README.md",
-    "sha256": "fb05577f686619d09b5f60bc386ace03e91689d9464887848ebd4cc70ec31580"
+    "sha256": "6ac6dfaae54af4f661fa4c8e388837c09cb6271e7e7c4507a2bb5ec417e73381"
   },
   {
     "file": "THIRD_PARTY.md",
-    "sha256": "a1f6f724db87d863bd896bb94093bccb6d27fe2e243bf99fe8e80271548787af"
+    "sha256": "d25029388809fdc4d622e46b814d51ed93c5d7ec4ae36d3067f3edd4c78a92a5"
   },
   {
     "file": "VALIDATION.md",
-    "sha256": "e23edb54050743350e96426d33ca8dee76c28068590dc6ae37e5e5e1dfb65f83"
+    "sha256": "9956c3564f212c9497a6496b449be5bdcfb2bba61f073fb909091be369cdce05"
   },
   {
     "file": "cases.json",
@@ -33,7 +33,7 @@
   },
   {
     "file": "check_release.py",
-    "sha256": "d179e2aaed11c1d149e6831c15781f8d163e12deea170aee8229dc5dd373cd83"
+    "sha256": "fbfef47020c79d8f66afde9a43cbe2d06e2b0f9eb69e6d757a7ad7ce2a02593e"
   },
   {
     "file": "configs/fdtd_validation.json",
@@ -57,7 +57,7 @@
   },
   {
     "file": "configs/ipdip_optimize.json",
-    "sha256": "6f2b754f3a700ba077ef75859bac31871a1350793310ac18353a0df897380de1"
+    "sha256": "4e3da495ed8e100dbf596cac43d2db77806e5639ded90d9e8a896b5ce4730fdd"
   },
   {
     "file": "configs/low_index_binary.json",
@@ -326,10 +326,6 @@
   {
     "file": "inputs/ipdip/material_model.json",
     "sha256": "9340330b094a3cf6cd4ad1704cfab5c482d416d12e98b0acce3295e79e2e1085"
-  },
-  {
-    "file": "inputs/ipdip/optical_constants.csv",
-    "sha256": "949186c8c4d5f0edc9bd7739cc851a9b2b0a45dfb9272340a982a07710fd0c90"
   },
   {
     "file": "inputs/ipdip/seed_geometry.npz",
@@ -749,7 +745,7 @@
   },
   {
     "file": "reproduce.py",
-    "sha256": "180a832eaa88247d1db018525a145f35f57fdd46ce30588bc82265847e1ff186"
+    "sha256": "c30308c76ec4cf7864cc2bf7c461744ee90462d015be42737d40e7b93a68df65"
   },
   {
     "file": "requirements-tested.txt",
@@ -773,15 +769,15 @@
   },
   {
     "file": "scripts/ipdip_material_fit.py",
-    "sha256": "b3866f156e63f3a8e866d9c68db00cd65209ccca9609af424034f6f278c27920"
+    "sha256": "66941e36316490130659c0124f14792aaa71506e5e6cdcae4ce56f7faa17a062"
   },
   {
     "file": "scripts/ipdip_optimize.py",
-    "sha256": "7dfac044cbf70c350219c583905f5bda803633889009513fbf570d48a7a96362"
+    "sha256": "27c91adb4d5c708a87c5fcd98c1a33f46c9865b57f34940c2507e741320ba69a"
   },
   {
     "file": "scripts/ipdip_replay.py",
-    "sha256": "460f69ff04a91e1fee4e21cb52f4e676b999b8fd46bd92fc07ab4b755a40538f"
+    "sha256": "f124bcf0bb01497d2ebfc1e36ad66af3064171f7d5c9a2bfc9612311f6272278"
   },
   {
     "file": "scripts/low_index_resonance_audit.py",
@@ -1213,7 +1209,7 @@
   },
   {
     "file": "tests/test_measured_dispersion.py",
-    "sha256": "e269e431e05a779cfe3ae8add3638c9e9a955f49079e6ae93740e380710f1509"
+    "sha256": "36a0e7b405e4eab314fdbc6f0c099b32d3993d29d52363e189b654f8ac6f4fc6"
   },
   {
     "file": "tests/test_pcm.py",
@@ -1237,7 +1233,7 @@
   },
   {
     "file": "tests/test_release_entrypoint_metadata.py",
-    "sha256": "364304c01866d3889369ae2c0dbb100b87ea2f0ade77d63ad8efe703415056c4"
+    "sha256": "e5b71f11c3dc4c14deffc20696313679233ebbca3c52957bde25578d8ee19bfb"
   },
   {
     "file": "tests/test_release_manifest.py",

@@ -3,7 +3,6 @@
   "parent_geometry": "inputs/ipdip/seed_geometry.npz",
   "parent_summary": "inputs/ipdip/dimensions.json",
   "material_model": "inputs/ipdip/material_model.json",
-  "optical_constants": "inputs/ipdip/optical_constants.csv",
   "minimum_solid_and_air_feature_um": 0.2,
   "minimum_load_bearing_neck_um": 0.3,
   "contour_refinement": 16,

@@ -56,6 +56,7 @@ def main():
     assert not any(name.startswith('fp-') for name in cases)
     assert (ROOT/'LICENSE').read_text().startswith('MIT License')
     assert not (ROOT/'inputs/pcm_geometry.json').exists()
+    assert not (ROOT/'inputs/ipdip/optical_constants.csv').exists()
     print(f'PASS: {len(files)} files match the release manifest; scope and text hygiene checks passed.')
 
 if __name__=='__main__':main()

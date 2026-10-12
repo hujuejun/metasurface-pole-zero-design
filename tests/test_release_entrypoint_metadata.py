@@ -25,8 +25,10 @@ def test_ipdip_provenance_inputs_are_packaged():
     config = json.loads((ROOT / "configs/ipdip_optimize.json").read_text(encoding="utf-8"))
     assert config["note"]
     for key in ("source_config", "parent_geometry", "parent_summary",
-                "material_model", "optical_constants"):
+                "material_model"):
         assert (ROOT / config[key]).is_file(), key
+    assert "optical_constants" not in config
+    assert not (ROOT / "inputs/ipdip/optical_constants.csv").exists()
 
 
 def test_qbic_fresh_seed_limit_is_archived_separately_from_frozen_geometry():

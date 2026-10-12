@@ -1,30 +1,42 @@
-"""Material-table and analytic-continuation regression checks for M218."""
+"""Self-contained material parser and analytic-continuation regression checks."""
 
+import json
 from pathlib import Path
 
 import numpy as np
 
 from pzid.measured_dispersion import (
-    PassiveLorentzModel, fit_ipdip_lorentz, load_nk_csv,
+    OpticalConstants, PassiveLorentzModel, fit_ipdip_lorentz, load_nk_csv,
 )
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CSV = ROOT / "inputs/ipdip/optical_constants.csv"
+MODEL = PassiveLorentzModel.from_dict(json.loads(
+    (ROOT / "inputs/ipdip/material_model.json").read_text(encoding="utf-8"))['model'])
 
 
-def test_supplied_table_is_numeric_passive_and_ordered() -> None:
-    data = load_nk_csv(CSV)
+def synthetic_data() -> OpticalConstants:
+    wavelengths = np.linspace(3.0, 6.0, 301)
+    index = np.asarray(MODEL.index(2 * np.pi / wavelengths))
+    return OpticalConstants(wavelengths, index.real, index.imag)
+
+
+def test_user_supplied_table_parser_is_numeric_passive_and_ordered(tmp_path: Path) -> None:
+    source = synthetic_data()
+    csv_path = tmp_path / "synthetic_nk.csv"
+    csv_path.write_text("lambda_um,n,k\n" + "".join(
+        f"{lam:.8f},{real:.12f},{imag:.12f}\n"
+        for lam, real, imag in zip(source.wavelength_um, source.n, source.k, strict=True)
+    ), encoding="utf-8")
+    data = load_nk_csv(csv_path)
     assert len(data.wavelength_um) == 301
-    assert np.allclose(data.wavelength_um[[0, -1]], [3.0, 6.0])
-    at_five = np.flatnonzero(np.isclose(data.wavelength_um, 5.0))
-    assert len(at_five) == 1
-    assert np.isclose(data.n[at_five[0]], 1.50555)
-    assert np.isclose(data.k[at_five[0]], 0.004815)
+    assert np.allclose(data.wavelength_um, source.wavelength_um)
+    assert np.allclose(data.n, source.n)
+    assert np.allclose(data.k, source.k)
 
 
-def test_passive_fit_matches_device_band_and_round_trips() -> None:
-    data = load_nk_csv(CSV)
+def test_passive_fit_recovers_synthetic_device_band_and_round_trips() -> None:
+    data = synthetic_data()
     model, report = fit_ipdip_lorentz(data)
     assert report["fit_success"]
     assert report["max_abs_n_error_assessment"] < 2e-4
@@ -39,7 +51,7 @@ def test_passive_fit_matches_device_band_and_round_trips() -> None:
 
 
 def test_time_reversed_medium_is_conjugate_of_physical_lower_partner() -> None:
-    model, _ = fit_ipdip_lorentz(load_nk_csv(CSV))
+    model = MODEL
     upper = complex(2 * np.pi / 5.0, 0.025)
     reversed_medium = model.reversed_epsilon(upper)
     physical_lower = model.epsilon(upper.conjugate())
