@@ -399,6 +399,8 @@ def main() -> None:
     arguments = parser.parse_args()
 
     config = json.loads(arguments.config.read_text(encoding="utf-8"))
+    if not isinstance(config["provenance"], dict):
+        raise ValueError("The low-index continuation requires a provenance record")
     output = arguments.output
     figures = output / "figures"
     figures.mkdir(parents=True, exist_ok=True)

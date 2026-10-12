@@ -1,3 +1,4 @@
 * text=auto eol=lf
 *.npz -text
 *.hdf5 -text
+reference_results/** -text whitespace=cr-at-eol

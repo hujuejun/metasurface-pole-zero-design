@@ -1,0 +1,7 @@
+quality_target,method,attempts,qualified,qualification_fraction,objective_fdfd_factorizations,target_generation_fdfd_factorizations,recentering_fdfd_factorizations,verification_fdfd_factorizations,total_method_specific_fdfd_frequency_factorizations,common_reference_fdfd_factorizations,direct_reference_target_fdfd_factorizations,total_including_shared_preparation,factorizations_per_success,factorizations_per_success_including_shared_preparation,method_specific_wall_seconds_all_attempts,method_specific_wall_seconds_per_success,held_out_fourier_response_evaluations
+200,pole,12,12,1.0,581,0,0,135,716,12,0,728,59.666666666666664,60.666666666666664,20388.162724602997,1699.0135603835831,369
+200,direct3,12,11,0.9166666666666666,1029,12,50,284,1375,12,3,1390,125.0,126.36363636363636,37151.424322155,3377.402211105,303
+200,direct5,12,11,0.9166666666666666,1020,15,37,235,1307,12,5,1324,118.81818181818181,120.36363636363636,35696.449817576,3245.131801597818,331
+800,pole,12,5,0.4166666666666667,1120,0,0,147,1267,28,0,1295,253.4,259.0,36843.514752405,7368.702950481,114
+800,direct3,12,2,0.16666666666666666,3129,69,268,759,4225,28,3,4256,2112.5,2128.0,112266.63229123798,56133.31614561899,222
+800,direct5,12,0,0.0,3600,120,278,789,4787,28,5,4820,,,127198.20040089199,,78

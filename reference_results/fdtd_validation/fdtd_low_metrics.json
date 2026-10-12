@@ -1,0 +1,41 @@
+{
+  "M201_nonperiodic_30ps": {
+    "final_field_decay": 2.99e-05,
+    "max_R": 0.539143419598299,
+    "max_abs_T_plus_R_minus_one": 0.000796738600479463,
+    "met_field_decay_target": false,
+    "min_T": 0.46089728979173006,
+    "omega_at_max_R_rad_per_um": 14.757883125000001,
+    "relative_phase_endpoint_minus_FDFD_pi": -0.01900789101674505,
+    "relative_phase_span_pi": 1.8503917455673218,
+    "rms_R_minus_archived_FDFD": 0.04757449186815081,
+    "rms_T_minus_archived_FDFD": 0.047573154925450306,
+    "shutoff_target": 1e-09
+  },
+  "M203_periodic_140ps": {
+    "final_field_decay": 8.51e-06,
+    "max_R": 0.013318503673918144,
+    "max_abs_T_plus_R_minus_one": 0.002105135142380421,
+    "met_field_decay_target": false,
+    "min_T": 0.9875566355232879,
+    "omega_at_max_R_rad_per_um": 14.727867,
+    "relative_phase_endpoint_minus_FDFD_pi": -0.017541139918112236,
+    "relative_phase_span_pi": 1.8518584966659546,
+    "rms_R_minus_archived_FDFD": 0.0027207848567365363,
+    "rms_T_minus_archived_FDFD": 0.0027082207811261498,
+    "shutoff_target": 1e-09
+  },
+  "analysis_source_sha256": "cb5bb798af1ce1e7ee0b5fbe25cb2a8271b59183bfd1af4c3b802e2e9490274f",
+  "archived_FDFD": {
+    "max_R": 0.0028196929619056133,
+    "min_T": 0.9971803070380933,
+    "relative_phase_span_pi": 1.8693996365840668
+  },
+  "frequency_points": 241,
+  "omega_max_rad_per_um": 15.60834,
+  "omega_min_rad_per_um": 13.20705,
+  "reference_sha256": "420c61e6d94c64e82415f1cecd2c6b616b5fa5cdfd20b1bc3c0d9a39e42eea08",
+  "result_sha256": "151facb4428f6a18a5aa52d0b2522203485f3915e8e56d45f9ac644e921e762d",
+  "scope": "M10B M203 periodic-contour 140 ps Tidy3D versus archived FDFD and flawed-contour M201",
+  "warning": "Global field decay exceeds the 1e-9 shutoff; frequency-domain convergence is not certified."
+}

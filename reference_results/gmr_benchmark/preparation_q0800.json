@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "created_utc": "2026-10-03T04:29:18.815215+00:00",
+    "git_base_revision": null,
+    "python": "3.12.14 (main, Aug 24 2026, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-5)]",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "platform": "Linux-6.18.44-99.149.amzn2023.x86_64-x86_64-with-glibc2.34",
+    "command": [
+      "/opt/fdfd/m198-cost-benchmark/scripts/m189_gmr_single_fine_grid_cost_rerun.py",
+      "--config",
+      "configs/m198_gmr_n384_cost_protocol.json",
+      "--output",
+      "runs/m198_gmr_n384_cost_v1",
+      "--mode",
+      "prepare",
+      "--quality",
+      "800"
+    ],
+    "input_sha256": {
+      "configs/m198_gmr_n384_cost_protocol.json": "adca4e236fa680abbd5747930ad617bab845ce5804b83a946bb19a72113ce067",
+      "configs/m177_gmr_preregistered_cost_benchmark.json": "5ee19f7d1cf642bd509ece27416a244f1ccad2d5b98885f161f20045bc0479e0",
+      "runs/m185_gmr_matched_distance_seed_transfer_v1/summary.json": "b9b4d674e5d2f87f45cf491a81c15495400b003723e5dea93c33a4ad69a6b030",
+      "runs/m177_gmr_preregistered_cost_benchmark_v1/summary.json": "cad65d593d6d8bec39c09ed672cd81b4bf50bb7e634aa32f786a3003d618e907",
+      "runs/m197_gmr_corrected_li_reference_v1/summary.json": "88ee87bec72ca68952e6a691a36efcdb6f86de81357ad8d8ae12983780078fbf",
+      "runs/m197_gmr_corrected_li_reference_v1/moderate_summary.json": "3311ca54c8003a3961216a83e33e9ea3946fa77a4229e6aba4863e3d76e8f2d7",
+      "runs/m172_gmr_frozen_fdfd_mesh_lift_v1/summary.json": "388f6fd252edac5175685423e52cbb9ea524d3310c0624b00bac2f60109eee34",
+      "configs/m164_gmr_pole_adjoint.json": "9fe5c421b6d8f2d909c1c12d6d9f7791bbcbf0d17755c0fc7c44f7c8101550d5",
+      "configs/m166_gmr_high_fidelity_analysis.json": "b438d1ebd98e251e466eb068fc95d9c50c1c0256b61c0342ded8434cd7c2772e",
+      "runs/m198_gmr_n384_pilot_v1/summary.json": "f659cfcf879cca41ffaa24da89c91508460d4057c7e5f82cb78c1b400af121fc"
+    },
+    "script_sha256": "d1146643e5afb067f71bf05751f1010a1bd59941c5406e688833082a9f1ec56e",
+    "m177_runner_sha256": "6f7191101a02d61151d51a51626765afab26afb0616f494b2c2b337a14e39a59",
+    "m172_setup_sha256": "846efbbfd14794de43b5360c28f8e0c43effbf3cc7d7905dba918d6d6a58d696",
+    "adjoint_sha256": "610fab78e4edf70fbe1c282b2193c64d347ba5523da74f5e3f96706ab4bc122a",
+    "fdfd_solver_sha256": "e16a8011516e86177237d47c90a1be2c54724bae2a3b4cb01ec53cc6efbcc92f",
+    "physical_geometry_sha256": "51bc44be567d60cf566edc1f6837dff80009cffec4882b2cdd1a3cb0d56367e7",
+    "fourier_sha256": "10105f915d80efc2363175cba766ac867a34cfdd6fc55db36b06eb2af2e53cae"
+  },
+  "preparation": {
+    "quality_target": 800,
+    "mesh": {
+      "nx": 384,
+      "nz": 1280,
+      "dx_um": 0.0022069725693444797,
+      "dz_um": 0.0008375,
+      "unknowns": 491520
+    },
+    "reference_fdfd_pole": {
+      "real": 6.766991790165904,
+      "imag": -0.004356046000864341
+    },
+    "reference_pole_source": "new_fine_grid_reference_root",
+    "reference_pole_root_evaluations": 28,
+    "reference_pole_preparation_wall_seconds": 355.268736387,
+    "reference_geometry_period_um": 0.8474774666282803,
+    "reference_geometry_slab_ridge_um": [
+      0.09923160488010614,
+      0.056562848641024906
+    ],
+    "reference_h81_pole": {
+      "real": 6.769697184786662,
+      "imag": -0.004376876068801853
+    },
+    "reference_h101_pole": {
+      "real": 6.769700561609001,
+      "imag": -0.004376790900896921
+    },
+    "direct_target_preparation": {
+      "direct3": {
+        "offsets_in_reference_pole_depths": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "sample_frequencies": [
+          6.76263574416504,
+          6.766991790165904,
+          6.771347836166768
+        ],
+        "sample_targets": [
+          {
+            "real": 0.7069420582384143,
+            "imag": 0.02566831180424689
+          },
+          {
+            "real": 0.11487153044708304,
+            "imag": 0.12438481187357464
+          },
+          {
+            "real": 0.02021163562540762,
+            "imag": -0.4676858399708088
+          }
+        ],
+        "preparation_fdfd_frequency_factorizations": 3,
+        "preparation_wall_seconds": 37.939566548000016
+      },
+      "direct5": {
+        "offsets_in_reference_pole_depths": [
+          -1.0,
+          -0.25,
+          0.0,
+          0.25,
+          1.0
+        ],
+        "sample_frequencies": [
+          6.76263574416504,
+          6.765902778665688,
+          6.766991790165904,
+          6.7680808016661205,
+          6.771347836166768
+        ],
+        "sample_targets": [
+          {
+            "real": 0.7069420582384143,
+            "imag": 0.02566831180424689
+          },
+          {
+            "real": 0.30616301258520134,
+            "imag": 0.2002814834593627
+          },
+          {
+            "real": 0.11487153044708304,
+            "imag": 0.12438481187357464
+          },
+          {
+            "real": -0.01790071561642881,
+            "imag": -0.032781336459746235
+          },
+          {
+            "real": 0.02021163562540762,
+            "imag": -0.4676858399708088
+          }
+        ],
+        "preparation_fdfd_frequency_factorizations": 5,
+        "preparation_wall_seconds": 63.32221888999993
+      }
+    }
+  }
+}

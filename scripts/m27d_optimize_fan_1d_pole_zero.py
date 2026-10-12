@@ -404,6 +404,8 @@ def main() -> None:
     )
     arguments = parser.parse_args()
     config = json.loads(arguments.config.read_text(encoding="utf-8"))
+    if not isinstance(config["provenance"], dict):
+        raise ValueError("The qBIC continuation requires a provenance record")
     output = arguments.output
     figures = output / "figures"
     output.mkdir(parents=True, exist_ok=True)

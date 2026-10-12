@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "created_utc": "2026-10-03T18:31:24.385371+00:00",
+    "git_base_revision": null,
+    "python": "3.12.14 (main, Aug 24 2026, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-5)]",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "platform": "Linux-6.18.44-99.149.amzn2023.x86_64-x86_64-with-glibc2.34",
+    "command": [
+      "/opt/fdfd/m198-cost-benchmark/scripts/m189_gmr_single_fine_grid_cost_rerun.py",
+      "--config",
+      "configs/m198_gmr_n384_cost_protocol.json",
+      "--output",
+      "runs/m198_gmr_n384_cost_v1",
+      "--mode",
+      "trial",
+      "--quality",
+      "800",
+      "--start-index",
+      "8",
+      "--method",
+      "direct5"
+    ],
+    "input_sha256": {
+      "configs/m198_gmr_n384_cost_protocol.json": "adca4e236fa680abbd5747930ad617bab845ce5804b83a946bb19a72113ce067",
+      "configs/m177_gmr_preregistered_cost_benchmark.json": "5ee19f7d1cf642bd509ece27416a244f1ccad2d5b98885f161f20045bc0479e0",
+      "runs/m185_gmr_matched_distance_seed_transfer_v1/summary.json": "b9b4d674e5d2f87f45cf491a81c15495400b003723e5dea93c33a4ad69a6b030",
+      "runs/m177_gmr_preregistered_cost_benchmark_v1/summary.json": "cad65d593d6d8bec39c09ed672cd81b4bf50bb7e634aa32f786a3003d618e907",
+      "runs/m197_gmr_corrected_li_reference_v1/summary.json": "88ee87bec72ca68952e6a691a36efcdb6f86de81357ad8d8ae12983780078fbf",
+      "runs/m197_gmr_corrected_li_reference_v1/moderate_summary.json": "3311ca54c8003a3961216a83e33e9ea3946fa77a4229e6aba4863e3d76e8f2d7",
+      "runs/m172_gmr_frozen_fdfd_mesh_lift_v1/summary.json": "388f6fd252edac5175685423e52cbb9ea524d3310c0624b00bac2f60109eee34",
+      "configs/m164_gmr_pole_adjoint.json": "9fe5c421b6d8f2d909c1c12d6d9f7791bbcbf0d17755c0fc7c44f7c8101550d5",
+      "configs/m166_gmr_high_fidelity_analysis.json": "b438d1ebd98e251e466eb068fc95d9c50c1c0256b61c0342ded8434cd7c2772e",
+      "runs/m198_gmr_n384_pilot_v1/summary.json": "f659cfcf879cca41ffaa24da89c91508460d4057c7e5f82cb78c1b400af121fc"
+    },
+    "script_sha256": "d1146643e5afb067f71bf05751f1010a1bd59941c5406e688833082a9f1ec56e",
+    "m177_runner_sha256": "6f7191101a02d61151d51a51626765afab26afb0616f494b2c2b337a14e39a59",
+    "m172_setup_sha256": "846efbbfd14794de43b5360c28f8e0c43effbf3cc7d7905dba918d6d6a58d696",
+    "adjoint_sha256": "610fab78e4edf70fbe1c282b2193c64d347ba5523da74f5e3f96706ab4bc122a",
+    "fdfd_solver_sha256": "e16a8011516e86177237d47c90a1be2c54724bae2a3b4cb01ec53cc6efbcc92f",
+    "physical_geometry_sha256": "51bc44be567d60cf566edc1f6837dff80009cffec4882b2cdd1a3cb0d56367e7",
+    "fourier_sha256": "10105f915d80efc2363175cba766ac867a34cfdd6fc55db36b06eb2af2e53cae"
+  },
+  "quality_target": 800,
+  "start_index": 8,
+  "method": "direct5",
+  "paired_start_audit": {
+    "start_index": 8,
+    "source_coordinates_um": [
+      0.09839577177450783,
+      0.09691278155263842
+    ],
+    "destination_coordinates_um": [
+      0.11182737680702405,
+      0.04563906883459103
+    ],
+    "signed_offset_um": [
+      0.01259577192691791,
+      -0.010923779806433873
+    ],
+    "euclidean_distance_nm": 16.67280527369002,
+    "slab_and_tooth_bounds_pass": true
+  },
+  "preparation_sha256": "b9ee9708bcbeafff757b50dd83f8abc43e1d98b5247c68003a8afc47dd85d3ff",
+  "result": {
+    "method": "direct5",
+    "start_coordinates_um": [
+      0.11182737680702405,
+      0.04563906883459103
+    ],
+    "final_coordinates_um": [
+      0.11370676405543757,
+      0.03993073353410176
+    ],
+    "stages": [
+      {
+        "objective_residual": 0.3689055365776483,
+        "objective_fdfd_frequency_factorizations": 60,
+        "optimizer_success": false,
+        "optimizer_message": "The maximum number of function evaluations is exceeded.",
+        "optimization_wall_seconds": 1806.0488978270005,
+        "stage": 1,
+        "sample_center_rad_per_um": 6.766991790165904,
+        "sample_frequencies": [
+          6.76263574416504,
+          6.765902778665688,
+          6.766991790165904,
+          6.7680808016661205,
+          6.771347836166768
+        ],
+        "sample_target_fdfd_frequency_factorizations": 0,
+        "fdfd_validation": {
+          "pole": {
+            "real": 6.7669677980743215,
+            "imag": -0.0024730324671585935
+          },
+          "root_residual": 8.123206871556413e-10,
+          "error_in_reference_depths": 0.432310947284305,
+          "root_evaluations": 22,
+          "wall_seconds": 315.98898879799526,
+          "pass": false
+        },
+        "held_out_validation": {
+          "pass": false,
+          "skipped_because_fdfd_gate_failed": true,
+          "response_evaluations": 0
+        },
+        "real_transmission_recentering": {
+          "frequency_rad_per_um": 6.767654993966473,
+          "minimum_real_transmittance": 2.447393230418706e-05,
+          "success": true,
+          "fdfd_frequency_factorizations": 12,
+          "wall_seconds": 173.76271926199843
+        }
+      },
+      {
+        "objective_residual": 0.2903265591070639,
+        "objective_fdfd_frequency_factorizations": 120,
+        "optimizer_success": false,
+        "optimizer_message": "The maximum number of function evaluations is exceeded.",
+        "optimization_wall_seconds": 3645.8826967190034,
+        "stage": 2,
+        "sample_center_rad_per_um": 6.767654993966473,
+        "sample_frequencies": [
+          6.763298947965609,
+          6.766565982466257,
+          6.767654993966473,
+          6.768744005466689,
+          6.772011039967337
+        ],
+        "sample_target_fdfd_frequency_factorizations": 5,
+        "fdfd_validation": {
+          "pole": {
+            "real": 6.766963989162252,
+            "imag": -0.0027781576030320838
+          },
+          "root_residual": 4.171239763940656e-09,
+          "error_in_reference_depths": 0.36228572726556724,
+          "root_evaluations": 20,
+          "wall_seconds": 290.5315922469963,
+          "pass": false
+        },
+        "held_out_validation": {
+          "pass": false,
+          "skipped_because_fdfd_gate_failed": true,
+          "response_evaluations": 0
+        },
+        "real_transmission_recentering": {
+          "frequency_rad_per_um": 6.7678177884141535,
+          "minimum_real_transmittance": 0.0012006462243280035,
+          "success": true,
+          "fdfd_frequency_factorizations": 11,
+          "wall_seconds": 159.05724130399904
+        }
+      },
+      {
+        "objective_residual": 0.2893705774061151,
+        "objective_fdfd_frequency_factorizations": 120,
+        "optimizer_success": false,
+        "optimizer_message": "The maximum number of function evaluations is exceeded.",
+        "optimization_wall_seconds": 3596.815431285999,
+        "stage": 3,
+        "sample_center_rad_per_um": 6.7678177884141535,
+        "sample_frequencies": [
+          6.7634617424132895,
+          6.766728776913937,
+          6.7678177884141535,
+          6.76890679991437,
+          6.7721738344150175
+        ],
+        "sample_target_fdfd_frequency_factorizations": 5,
+        "fdfd_validation": {
+          "pole": {
+            "real": 6.766996983670456,
+            "imag": -0.002787204244997534
+          },
+          "root_residual": 1.1298289228086971e-09,
+          "error_in_reference_depths": 0.36015467968854664,
+          "root_evaluations": 22,
+          "wall_seconds": 327.1450998240034,
+          "pass": false
+        },
+        "held_out_validation": {
+          "pass": false,
+          "skipped_because_fdfd_gate_failed": true,
+          "response_evaluations": 0
+        }
+      }
+    ],
+    "qualified": false,
+    "objective_fdfd_frequency_factorizations": 300,
+    "target_generation_fdfd_frequency_factorizations": 10,
+    "real_recentering_fdfd_frequency_factorizations": 23,
+    "fdfd_root_verification_frequency_factorizations": 64,
+    "fourier_response_evaluations": 0,
+    "method_specific_wall_seconds": 10458.588291077001,
+    "real_recentering_wall_seconds": 332.81996056599746,
+    "target_generation_wall_seconds": 143.32252380899445
+  }
+}

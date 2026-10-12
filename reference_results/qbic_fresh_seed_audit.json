@@ -1,0 +1,18 @@
+{
+  "scope": "Independent audit rerun of the M27D continuous-index qBIC optimizer from the bundled initial seed, not replay of the frozen published endpoint",
+  "audit_archive_member": "pole-zero-audit/data/audit/runs/qbic-workaround/summary.json",
+  "audit_archive_member_sha256": "f307824ce21e7076b976f63a8fe472609af31ce876e99e7cf1c7bd7d7ba74766",
+  "mesh_cells_per_period": 32,
+  "full_common_pole_reached": true,
+  "reflection_zero_reached": true,
+  "passes_performance_gate": false,
+  "metrics": {
+    "minimum_transmittance_in_performance_window": 0.847303118253612,
+    "maximum_reflectance_in_performance_window": 0.15269688174635984,
+    "full_plot_phase_span_pi": 1.9466313568359859,
+    "performance_window_phase_span_pi": 1.5199674690489062,
+    "center_reflectance": 8.068077883786779e-10,
+    "energy_balance_max_abs_error": 2.571456381161852e-10
+  },
+  "interpretation": "The alternate local minimum meets the pole and center-zero continuation flags but does not reproduce the frozen high-transmission spectrum. One failed fresh seed does not prove that the published endpoint is unreachable."
+}

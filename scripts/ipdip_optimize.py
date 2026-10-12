@@ -46,7 +46,8 @@ def main() -> None:
     parser.add_argument("--config", type=Path, default=ROOT/"configs/ipdip_optimize.json")
     parser.add_argument("--output", type=Path, default=ROOT/"runs/ipdip_optimize")
     args = parser.parse_args()
-    config_path = args.config
+    config_path = args.config if args.config.is_absolute() else ROOT / args.config
+    config_path = config_path.resolve(strict=True)
     out = args.output
     config = json.loads(config_path.read_text(encoding="utf-8"))
     source = json.loads((ROOT / config["source_config"]).read_text(encoding="utf-8"))
@@ -54,6 +55,19 @@ def main() -> None:
     model = PassiveLorentzModel.from_dict(
         json.loads((ROOT / config["material_model"]).read_text(encoding="utf-8"))["model"]
     )
+    provenance_files = (
+        config_path,
+        ROOT / config["source_config"],
+        ROOT / config["parent_geometry"],
+        ROOT / config["material_model"],
+        ROOT / config["optical_constants"],
+        Path(__file__).resolve(),
+    )
+    if not config.get("note"):
+        raise ValueError("The IP-Dip design configuration must document its limitations")
+    for path in provenance_files:
+        if not path.is_file():
+            raise FileNotFoundError(f"Missing required provenance input: {path}")
     setup, parameterization = _master_parameterization(source)
     with np.load(ROOT / config["parent_geometry"]) as saved:
         density = np.asarray(saved["density"], float)
@@ -223,12 +237,10 @@ def main() -> None:
         "final_geometry_audit": final_gate,
         "physical_period_um": parent["physical_period_um"],
         "fine_contour_cell_um": fine_cell,
-        "provenance_sha256": {str(path.relative_to(ROOT)): digest(path)
-                              for path in (config_path, ROOT / config["source_config"],
-                                           ROOT / config["parent_geometry"],
-                                           ROOT / config["material_model"],
-                                           ROOT / "data/materials/IP-Dip_nk_3-6um.csv",
-                                           Path(__file__), final_file)},
+        "provenance_sha256": {
+            str(path.resolve().relative_to(ROOT)): digest(path)
+            for path in (*provenance_files, final_file.resolve())
+        },
         "limitations": config["note"],
     }
     (out / "summary.json").write_text(

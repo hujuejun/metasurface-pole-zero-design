@@ -1,0 +1,58 @@
+{
+  "design": "low_index_binary",
+  "mesh_cells_per_period": 56,
+  "band_rad_per_um": [
+    13.20705421458932,
+    15.60833679821355
+  ],
+  "coarse_grid": {
+    "points": 241,
+    "minimum_transmittance": 0.9971802314680249,
+    "maximum_reflectance": 0.002819768531984726,
+    "unwrapped_phase_span_pi": 1.8693996362104741
+  },
+  "adaptive_grid": {
+    "points": 725,
+    "minimum_transmittance": 8.230247640577321e-16,
+    "maximum_reflectance": 0.9999999999996312,
+    "unwrapped_phase_span_pi": 1.8693996362104741
+  },
+  "features": [
+    {
+      "name": "parasitic_1",
+      "pole_rad_per_um": [
+        14.153146596398217,
+        -0.0002483224915756377
+      ],
+      "pole_residual": 2.9811879447970107e-09,
+      "quality_factor": 28497.51246170797,
+      "sampled_half_maximum_width_rad_per_um": 0.0004967676991753933,
+      "sampled_peak_reflectance": 0.9999911554853967,
+      "sampled_minimum_transmittance": 8.84451456229982e-06,
+      "peak_k_rad_per_um": 14.153145857886818,
+      "peak_reflectance": 0.9999999999996312,
+      "transmittance_at_peak": 8.230247640577323e-16
+    },
+    {
+      "name": "parasitic_2",
+      "pole_rad_per_um": [
+        14.694372850146644,
+        -7.49396938823448e-05
+      ],
+      "pole_residual": 2.7795012217604437e-08,
+      "quality_factor": 98041.31888513439,
+      "sampled_half_maximum_width_rad_per_um": 0.00015006558973240658,
+      "sampled_peak_reflectance": 0.999833824331551,
+      "sampled_minimum_transmittance": 0.0001661756675723032,
+      "peak_k_rad_per_um": 14.694373816450003,
+      "peak_reflectance": 0.9999999999915488,
+      "transmittance_at_peak": 5.7874299973347995e-12
+    }
+  ],
+  "scope": "Resolve the two previously missed narrow spectral features of the frozen N56 contour. The listed guesses identify candidate roots; the reported roots and spectra are independently recomputed. This is not a proof that no other narrower features exist.",
+  "inputs_sha256": {
+    "config": "97e93bbf3e54fb33fcf29a72bd32bd44ed1edb4916041b186e44a718448219bd",
+    "permittivity": "190c4b256b343413a44d5700d1da7266a868471e066622e65e0e32d8b405e44a"
+  },
+  "caution": "Window locations move with FDFD mesh; this N56 audit does not establish mesh convergence of individual parasitic poles."
+}

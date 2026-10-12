@@ -154,5 +154,11 @@
     "minimum_phase_span_pi": 1.9,
     "maximum_pole_separation_over_mean_linewidth": 0.2,
     "maximum_mesh_pole_center_spread_over_mean_linewidth": 0.25
+  },
+  "provenance": {
+    "scope": "M27E simultaneous N=32/N=48 binary-projection continuation with independent N=64 verification.",
+    "mesh_policy": "N=32 and N=48 share two N=32 physical lateral masks and both enter every adjoint objective. N=64 is held out until optimization is complete.",
+    "subpixel_policy": "The two 25-nm relief tiers retain fixed physical thickness. Exact axial cell-overlap fractions represent interfaces, including the 1.5-cell tiers at N=48. Hard-binary validation uses a fixed piecewise-linear master contour with lateral subpixel area averaging.",
+    "connectivity": "The outer hard mask is the logical intersection of the inner and outer-control masks; both reliefs touch a fixed uniform slab."
   }
 }

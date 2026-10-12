@@ -14,6 +14,11 @@
     "config": "configs/low_index_binary.json",
     "output": "runs/m10b_connected_binary_multimesh_v17"
   },
+  "low-index-resonance-audit": {
+    "module": "scripts.low_index_resonance_audit",
+    "config": "configs/low_index_resonance_audit.json",
+    "output": "runs/low_index_resonance_audit"
+  },
   "qbic": {
     "module": "scripts.m27d_optimize_fan_1d_pole_zero",
     "config": "configs/m27d_fan_1d_pole_zero_adjoint_tm.json",
@@ -43,6 +48,11 @@
     "module": "scripts.m37_huygens_forward",
     "config": "configs/m38f_huygens_forward_n30_convergence.json",
     "output": "runs/disk_forward_n30"
+  },
+  "disk-forward-n24": {
+    "module": "scripts.m37_huygens_forward",
+    "config": "configs/m38e_huygens_forward_n24_convergence.json",
+    "output": "runs/disk_forward_n24"
   },
   "disk-smooth-roots": {
     "module": "scripts.m37_huygens_roots",

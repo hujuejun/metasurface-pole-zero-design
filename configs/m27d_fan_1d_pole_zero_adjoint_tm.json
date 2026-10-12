@@ -66,5 +66,12 @@
     "maximum_reflectance": 0.05,
     "minimum_transmittance": 0.95,
     "minimum_phase_span_pi": 1.9
+  },
+  "provenance": {
+    "scope": "M27D N=32 continuous-density adjoint proof; not yet binarized or mesh-converged.",
+    "literature_target": "Fan et al., Science Advances 11, eadw4752 (2025), DOI 10.1126/sciadv.adw4752.",
+    "one_dimensional_precedent": "Salary et al., Advanced Optical Materials 7, 1900843 (2019), DOI 10.1002/adom.201900843.",
+    "design_region": "Two nested unrestricted lateral masks define a two-height facing relief and are copied across the mid-plane; uniform slabs, remaining spacer, and ports are fixed.",
+    "connectivity": "The outer relief density is multiplied by the slab-touching inner density, so thresholded outer material is always supported and all high-index pixels remain connected."
   }
 }

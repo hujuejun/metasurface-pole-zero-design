@@ -1,0 +1,123 @@
+{
+  "analysis_source_sha256": "5b01a648cab619d53c5c36be8a10ab0fba17eb0fcff48c7ca2f5a8b812c4933b",
+  "pcm": {
+    "caveat": "Three Tidy3D states do not independently establish continuous phase winding.",
+    "states": [
+      {
+        "alpha": 0.0,
+        "fdfd_R": 0.0032823322407433677,
+        "fdfd_T": 0.9967176677592576,
+        "fdfd_phase_unwrapped_pi": 0.0,
+        "final_device_field_decay": 3.91e-07,
+        "phase_difference_mod_2pi_pi": 0.0,
+        "tidy_R": 0.01278241632619902,
+        "tidy_T": 0.9872396902168594,
+        "tidy_energy_error": 2.2106543058342254e-05,
+        "tidy_phase_mod_2pi": -2.4441990852355957
+      },
+      {
+        "alpha": 0.26666666666666666,
+        "fdfd_R": 0.005368384942565834,
+        "fdfd_T": 0.9946316150574478,
+        "fdfd_phase_unwrapped_pi": 0.5193587651054371,
+        "final_device_field_decay": 2.23e-06,
+        "phase_difference_mod_2pi_pi": 0.00217351503053416,
+        "tidy_R": 0.0076292779499570074,
+        "tidy_T": 0.9920837621340214,
+        "tidy_energy_error": 0.00028695991602156745,
+        "tidy_phase_mod_2pi": -0.8057571053504944
+      },
+      {
+        "alpha": 1.0,
+        "fdfd_R": 0.0012230779191002654,
+        "fdfd_T": 0.9987769220809053,
+        "fdfd_phase_unwrapped_pi": 2.291088241978673,
+        "final_device_field_decay": 0.00278,
+        "phase_difference_mod_2pi_pi": 0.03525713409066539,
+        "tidy_R": 0.007234559230194833,
+        "tidy_T": 0.9891782488052092,
+        "tidy_energy_error": 0.0035871919645960038,
+        "tidy_phase_mod_2pi": -1.418954849243164
+      }
+    ]
+  },
+  "result_manifest_sha256": "43999da2d4c1a67706b92e1cdd5738c6e7e5b30ad5baa90fbe03c492dae187c5",
+  "spectra": {
+    "m10b": {
+      "archived_fdfd_source": "runs\\m10b_connected_binary_multimesh_v17\\binary_spectrum_n56.csv",
+      "energy_balanced_points_at_2pct": 226,
+      "final_device_field_decay": 0.000548,
+      "final_reference_field_decay": 2.52e-10,
+      "frequency_range_rad_per_um": [
+        13.20705,
+        15.60834
+      ],
+      "relative_phase_endpoint_difference_pi": -0.018809058331136094,
+      "rms_T_difference_energy_balanced_subset": 0.010581167293357669,
+      "rms_reflectance_difference": 0.052620377078017457,
+      "rms_transmittance_difference": 0.059403185272976736,
+      "tidy_max_R": 0.5893166401390055,
+      "tidy_max_energy_balance_error": 0.2871659965408322,
+      "tidy_min_T": 0.4351738130024004,
+      "tidy_phase_span_pi": 1.850590467453003,
+      "total_points": 241
+    },
+    "m5": {
+      "archived_fdfd_source": "runs\\m5_coupled_bar_optimize_n32_v5\\optimized_spectrum.csv",
+      "energy_balanced_points_at_2pct": 201,
+      "final_device_field_decay": 0.000172,
+      "final_reference_field_decay": 2.78e-10,
+      "frequency_range_rad_per_um": [
+        6.93307,
+        8.88297
+      ],
+      "relative_phase_endpoint_difference_pi": -0.0752579215178828,
+      "rms_T_difference_energy_balanced_subset": 0.03925332534164987,
+      "rms_reflectance_difference": 0.03918742651547302,
+      "rms_transmittance_difference": 0.03925332534164987,
+      "tidy_max_R": 0.9980278658202509,
+      "tidy_max_energy_balance_error": 0.003383688011913133,
+      "tidy_min_T": 0.001662736170362126,
+      "tidy_phase_span_pi": 2.654679536819458,
+      "total_points": 201
+    },
+    "m58d": {
+      "archived_fdfd_source": "data\\m58d\\two_tier_planar_n24\\adjoint_spectrum.csv",
+      "energy_balanced_points_at_2pct": 155,
+      "final_device_field_decay": 8.15e-07,
+      "final_reference_field_decay": 2.1e-12,
+      "frequency_range_rad_per_um": [
+        4.625,
+        5.395
+      ],
+      "relative_phase_endpoint_difference_pi": 0.024397856290359256,
+      "rms_T_difference_energy_balanced_subset": 0.00976385634401813,
+      "rms_reflectance_difference": 0.00976108358632262,
+      "rms_transmittance_difference": 0.00976385634401813,
+      "tidy_max_R": 0.08457058931238524,
+      "tidy_max_energy_balance_error": 0.000812232088585052,
+      "tidy_min_T": 0.9151152271169695,
+      "tidy_phase_span_pi": 2.0843794345855713,
+      "total_points": 155
+    },
+    "m7": {
+      "archived_fdfd_source": "runs\\m7_binary_mesh_reopt_n64\\binary_spectrum_n88.csv",
+      "energy_balanced_points_at_2pct": 201,
+      "final_device_field_decay": 3.74e-05,
+      "final_reference_field_decay": 9.13e-10,
+      "frequency_range_rad_per_um": [
+        6.93307,
+        8.88297
+      ],
+      "relative_phase_endpoint_difference_pi": -0.030762102711969063,
+      "rms_T_difference_energy_balanced_subset": 0.0025281812104632237,
+      "rms_reflectance_difference": 0.0024616950325778396,
+      "rms_transmittance_difference": 0.0025281812104632237,
+      "tidy_max_R": 0.0058471570794337065,
+      "tidy_max_energy_balance_error": 0.0018438551838251271,
+      "tidy_min_T": 0.9936933376726022,
+      "tidy_phase_span_pi": 2.0136160850524902,
+      "total_points": 201
+    }
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "fdfd": {
+    "passed": false,
+    "converged_n18_roots": [
+      "symmetric_mode_pole",
+      "antisymmetric_mode_pole",
+      "transmission_zero_upper"
+    ],
+    "failed_n18_roots": [
+      "reflection_zero"
+    ],
+    "normalized_displacements_from_n12": {
+      "symmetric_mode_pole": 0.5456031257974973,
+      "antisymmetric_mode_pole": 0.5922903503012874,
+      "reflection_zero": 3.2379172418804347,
+      "transmission_zero_upper": 0.5696642402382445
+    }
+  },
+  "tidy3d": {
+    "passed": false,
+    "reflection_zero_wavelength_nm": {
+      "dl35": 1496.8269175158573,
+      "dl23p3": 1477.9380090315592,
+      "dl17p5": 1467.9814406882742
+    },
+    "linear_zero_wavelength_intercept_nm": 1439.355441332643,
+    "pairwise_maximum_power_difference": {
+      "dl35_to_dl23p3": 0.03189361095428467,
+      "dl23p3_to_dl17p5": 0.04404640197753906
+    }
+  },
+  "cross_comparison": {
+    "fdfd_mesh": "N12 coarse",
+    "tidy3d_mesh": "17.5 nm uniform (finest completed)",
+    "phase_alignment_offset_pi": 0.08426072408795064,
+    "maximum_absolute_transmittance_difference": 0.08207823568939154,
+    "maximum_absolute_reflectance_difference": 0.08223440433386786,
+    "maximum_absolute_phase_difference_pi": 0.43971363593170887,
+    "publication_converged": false
+  },
+  "fdfd_n12_n18_rt_overlay": {
+    "resonant_reflection_minimum_samples": {
+      "N12": {
+        "sampled_wavelength_um": 1.52,
+        "sampled_reflectance": 0.004806414893827606,
+        "sampled_transmittance": 0.9950104528105158
+      },
+      "N18": {
+        "sampled_wavelength_um": 1.5,
+        "sampled_reflectance": 1.4423947366294563e-07,
+        "sampled_transmittance": 1.00004472947763
+      }
+    },
+    "resonance_window_um": [
+      1.45,
+      1.55
+    ],
+    "n12_points": 43,
+    "n18_points": 45,
+    "n12_scan_range_um": [
+      1.3,
+      1.72
+    ],
+    "n18_scan_range_um": [
+      1.4,
+      1.62
+    ]
+  },
+  "fdfd_n12_n18_n24_rt_convergence": {
+    "passed": false,
+    "resonance_window_um": [
+      1.45,
+      1.55
+    ],
+    "reflection_minimum_samples": {
+      "N12": {
+        "sampled_wavelength_um": 1.52,
+        "sampled_reflectance": 0.004806414893827606,
+        "sampled_transmittance": 0.9950104528105158
+      },
+      "N18": {
+        "sampled_wavelength_um": 1.5,
+        "sampled_reflectance": 1.4423947366294563e-07,
+        "sampled_transmittance": 1.00004472947763
+      },
+      "N24": {
+        "sampled_wavelength_um": 1.48,
+        "sampled_reflectance": 5.809883570999439e-07,
+        "sampled_transmittance": 1.0001091414212493
+      }
+    },
+    "n18_to_n24_sampled_minimum_shift_um": 0.020000000000000018,
+    "n18_to_n24_maximum_absolute_transmittance_difference": 0.09374382927301128,
+    "n18_to_n24_maximum_absolute_reflectance_difference": 0.09380419408113505,
+    "n18_to_n24_maximum_absolute_power_difference": 0.09380419408113505,
+    "gate": {
+      "maximum_power_difference": 0.002,
+      "maximum_reflection_minimum_shift_um": 0.0005
+    }
+  },
+  "fdfd_n18_n24_n30_rt_convergence": {
+    "passed": false,
+    "resonance_window_um": [
+      1.45,
+      1.55
+    ],
+    "reflection_minimum_samples": {
+      "N18": {
+        "sampled_wavelength_um": 1.5,
+        "sampled_reflectance": 1.4423947366294563e-07,
+        "sampled_transmittance": 1.00004472947763
+      },
+      "N24": {
+        "sampled_wavelength_um": 1.48,
+        "sampled_reflectance": 5.809883570999439e-07,
+        "sampled_transmittance": 1.0001091414212493
+      },
+      "N30": {
+        "sampled_wavelength_um": 1.4849999999999999,
+        "sampled_reflectance": 1.970386284953975e-06,
+        "sampled_transmittance": 1.00010363676423
+      }
+    },
+    "pairwise": {
+      "N18_to_N24": {
+        "maximum_absolute_transmittance_difference": 0.09374382927301128,
+        "maximum_absolute_reflectance_difference": 0.09380419408113505,
+        "maximum_absolute_power_difference": 0.09380419408113505,
+        "sampled_reflection_minimum_shift_um": 0.020000000000000018,
+        "passed": false
+      },
+      "N24_to_N30": {
+        "maximum_absolute_transmittance_difference": 0.02532652079794573,
+        "maximum_absolute_reflectance_difference": 0.02532765311274196,
+        "maximum_absolute_power_difference": 0.02532765311274196,
+        "sampled_reflection_minimum_shift_um": 0.004999999999999893,
+        "passed": false
+      }
+    },
+    "gate": {
+      "maximum_power_difference": 0.002,
+      "maximum_reflection_minimum_shift_um": 0.0005
+    }
+  },
+  "fdfd_n30_tidy3d_rt_comparison": {
+    "fdfd_mesh": "N30 (28 nm transverse, 20 nm axial)",
+    "tidy3d_mesh": "17.5 nm uniform (finest completed)",
+    "resonance_window_um": [
+      1.45,
+      1.55
+    ],
+    "reflection_minimum_samples": {
+      "FDFD N30": {
+        "sampled_wavelength_um": 1.4849999999999999,
+        "sampled_reflectance": 1.970386284953975e-06,
+        "sampled_transmittance": 1.00010363676423
+      },
+      "Tidy3D 17.5 nm": {
+        "sampled_wavelength_um": 1.468,
+        "sampled_reflectance": 0.0009683272801339626,
+        "sampled_transmittance": 0.9990282654762268
+      }
+    },
+    "sampled_reflection_minimum_shift_um": 0.016999999999999904,
+    "transmittance_rms_difference": 0.036458182202676985,
+    "transmittance_maximum_absolute_difference": 0.06278977427286325,
+    "reflectance_rms_difference": 0.0364885569950474,
+    "reflectance_maximum_absolute_difference": 0.06285812822004704,
+    "interpretation": "diagnostic only because neither the FDFD nor Tidy3D mesh ladder has passed its independent convergence gate"
+  },
+  "fdfd_n30_tidy3d_phase_comparison": {
+    "phase_unit": "pi radians",
+    "fdfd_phase_span_pi": {
+      "N18": 1.9741961497789453,
+      "N24": 1.9647670508889736,
+      "N30": 1.9658573448723624
+    },
+    "fdfd_constant_alignment_offsets_pi": {
+      "N30": 0.0,
+      "N18": -0.02318817737787615,
+      "N24": -0.0010512459518057515
+    },
+    "fdfd_maximum_absolute_aligned_phase_difference_pi": {
+      "N18": 0.13044759901383274,
+      "N24": 0.01401429431528356
+    },
+    "fdfd_rms_aligned_phase_difference_pi": {
+      "N18": 0.052978850654694085,
+      "N24": 0.006374278818807954
+    },
+    "n24_to_n30_phase_span_difference_pi": 0.0010902939833887793,
+    "tidy3d_phase_span_pi": 1.9517196416854858,
+    "tidy3d_constant_alignment_offset_pi": -0.03149104990122953,
+    "tidy3d_to_fdfd_n30_phase_span_difference_pi": 0.014137703186876571,
+    "tidy3d_to_fdfd_n30_maximum_absolute_aligned_phase_difference_pi": 0.19507981227529925,
+    "tidy3d_to_fdfd_n30_rms_aligned_phase_difference_pi": 0.1039319693148637,
+    "interpretation": "constant phase offsets are removed because the solvers use different transmission reference conventions"
+  }
+}

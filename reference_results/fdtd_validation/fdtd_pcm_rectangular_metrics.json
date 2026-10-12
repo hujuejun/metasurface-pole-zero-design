@@ -1,0 +1,80 @@
+{
+  "states": [
+    {
+      "alpha": 0.0,
+      "T": 0.9999485015562186,
+      "R": 5.2219840856919205e-05,
+      "energy_error": 7.21397075631458e-07,
+      "phase_mod_rad": -2.635764764734183,
+      "fdfd_T": 0.9994518074040254,
+      "fdfd_R": 0.0005481925960240011,
+      "fdfd_phase_pi": 0.0,
+      "final_field_decay": 9.98e-10,
+      "actual_flexcredits": 0.07303614936734033,
+      "phase_aligned_pi": 0.0,
+      "phase_difference_mod_pi": 0.0
+    },
+    {
+      "alpha": 0.3,
+      "T": 0.9887676768110256,
+      "R": 0.011236663154758903,
+      "energy_error": 4.339965784527777e-06,
+      "phase_mod_rad": -0.9571981789978478,
+      "fdfd_T": 0.9942852432936213,
+      "fdfd_R": 0.005714756706425167,
+      "fdfd_phase_pi": 0.5645784153113174,
+      "final_field_decay": 9.87e-10,
+      "actual_flexcredits": 0.06820160520584631,
+      "phase_aligned_pi": 0.534304338857647,
+      "phase_difference_mod_pi": -0.030274076453670272
+    },
+    {
+      "alpha": 0.6,
+      "T": 0.9767467837016486,
+      "R": 0.02324766933779081,
+      "energy_error": 5.546960560653957e-06,
+      "phase_mod_rad": 1.872297093684134,
+      "fdfd_T": 0.977818446300838,
+      "fdfd_R": 0.022181553699203996,
+      "fdfd_phase_pi": 1.4554349583651565,
+      "final_field_decay": 9.87e-10,
+      "actual_flexcredits": 0.08363329750704375,
+      "phase_aligned_pi": 1.4349606570626225,
+      "phase_difference_mod_pi": -0.020474301302533846
+    },
+    {
+      "alpha": 0.9,
+      "T": 0.999139666044513,
+      "R": 0.0006536385447985201,
+      "energy_error": 0.0002066954106885177,
+      "phase_mod_rad": -2.089484740957964,
+      "fdfd_T": 0.9994659154428969,
+      "fdfd_R": 0.0005340845571531948,
+      "fdfd_phase_pi": 2.1539410986496668,
+      "final_field_decay": 6.42e-06,
+      "actual_flexcredits": 0.09260698845108832,
+      "phase_aligned_pi": 2.173886332192687,
+      "phase_difference_mod_pi": 0.019945233543020278
+    },
+    {
+      "alpha": 1.0,
+      "T": 0.999758481835414,
+      "R": 0.0009496586702592196,
+      "energy_error": 0.0007081405056732493,
+      "phase_mod_rad": -1.5919625271692908,
+      "fdfd_T": 0.9997924493071386,
+      "fdfd_R": 0.00020755069291465074,
+      "fdfd_phase_pi": 2.306123812639596,
+      "final_field_decay": 2.5e-05,
+      "actual_flexcredits": 0.09260698845108832,
+      "phase_aligned_pi": 2.332252571437667,
+      "phase_difference_mod_pi": 0.026128758798071125
+    }
+  ],
+  "max_absolute_T_difference": 0.005517566482595715,
+  "max_phase_difference_pi": 0.030274076453670272,
+  "max_energy_error": 0.0007081405056732493,
+  "fdfd_source_sha256": "7c50406a195f6da1f3f766f8f914dd72a0da56de10f4e4e932b6070771a26ce8",
+  "results_manifest_sha256": "46f20598841f5b7cffb9325b06760172fa47a022fa176c64a12c1411218af179",
+  "phase_note": "FDTD relative phases are compared modulo 2pi and plotted on the continuous FDFD branch; five samples alone do not establish intervening phase winding."
+}

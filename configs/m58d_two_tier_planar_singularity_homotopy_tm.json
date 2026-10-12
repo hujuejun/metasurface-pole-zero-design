@@ -28,8 +28,8 @@
     "cavity_thickness_um": 0.34797050429108545,
     "grating_width_um": 0.1964721275399125,
     "source_identifier": "M58A planar endpoint with numerically exact outer-interface snap",
-    "source_raw": "data/m58a/freeform_to_planar_n24/final_planar_raw.csv",
-    "source_raw_sha256": "7b483d2559a8253f2fbd695cebcd9de2d40ab3328f42844664137ec4da75a279"
+    "source_raw": "inputs/planar_hcg_seed_raw.csv",
+    "source_raw_sha256": "723f981cc1b4a5647c3567a07fd8c4551dc2c34906935074240b4614e8ea7bbf"
   },
   "target_geometry_for_held_out_reference_only": {
     "hcg_thickness_um": 0.7058333333333333,
@@ -189,5 +189,21 @@
       "outer_tier_width_um": 0.1964721275399125,
       "source": "exact one-tier-equivalent split of the M58C snapped endpoint"
     }
+  },
+  "registration": {
+    "milestone": "M58D",
+    "date": "2026-09-15",
+    "status": "frozen after the stationary M58C result and before M58D derivative audit, root refinement, or optimization",
+    "question": "Can two aligned planar etch tiers supply the missing adjoint directions needed to leave the M58A/M58C three-coordinate stationary branch and pass the strict Kerker gate?",
+    "design_policy": "Each HCG has an inner tier and outer tier with independent heights and widths; the pair remains exactly axial- and lateral-mirror symmetric and is fabricable with two aligned etch steps.",
+    "seed_policy": "Equal tier widths reproduce the M58A one-tier endpoint exactly. Its total thickness is divided equally; no M50 geometry is used.",
+    "target_policy": "Only the same six M50 complex pole/reflection-zero frequencies enter the adjoint objective."
+  },
+  "provenance": {
+    "scope": "M58D two-tier planar pole/zero singularity homotopy after the three-coordinate M58C stationary result.",
+    "independence_policy": "No M50 geometric coordinate, mask, spectrum, or geometry-distance objective enters optimization.",
+    "target_policy": "The six already registered M50 singularities are the sole optimization targets.",
+    "design_coordinates": "Inner height, outer height, cavity thickness, inner width, and outer width with exact subcell interface derivatives chained through the electromagnetic adjoint.",
+    "claim_policy": "Success requires the full derivative audit, all continuation stages, independently refined roots, and the strict real-axis gate. N=24 remains a feasibility result pending mesh verification."
   }
 }

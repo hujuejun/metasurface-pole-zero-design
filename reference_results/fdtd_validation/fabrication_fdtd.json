@@ -1,0 +1,35 @@
+{
+  "actual_total_flexcredits": 0.05,
+  "band_4p7_to_5p4": {
+    "fdfd_phase_span_pi": 1.9358634858631265,
+    "max_abs_R_change_vs_m222": 0.0017779534682631493,
+    "max_abs_R_difference_vs_fdfd": 0.002475037914228759,
+    "max_abs_T_change_vs_m222": 0.008424997329711914,
+    "max_abs_T_difference_vs_fdfd": 0.007837268464968683,
+    "max_abs_phase_change_pi_vs_m222": 0.0015385036112133637,
+    "max_abs_phase_difference_pi_vs_fdfd": 0.02758063322941377,
+    "points": 144,
+    "rms_phase_difference_pi_vs_fdfd": 0.01653846297401588,
+    "tidy_phase_span_pi": 1.9275946961029473
+  },
+  "center_5um": {
+    "complex_t_phase_difference_pi": -0.026666587995594553,
+    "fdfd_A": 0.2731946311327598,
+    "fdfd_R": 0.004857741675378032,
+    "fdfd_T": 0.7219476271918621,
+    "tidy_A": 0.2763015329837799,
+    "tidy_R": 0.0024326604325324297,
+    "tidy_T": 0.7212657928466797
+  },
+  "fdfd_n96_sha256": "05e02b0b80f4deec97b9c9dd1421d0c0aafeafaf2ff7b93526484cbf91b599c2",
+  "final_field_decay_device": 9.8e-09,
+  "final_field_decay_reference": 1e-08,
+  "independent_tm_validation_passed": true,
+  "m222_device_result_sha256": "a8c654dc26822fed880dd27f6ee73c58a7a6e00affd225c95ce6c5f69c186e92",
+  "purpose": "M223 adiabatic-absorber TM stability and independent spectrum check",
+  "required_field_decay": 1e-08,
+  "result_manifest_sha256": "e8a7bf47ec40be4577dbb675cca1f2b2a2b83386167937cccbf5ac6497a03d63",
+  "solver_decayed": true,
+  "source_sha256_at_analysis": "92deab5db76b959971d6c2ee871fc1264860a862f7bf4abfe5a4fc53211eabdf",
+  "spectrum_physically_bounded": true
+}

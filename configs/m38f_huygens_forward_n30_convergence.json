@@ -38,6 +38,6 @@
     "wavelength_min": 1.4,
     "wavelength_max": 1.62,
     "points": 45,
-    "workers": 2
+    "workers": 1
   }
 }

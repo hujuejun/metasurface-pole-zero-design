@@ -624,6 +624,8 @@ def main() -> None:
     parser.add_argument("--postprocess-only", action="store_true")
     arguments = parser.parse_args()
     config = json.loads(arguments.config.read_text(encoding="utf-8"))
+    if not isinstance(config["provenance"], dict):
+        raise ValueError("The qBIC binary continuation requires a provenance record")
     parent_config = json.loads(Path(config["parent_config"]).read_text(encoding="utf-8"))
     output = arguments.output
     figures = output / "figures"

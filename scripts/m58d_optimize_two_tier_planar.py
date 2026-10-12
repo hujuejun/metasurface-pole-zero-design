@@ -234,6 +234,8 @@ def main() -> None:
     parser.add_argument("--audit-only", action="store_true")
     args = parser.parse_args()
     config, config_record = _load_config(args.config)
+    if not isinstance(config["registration"], dict) or not isinstance(config["provenance"], dict):
+        raise ValueError("The HCG continuation requires registration and provenance records")
     output = args.output
     output.mkdir(parents=True, exist_ok=True)
     grid, setup, parameterization, initial_raw = _build(config)

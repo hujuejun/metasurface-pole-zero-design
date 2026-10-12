@@ -452,5 +452,11 @@
     "maximum_root_error_over_linewidth": 0.03,
     "maximum_root_residual": 1e-06,
     "require_single_periodic_material_component": true
+  },
+  "provenance": {
+    "scope": "Two-dimensional TM connected-binary reoptimization of the n=1.5-in-air M10 feasibility topology. A projection is sharpened while one shared master density is constrained on multiple physical meshes and erosion/nominal/dilation projection thresholds.",
+    "connectivity": "Hard-thresholded material components smaller than the declared area are suppressed. Retained components are joined to a central anchor by density-weighted shortest paths, dilated to the declared bridge width, mirrored axially, and protected by a declared material-density lower bound. The procedure is repeated after every stage until a periodic four-neighbor audit finds exactly one material component.",
+    "target_frequency_rule": "The connectivity continuation begins at the independently verified M10 Q=18 common-pole target. No new absolute-frequency constraint is introduced.",
+    "limitations": "The lossless nondispersive material remains an idealized polymer proxy. The run enforces a finite-width connected backbone and binary topology but makes no global minimum-feature-size claim; experimental dispersion, absorption, support/substrate attachment, and three-dimensional out-of-plane stability remain future tests."
   }
 }

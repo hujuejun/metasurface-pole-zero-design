@@ -2,7 +2,7 @@
 
 Simulation source for *Inverse design of poles and zeros: tailoring phase control in metasurfaces*, including the main text and SI.
 
-The collection includes final-study drivers, required numerical helpers, home-built 2D/3D FDFD engines, corrected RCWA verification, and portable FDTD setups. Frozen geometries, starting coordinates, and material tables are necessary inputs. Trial outputs, superseded studies, credentials, and cloud-result archives are excluded from the current tree. The repository remains private until the authors authorize publication.
+The collection includes final-study drivers, required numerical helpers, home-built 2D/3D FDFD engines, corrected RCWA verification, and portable FDTD setups. Frozen geometries, starting coordinates, and material tables are necessary inputs. The audited fine-grid benchmark trial records and low-index narrow-resonance diagnostic are included because they support specific manuscript claims; other large trial outputs, superseded studies, credentials, and cloud-result archives are excluded. The repository is public, but a software release does not by itself establish publication-grade convergence for every example.
 
 ## Installation
 
@@ -29,13 +29,13 @@ For FDTD only, install `python -m pip install -e ".[fdtd]"`. Tidy3D is an option
 |---|---|---|
 | Sec. 3 / Fig. 1: seven GMRs | `gmr-replay` | Corrected Li-factorized RCWA poles, spectra, Q, and delay from frozen geometries |
 | Sec. 3 / Fig. 1 and SI benchmark | `gmr-benchmark` | 384 × 1280 grid; Q targets 200/800; 12 paired starts; pole, 3-transmission-sample, and 5-transmission-sample objectives |
-| Sec. 4.2–4.3 / Fig. 2 | `high-index-continuous`, `high-index-binary`, `low-index-binary` | Optimization and final grids, including SI convergence meshes |
+| Sec. 4.2–4.3 / Fig. 2 | `high-index-continuous`, `high-index-binary`, `low-index-binary`; `low-index-resonance-audit` | Optimization, final grids, and a pole-guided audit of two previously missed narrow low-index reflection peaks |
 | Fig. 2 Hy maps | `scripts.freeform_modes` | Fresh parity-pole refinement and mode extraction |
 | Sec. 4.4 / Fig. 3 | `planar-hcg`; `scripts.replay_planar_hcg` | Passive HCG optimization and frozen-interface replay |
 | Sec. 4.5 / Fig. 4 and SI | `pcm-rectangular-optimize`, `pcm-rectangular-mesh`; `scripts.pcm_spectra` | Rectangular PCM pair only; 501 states; selected-state spectra; meshes 24/32/40/48 |
 | Sec. 5 / Fig. 5 and SI | `ipdip-optimize`, `ipdip-replay` | Connected 200-nm-feature IP-Dip TM design; measured material loss |
-| SI qBIC and binarization limitation | `qbic`, then `qbic-binary-negative-control` | Negative control retained because it is a reported SI result |
-| SI 3D disk | `disk-smooth-roots`, `disk-adjoint`, `disk-optimize`, `disk-forward` | Smooth-interface inverse design and physical-cylinder replay |
+| SI qBIC and binarization limitation | `qbic`, then `qbic-binary-negative-control` | Frozen continuous geometry reproduces the reported spectrum; a fresh run from the bundled seed did not recover the same endpoint; binary negative control retained |
+| SI 3D disk | `disk-smooth-roots`, `disk-adjoint`, `disk-optimize`, `disk-forward-n24`, `disk-forward` | Smooth-interface inverse design and N24/N30 physical-cylinder scans; both scans default to one worker to limit peak RAM |
 | SI GMR checks | `gmr-sensitivity`, `gmr-fields`, `gmr-mesh`, `gmr-delay` | Dependencies specified in each configuration |
 | Independent FDTD | `scripts.fdtd_validation`; `disk-fdtd` | Final 2D setups and separate 3D disk driver |
 
@@ -62,7 +62,13 @@ To reproduce geometry design, run `gmr-adjoint`, `gmr-correction`, `gmr-q3200`, 
 
 `gmr-benchmark` regenerates common fine-grid reference targets and runs all 72 optimizations. For a subset, invoke `scripts.gmr_reproduce` with `--config configs/gmr_benchmark.json --quality 200 --starts-limit 1 --methods pole --output runs/benchmark-check`. Even one attempt is costly. A subset is not the full comparison.
 
+The original 72 trial JSON records, one-time preparation records, and audited cost ledger are frozen in `reference_results/gmr_benchmark/`. They support direct reproduction of the paper's statistics and enable independent accounting without rerunning the expensive N384×1280 optimization. The release tests check their provenance hashes and completeness; these records are not substituted for fresh solver outputs by `gmr-benchmark`.
+
 Costs include unsuccessful attempts, objectives, direct-target generation/updates, real-frequency recentering, final FDFD root extraction, and shared reference characterization once per method. RCWA evaluations are separate. Fresh reference refinement may take a different number of preparation evaluations than the original pilot; trajectories and wall times may also vary. Budgets, paired starts, and qualification criteria are preserved, not bitwise-identical iteration histories.
+
+The low-index N56 result requires particular care: the original 241-point spectrum gives sampled $T_{\min}=0.997180$ and $R_{\max}=0.002820$, but two in-band transmission-channel poles with $Q\approx2.85\times10^4$ and $9.80\times10^4$ produce near-unit reflection in much narrower windows. Run `python reproduce.py low-index-resonance-audit --run` for an independent fixed-geometry calculation, or inspect `reference_results/low_index_resonance_audit/` for its archived roots and local sweeps. The design is not continuously high-transmission over the full quoted band, and the N56 parasitic-pole locations have not been mesh-converged.
+
+The independent fresh-seed qBIC audit is summarized in `reference_results/qbic_fresh_seed_audit.json`. Its pole and reflection-zero continuation flags passed, but the performance window reached only $T_{\min}=0.8473$, rather than the frozen endpoint's 0.9866. This documents optimization nonuniqueness and does not invalidate the frozen geometry's forward spectrum.
 
 ## Independent FDTD
 
@@ -76,11 +82,15 @@ python -m scripts.fdtd_validation ipdip --action run --max-cost APPROVED_TOTAL -
 python -m scripts.fdtd_validation ipdip --action analyze --output runs/fdtd-ipdip
 ```
 
-`inspect` is local. `estimate` uploads non-running drafts using the reader's account. `run` requires the saved quote, unchanged setup hashes, and an explicit total FlexCredit ceiling. Never commit quotes or results. Cases: `high-continuous`, `high-binary`, `low-binary`, `planar-hcg`, `ipdip`, `pcm-alpha0/03/06/09/1`.
+`inspect` is local. `estimate` uploads non-running drafts using the reader's account. `run` requires the saved quote, unchanged setup hashes, and an explicit total FlexCredit ceiling. Do not commit new account-specific quotes or raw cloud-job archives; the curated numerical snapshots below are the deliberate exception for publication reproducibility. Cases: `high-continuous`, `high-binary`, `low-binary`, `planar-hcg`, `ipdip`, `pcm-alpha0/03/06/09/1`.
+
+The current manuscript's compact FDFD/FDTD comparison arrays and metrics are archived under `reference_results/fdtd_validation/` so that published comparisons can be inspected without a paid cloud rerun. These are result snapshots, not Tidy3D job objects or evidence of convergence beyond the stated meshes, frequency samples, and simulation durations.
 
 The continuous-high-index validation uses the SI validation geometry, not the main-text optimization endpoint. The low-index setup includes periodic contour continuation and the final long ringdown. IP-Dip uses the final stable absorber boundaries, not earlier unstable PML controls.
 
 For the 3D disk, inspect `python -m scripts.m37_tidy3d_forward --help` and its configuration. Estimate/run switches are explicit; `reproduce.py` refuses cloud execution. The paper uses the 17.5-nm uniform-grid result.
+
+The current disk FDFD and Tidy3D scans have different wavelength windows and phase-propagation references. Their individually reported phase spans are not a like-for-like cross-solver quantitative validation. The existing comparison is qualitative pending a common-band, common-reference recalculation and physical-interface mesh convergence.
 
 ## License and provenance
 

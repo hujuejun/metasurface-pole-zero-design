@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 
 ROOT=Path(__file__).resolve().parent
-FOLDERS=('src','scripts','configs','inputs','tests','.github')
+FOLDERS=('src','scripts','configs','inputs','reference_results','tests','.github')
 EXTENSIONS={'.py','.json','.csv','.npz','.hdf5','.yml'}
 
 def inventory():
